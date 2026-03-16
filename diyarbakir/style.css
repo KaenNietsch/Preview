@@ -1,0 +1,6 @@
+/* All styles are embedded in index.html for single-file deployment */
+/* This file is kept for template compatibility */
+body {
+    margin: 0;
+    padding: 0;
+}

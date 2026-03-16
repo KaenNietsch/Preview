@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://vxlpnwkjbnnatkpnthac.supabase.co/storage/v1/object/sign/test/Mini-Logo.ico?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hNGU1OTc2OC05MjEyLTQ2OGEtODM4Yi0zNDVkNTNjMzZlMGMiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ0ZXN0L01pbmktTG9nby5pY28iLCJpYXQiOjE3NzM2OTk2MjgsImV4cCI6MTgwNTIzNTYyOH0.L06V2QGomqrRI5REFx8BwZZFuvS3e2q7T1w9NjF9fG4" type="image/x-icon">
+    <title>Queen Güzellik Merkezi | Diyarbakır'ın Kraliçesi</title>
+    <meta name="description" content="Queen Güzellik Merkezi - Diyarbakır'ın en prestijli güzellik salonu. Lazer epilasyon, cilt bakımı ve profesyonel güzellik hizmetleri.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&family=Inter:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1A0A2E',
+                        secondary: '#2D1B4E',
+                        accent: '#D4A574',
+                        'accent-light': '#E8C9A0',
+                        'accent-glow': 'rgba(212, 165, 116, 0.25)',
+                        background: '#0D0515',
+                        surface: '#1E1030',
+                        'surface-light': '#2A1845',
+                        'text-primary': '#F5F0FF',
+                        'text-secondary': '#A89BBF',
+                        'border-glow': 'rgba(212, 165, 116, 0.15)',
+                    },
+                    fontFamily: {
+                        'playfair': ['Playfair Display', 'serif'],
+                        'inter': ['Inter', 'sans-serif'],
+                        'syne': ['Syne', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body class="bg-background text-text-primary font-inter overflow-x-hidden">
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- NAVIGATION -->
+    <!-- ═══════════════════════════════════════════ -->
+    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-500">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <a href="#hero" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-br from-accent to-accent-light flex items-center justify-center shadow-lg shadow-accent-glow group-hover:shadow-xl group-hover:shadow-accent-glow transition-all duration-500">
+                        <i data-lucide="crown" class="w-5 h-5 text-background"></i>
+                    </div>
+                    <div>
+                        <span class="font-playfair text-xl font-bold text-text-primary tracking-wide">Queen</span>
+                        <span class="block text-[10px] font-syne uppercase tracking-[0.3em] text-accent -mt-1">Güzellik Merkezi</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="#about" class="nav-link text-sm font-medium text-text-secondary hover:text-accent transition-colors duration-300">Hakkımızda</a>
+                    <a href="#services" class="nav-link text-sm font-medium text-text-secondary hover:text-accent transition-colors duration-300">Hizmetler</a>
+                    <a href="#gallery" class="nav-link text-sm font-medium text-text-secondary hover:text-accent transition-colors duration-300">Galeri</a>
+                    <a href="#testimonials" class="nav-link text-sm font-medium text-text-secondary hover:text-accent transition-colors duration-300">Yorumlar</a>
+                    <a href="#contact" class="nav-link text-sm font-medium text-text-secondary hover:text-accent transition-colors duration-300">İletişim</a>
+                    <a href="tel:+905412757521" class="ml-4 px-6 py-2.5 bg-gradient-to-r from-accent to-accent-light text-background font-semibold text-sm rounded-full hover:shadow-lg hover:shadow-accent-glow transition-all duration-500 hover:-translate-y-0.5">
+                        Randevu Al
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-text-primary p-2" aria-label="Menü">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-surface/95 backdrop-blur-xl border-t border-border-glow">
+            <div class="px-6 py-6 flex flex-col gap-4">
+                <a href="#about" class="mobile-nav-link text-text-secondary hover:text-accent transition-colors py-2 text-lg">Hakkımızda</a>
+                <a href="#services" class="mobile-nav-link text-text-secondary hover:text-accent transition-colors py-2 text-lg">Hizmetler</a>
+                <a href="#gallery" class="mobile-nav-link text-text-secondary hover:text-accent transition-colors py-2 text-lg">Galeri</a>
+                <a href="#testimonials" class="mobile-nav-link text-text-secondary hover:text-accent transition-colors py-2 text-lg">Yorumlar</a>
+                <a href="#contact" class="mobile-nav-link text-text-secondary hover:text-accent transition-colors py-2 text-lg">İletişim</a>
+                <a href="tel:+905412757521" class="mt-2 px-6 py-3 bg-gradient-to-r from-accent to-accent-light text-background font-semibold text-center rounded-full">
+                    Randevu Al
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- HERO SECTION -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <!-- Parallax Background -->
+        <div id="hero-parallax" class="absolute inset-0 w-full h-[120%] -top-[10%]">
+            <img src="https://mgx-backend-cdn.metadl.com/generate/images/1033642/2026-03-16/49b2cb10-d329-4b30-a9d4-9396a3567874.png"
+                 alt="Queen Güzellik Merkezi"
+                 class="w-full h-full object-cover">
+        </div>
+
+        <!-- Gradient Overlays -->
+        <div class="absolute inset-0 bg-gradient-to-b from-background/70 via-background/50 to-background z-10"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-primary/60 via-transparent to-primary/60 z-10"></div>
+
+        <!-- Floating Particles -->
+        <div id="particles" class="absolute inset-0 z-10 pointer-events-none"></div>
+
+        <!-- Hero Content -->
+        <div class="relative z-20 text-center px-6 max-w-5xl mx-auto">
+            <!-- Crown Icon -->
+            <div class="animate-fade-in-down mb-8">
+                <div class="inline-flex items-center gap-3 px-6 py-2 rounded-full border border-accent/30 bg-surface/30 backdrop-blur-md">
+                    <i data-lucide="sparkles" class="w-4 h-4 text-accent"></i>
+                    <span class="text-accent text-sm font-syne tracking-[0.2em] uppercase">Diyarbakır'ın Kraliçesi</span>
+                    <i data-lucide="sparkles" class="w-4 h-4 text-accent"></i>
+                </div>
+            </div>
+
+            <!-- Main Heading -->
+            <h1 class="animate-fade-in-up font-playfair text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-[1.1] mb-8">
+                <span class="block text-text-primary">Güzelliğiniz</span>
+                <span class="block mt-2">
+                    <span class="bg-gradient-to-r from-accent via-accent-light to-accent bg-clip-text text-transparent">Taç Giysin</span>
+                </span>
+            </h1>
+
+            <!-- Subtitle -->
+            <p class="animate-fade-in-up animation-delay-200 font-inter text-lg md:text-xl text-text-secondary max-w-2xl mx-auto mb-12 leading-relaxed">
+                Her kadın bir kraliçedir. Biz sadece tacınızı parlatıyoruz.
+                <br class="hidden md:block">
+                <span class="text-accent/80">Profesyonel bakım, kusursuz sonuçlar.</span>
+            </p>
+
+            <!-- CTA Buttons -->
+            <div class="animate-fade-in-up animation-delay-400 flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="tel:+905412757521" class="group relative px-10 py-4 bg-gradient-to-r from-accent to-accent-light text-background font-semibold text-lg rounded-full overflow-hidden transition-all duration-500 hover:shadow-2xl hover:shadow-accent-glow hover:-translate-y-1">
+                    <span class="relative z-10 flex items-center gap-2">
+                        <i data-lucide="phone" class="w-5 h-5"></i>
+                        Hemen Randevu Al
+                    </span>
+                    <div class="absolute inset-0 bg-gradient-to-r from-accent-light to-accent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                </a>
+                <a href="#services" class="group px-10 py-4 border border-accent/40 text-accent font-medium text-lg rounded-full backdrop-blur-sm hover:bg-accent/10 transition-all duration-500 hover:-translate-y-1 flex items-center gap-2">
+                    <i data-lucide="sparkle" class="w-5 h-5"></i>
+                    Hizmetlerimiz
+                </a>
+            </div>
+
+            <!-- Stats -->
+            <div class="animate-fade-in-up animation-delay-600 mt-16 flex items-center justify-center gap-8 md:gap-16">
+                <div class="text-center">
+                    <div class="font-playfair text-3xl md:text-4xl font-bold text-accent" data-counter="4.4">0</div>
+                    <div class="text-text-secondary text-sm mt-1 flex items-center gap-1">
+                        <i data-lucide="star" class="w-3 h-3 text-accent fill-accent"></i>
+                        Google Puan
+                    </div>
+                </div>
+                <div class="w-px h-12 bg-accent/20"></div>
+                <div class="text-center">
+                    <div class="font-playfair text-3xl md:text-4xl font-bold text-accent" data-counter="5000">0</div>
+                    <div class="text-text-secondary text-sm mt-1">Mutlu Müşteri</div>
+                </div>
+                <div class="w-px h-12 bg-accent/20"></div>
+                <div class="text-center">
+                    <div class="font-playfair text-3xl md:text-4xl font-bold text-accent" data-counter="10">0</div>
+                    <div class="text-text-secondary text-sm mt-1">Yıllık Deneyim</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 animate-bounce">
+            <a href="#about" class="flex flex-col items-center gap-2 text-accent/60 hover:text-accent transition-colors">
+                <span class="text-xs font-syne tracking-widest uppercase">Keşfet</span>
+                <i data-lucide="chevron-down" class="w-5 h-5"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- ABOUT / VISION SECTION -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section id="about" class="relative py-32 overflow-hidden">
+        <!-- Background Decoration -->
+        <div class="absolute top-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 w-80 h-80 bg-secondary/30 rounded-full blur-3xl"></div>
+
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <!-- Image Side -->
+                <div class="reveal-left relative">
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl shadow-accent-glow/10">
+                        <img src="https://mgx-backend-cdn.metadl.com/generate/images/1033642/2026-03-16/5eb77ed1-af91-4629-b402-ccc9619a5899.png"
+                             alt="Queen Güzellik Merkezi - Profesyonel Bakım"
+                             class="w-full h-[500px] object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent"></div>
+                    </div>
+                    <!-- Floating Badge -->
+                    <div class="absolute -bottom-6 -right-6 lg:right-8 bg-surface/90 backdrop-blur-xl border border-accent/20 rounded-2xl p-6 shadow-xl">
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-accent to-accent-light flex items-center justify-center">
+                                <i data-lucide="award" class="w-6 h-6 text-background"></i>
+                            </div>
+                            <div>
+                                <div class="font-playfair text-2xl font-bold text-accent">10+</div>
+                                <div class="text-text-secondary text-sm">Yıllık Tecrübe</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Text Side -->
+                <div class="reveal-right">
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-accent/20 bg-accent/5 mb-6">
+                        <i data-lucide="gem" class="w-4 h-4 text-accent"></i>
+                        <span class="text-accent text-sm font-syne tracking-wider uppercase">Hikayemiz</span>
+                    </div>
+
+                    <h2 class="font-playfair text-4xl md:text-5xl font-bold leading-tight mb-8">
+                        Güzellik Bir
+                        <span class="bg-gradient-to-r from-accent to-accent-light bg-clip-text text-transparent"> Sanat,</span>
+                        <br>Biz Ise
+                        <span class="bg-gradient-to-r from-accent to-accent-light bg-clip-text text-transparent"> Ustasıyız</span>
+                    </h2>
+
+                    <p class="text-text-secondary text-lg leading-relaxed mb-6">
+                        Diyarbakır'ın kalbinde, <span class="text-accent font-medium">Queen Güzellik Merkezi</span> olarak yılların deneyimini modern teknolojiyle harmanlıyoruz. Her müşterimiz bizim için bir kraliçedir ve her kraliçe en iyisini hak eder.
+                    </p>
+
+                    <p class="text-text-secondary text-lg leading-relaxed mb-10">
+                        Uzman kadromuz, son teknoloji cihazlarımız ve kişiye özel bakım protokollerimizle güzelliğinizi en üst seviyeye taşıyoruz. Çünkü biz biliyoruz ki; <span class="text-accent font-medium italic font-playfair">gerçek güzellik, kendine değer vermekle başlar.</span>
+                    </p>
+
+                    <!-- Features -->
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="flex items-center gap-3 p-3 rounded-xl bg-surface/50 border border-border-glow">
+                            <i data-lucide="shield-check" class="w-5 h-5 text-accent flex-shrink-0"></i>
+                            <span class="text-sm text-text-secondary">Sertifikalı Uzmanlar</span>
+                        </div>
+                        <div class="flex items-center gap-3 p-3 rounded-xl bg-surface/50 border border-border-glow">
+                            <i data-lucide="zap" class="w-5 h-5 text-accent flex-shrink-0"></i>
+                            <span class="text-sm text-text-secondary">Son Teknoloji</span>
+                        </div>
+                        <div class="flex items-center gap-3 p-3 rounded-xl bg-surface/50 border border-border-glow">
+                            <i data-lucide="heart" class="w-5 h-5 text-accent flex-shrink-0"></i>
+                            <span class="text-sm text-text-secondary">Kişiye Özel Bakım</span>
+                        </div>
+                        <div class="flex items-center gap-3 p-3 rounded-xl bg-surface/50 border border-border-glow">
+                            <i data-lucide="sparkles" class="w-5 h-5 text-accent flex-shrink-0"></i>
+                            <span class="text-sm text-text-secondary">Premium Ürünler</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- SERVICES SECTION -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section id="services" class="relative py-32 overflow-hidden">
+        <!-- Background -->
+        <div class="absolute inset-0 bg-gradient-to-b from-background via-surface/30 to-background"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-accent/3 rounded-full blur-3xl"></div>
+
+        <div class="relative max-w-7xl mx-auto px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-20 reveal-up">
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-accent/20 bg-accent/5 mb-6">
+                    <i data-lucide="wand-2" class="w-4 h-4 text-accent"></i>
+                    <span class="text-accent text-sm font-syne tracking-wider uppercase">Hizmetlerimiz</span>
+                </div>
+                <h2 class="font-playfair text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+                    Kraliçeye Yakışan
+                    <span class="bg-gradient-to-r from-accent to-accent-light bg-clip-text text-transparent"> Hizmetler</span>
+                </h2>
+                <p class="text-text-secondary text-lg max-w-2xl mx-auto">
+                    Her detayı özenle tasarlanmış, sonuç odaklı profesyonel güzellik hizmetlerimizle tanışın.
+                </p>
+            </div>
+
+            <!-- Services Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service Card 1 -->
+                <div class="service-card reveal-up group relative p-8 rounded-2xl bg-surface/40 backdrop-blur-sm border border-border-glow overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-accent-glow/10 hover:border-accent/30">
+                    <div class="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="relative z-10">
+                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-accent/20 to-accent/5 flex items-center justify-center mb-6 group-hover:shadow-lg group-hover:shadow-accent-glow transition-all duration-500">
+                            <i data-lucide="zap" class="w-8 h-8 text-accent"></i>
+                        </div>
+                        <h3 class="font-playfair text-2xl font-bold mb-4 group-hover:text-accent transition-colors duration-300">Lazer Epilasyon</h3>
+                        <p class="text-text-secondary leading-relaxed mb-6">Son teknoloji lazer cihazlarıyla kalıcı ve ağrısız epilasyon. Pürüzsüz bir cilt için en etkili çözüm.</p>
+                        <div class="flex items-center gap-2 text-accent text-sm font-medium">
+                            <span>Detaylı Bilgi</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service Card 2 -->
+                <div class="service-card reveal-up animation-delay-100 group relative p-8 rounded-2xl bg-surface/40 backdrop-blur-sm border border-border-glow overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-accent-glow/10 hover:border-accent/30">
+                    <div class="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="relative z-10">
+                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-accent/20 to-accent/5 flex items-center justify-center mb-6 group-hover:shadow-lg group-hover:shadow-accent-glow transition-all duration-500">
+                            <i data-lucide="droplets" class="w-8 h-8 text-accent"></i>
+                        </div>
+                        <h3 class="font-playfair text-2xl font-bold mb-4 group-hover:text-accent transition-colors duration-300">Cilt Bakımı</h3>
+                        <p class="text-text-secondary leading-relaxed mb-6">Cildinizin ihtiyacına özel hazırlanan profesyonel bakım protokolleri ile ışıldayan bir cilde kavuşun.</p>
+                        <div class="flex items-center gap-2 text-accent text-sm font-medium">
+                            <span>Detaylı Bilgi</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service Card 3 -->
+                <div class="service-card reveal-up animation-delay-200 group relative p-8 rounded-2xl bg-surface/40 backdrop-blur-sm border border-border-glow overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-accent-glow/10 hover:border-accent/30">
+                    <div class="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="relative z-10">
+                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-accent/20 to-accent/5 flex items-center justify-center mb-6 group-hover:shadow-lg group-hover:shadow-accent-glow transition-all duration-500">
+                            <i data-lucide="palette" class="w-8 h-8 text-accent"></i>
+                        </div>
+                        <h3 class="font-playfair text-2xl font-bold mb-4 group-hover:text-accent transition-colors duration-300">Kalıcı Makyaj</h3>
+                        <p class="text-text-secondary leading-relaxed mb-6">Doğal görünümlü kalıcı makyaj uygulamalarıyla her an kusursuz bir görünüme sahip olun.</p>
+                        <div class="flex items-center gap-2 text-accent text-sm font-medium">
+                            <span>Detaylı Bilgi</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service Card 4 -->
+                <div class="service-card reveal-up group relative p-8 rounded-2xl bg-surface/40 backdrop-blur-sm border border-border-glow overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-accent-glow/10 hover:border-accent/30">
+                    <div class="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="relative z-10">
+                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-accent/20 to-accent/5 flex items-center justify-center mb-6 group-hover:shadow-lg group-hover:shadow-accent-glow transition-all duration-500">
+                            <i data-lucide="scissors" class="w-8 h-8 text-accent"></i>
+                        </div>
+                        <h3 class="font-playfair text-2xl font-bold mb-4 group-hover:text-accent transition-colors duration-300">Saç Bakımı</h3>
+                        <p class="text-text-secondary leading-relaxed mb-6">Keratin bakımı, saç botoksu ve onarım tedavileri ile saçlarınıza hayat verin.</p>
+                        <div class="flex items-center gap-2 text-accent text-sm font-medium">
+                            <span>Detaylı Bilgi</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service Card 5 -->
+                <div class="service-card reveal-up animation-delay-100 group relative p-8 rounded-2xl bg-surface/40 backdrop-blur-sm border border-border-glow overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-accent-glow/10 hover:border-accent/30">
+                    <div class="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="relative z-10">
+                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-accent/20 to-accent/5 flex items-center justify-center mb-6 group-hover:shadow-lg group-hover:shadow-accent-glow transition-all duration-500">
+                            <i data-lucide="eye" class="w-8 h-8 text-accent"></i>
+                        </div>
+                        <h3 class="font-playfair text-2xl font-bold mb-4 group-hover:text-accent transition-colors duration-300">Kirpik & Kaş</h3>
+                        <p class="text-text-secondary leading-relaxed mb-6">İpek kirpik, kirpik lifting ve profesyonel kaş tasarımı ile bakışlarınıza derinlik katın.</p>
+                        <div class="flex items-center gap-2 text-accent text-sm font-medium">
+                            <span>Detaylı Bilgi</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service Card 6 -->
+                <div class="service-card reveal-up animation-delay-200 group relative p-8 rounded-2xl bg-surface/40 backdrop-blur-sm border border-border-glow overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-accent-glow/10 hover:border-accent/30">
+                    <div class="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="relative z-10">
+                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-accent/20 to-accent/5 flex items-center justify-center mb-6 group-hover:shadow-lg group-hover:shadow-accent-glow transition-all duration-500">
+                            <i data-lucide="flower-2" class="w-8 h-8 text-accent"></i>
+                        </div>
+                        <h3 class="font-playfair text-2xl font-bold mb-4 group-hover:text-accent transition-colors duration-300">Vücut Bakımı</h3>
+                        <p class="text-text-secondary leading-relaxed mb-6">Zayıflama, selülit tedavisi ve vücut şekillendirme uygulamalarıyla formunuza kavuşun.</p>
+                        <div class="flex items-center gap-2 text-accent text-sm font-medium">
+                            <span>Detaylı Bilgi</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- GALLERY SECTION -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section id="gallery" class="relative py-32 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-20 reveal-up">
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-accent/20 bg-accent/5 mb-6">
+                    <i data-lucide="image" class="w-4 h-4 text-accent"></i>
+                    <span class="text-accent text-sm font-syne tracking-wider uppercase">Galeri</span>
+                </div>
+                <h2 class="font-playfair text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+                    Güzelliğin
+                    <span class="bg-gradient-to-r from-accent to-accent-light bg-clip-text text-transparent"> Yansıması</span>
+                </h2>
+                <p class="text-text-secondary text-lg max-w-2xl mx-auto">
+                    Merkezimizden kareler ve başarılı uygulama sonuçlarımız.
+                </p>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="reveal-up col-span-2 row-span-2 group relative rounded-2xl overflow-hidden cursor-pointer">
+                    <img src="https://mgx-backend-cdn.metadl.com/generate/images/1033642/2026-03-16/49b2cb10-d329-4b30-a9d4-9396a3567874.png"
+                         alt="Queen Güzellik Merkezi İç Mekan"
+                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="absolute bottom-6 left-6 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
+                        <span class="text-accent font-syne text-sm tracking-wider uppercase">Merkezimiz</span>
+                        <h3 class="font-playfair text-xl font-bold text-text-primary mt-1">Lüks Atmosfer</h3>
+                    </div>
+                </div>
+
+                <div class="reveal-up animation-delay-100 group relative rounded-2xl overflow-hidden cursor-pointer aspect-square">
+                    <img src="https://mgx-backend-cdn.metadl.com/generate/images/1033642/2026-03-16/5eb77ed1-af91-4629-b402-ccc9619a5899.png"
+                         alt="Cilt Bakımı"
+                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
+                        <span class="font-playfair text-sm font-bold text-text-primary">Cilt Bakımı</span>
+                    </div>
+                </div>
+
+                <div class="reveal-up animation-delay-200 group relative rounded-2xl overflow-hidden cursor-pointer aspect-square">
+                    <img src="https://mgx-backend-cdn.metadl.com/generate/images/1033642/2026-03-16/3f0c8ade-f9bc-4f20-a4b1-1fb959450963.png"
+                         alt="Lazer Epilasyon"
+                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
+                        <span class="font-playfair text-sm font-bold text-text-primary">Lazer Epilasyon</span>
+                    </div>
+                </div>
+
+                <div class="reveal-up animation-delay-100 group relative rounded-2xl overflow-hidden cursor-pointer aspect-square">
+                    <img src="https://mgx-backend-cdn.metadl.com/generate/images/1033642/2026-03-16/d3233e2c-ec19-4382-ae10-649e75cdd980.png"
+                         alt="Premium Ürünler"
+                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
+                        <span class="font-playfair text-sm font-bold text-text-primary">Premium Ürünler</span>
+                    </div>
+                </div>
+
+                <div class="reveal-up animation-delay-200 group relative rounded-2xl overflow-hidden cursor-pointer aspect-square">
+                    <img src="https://mgx-backend-cdn.metadl.com/generate/images/1033642/2026-03-16/5eb77ed1-af91-4629-b402-ccc9619a5899.png"
+                         alt="Profesyonel Bakım"
+                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 object-top">
+                    <div class="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
+                        <span class="font-playfair text-sm font-bold text-text-primary">Profesyonel Bakım</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- TESTIMONIALS SECTION -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section id="testimonials" class="relative py-32 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-b from-background via-surface/20 to-background"></div>
+        <div class="absolute top-1/4 right-0 w-96 h-96 bg-accent/3 rounded-full blur-3xl"></div>
+
+        <div class="relative max-w-7xl mx-auto px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-20 reveal-up">
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-accent/20 bg-accent/5 mb-6">
+                    <i data-lucide="message-circle-heart" class="w-4 h-4 text-accent"></i>
+                    <span class="text-accent text-sm font-syne tracking-wider uppercase">Müşteri Yorumları</span>
+                </div>
+                <h2 class="font-playfair text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+                    Kraliçelerimiz
+                    <span class="bg-gradient-to-r from-accent to-accent-light bg-clip-text text-transparent"> Ne Diyor?</span>
+                </h2>
+                <p class="text-text-secondary text-lg max-w-2xl mx-auto">
+                    Google Maps üzerindeki gerçek müşteri deneyimlerimiz.
+                </p>
+            </div>
+
+            <!-- Testimonials Grid -->
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="reveal-up group relative p-8 rounded-2xl bg-surface/40 backdrop-blur-sm border border-border-glow transition-all duration-500 hover:-translate-y-2 hover:shadow-xl hover:shadow-accent-glow/10 hover:border-accent/20">
+                    <div class="absolute top-0 right-0 w-20 h-20 bg-accent/5 rounded-bl-full"></div>
+                    <!-- Stars -->
+                    <div class="flex items-center gap-1 mb-6 star-container">
+                        <i data-lucide="star" class="w-5 h-5 text-accent fill-accent star-animate"></i>
+                        <i data-lucide="star" class="w-5 h-5 text-accent fill-accent star-animate" style="animation-delay: 0.1s"></i>
+                        <i data-lucide="star" class="w-5 h-5 text-accent fill-accent star-animate" style="animation-delay: 0.2s"></i>
+                        <i data-lucide="star" class="w-5 h-5 text-accent fill-accent star-animate" style="animation-delay: 0.3s"></i>
+                        <i data-lucide="star" class="w-5 h-5 text-accent fill-accent star-animate" style="animation-delay: 0.4s"></i>
+                    </div>
+                    <!-- Quote -->
+                    <p class="text-text-secondary leading-relaxed mb-8 italic">
+                        "Harika bir mekan, çok profesyonel bir ekip. Lazer epilasyon sonuçlarından çok memnunum. Kesinlikle tavsiye ederim, gerçekten fark yaratan bir güzellik merkezi!"
+                    </p>
+                    <!-- Author -->
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-accent to-accent-light flex items-center justify-center text-background font-bold font-playfair text-lg">
+                            A
+                        </div>
+                        <div>
+                            <div class="font-semibold text-text-primary">Ayşe K.</div>
+                            <div class="text-text-secondary text-sm flex items-center gap-1">
+                                <i data-lucide="map-pin" class="w-3 h-3"></i>
+                                Google Yorumu
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="reveal-up animation-delay-100 group relative p-8 rounded-2xl bg-surface/40 backdrop-blur-sm border border-border-glow transition-all duration-500 hover:-translate-y-2 hover:shadow-xl hover:shadow-accent-glow/10 hover:border-accent/20">
+                    <div class="absolute top-0 right-0 w-20 h-20 bg-accent/5 rounded-bl-full"></div>
+                    <div class="flex items-center gap-1 mb-6 star-container">
+                        <i data-lucide="star" class="w-5 h-5 text-accent fill-accent star-animate"></i>
+                        <i data-lucide="star" class="w-5 h-5 text-accent fill-accent star-animate" style="animation-delay: 0.1s"></i>
+                        <i data-lucide="star" class="w-5 h-5 text-accent fill-accent star-animate" style="animation-delay: 0.2s"></i>
+                        <i data-lucide="star" class="w-5 h-5 text-accent fill-accent star-animate" style="animation-delay: 0.3s"></i>
+                        <i data-lucide="star" class="w-5 h-5 text-accent fill-accent star-animate" style="animation-delay: 0.4s"></i>
+                    </div>
+                    <p class="text-text-secondary leading-relaxed mb-8 italic">
+                        "Cilt bakımı için gittim ve sonuçlar inanılmazdı. Personel çok ilgili ve güler yüzlü. Mekan tertemiz ve çok şık. Kendimi gerçekten bir kraliçe gibi hissettim!"
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-accent to-accent-light flex items-center justify-center text-background font-bold font-playfair text-lg">
+                            F
+                        </div>
+                        <div>
+                            <div class="font-semibold text-text-primary">Fatma Y.</div>
+                            <div class="text-text-secondary text-sm flex items-center gap-1">
+                                <i data-lucide="map-pin" class="w-3 h-3"></i>
+                                Google Yorumu
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="reveal-up animation-delay-200 group relative p-8 rounded-2xl bg-surface/40 backdrop-blur-sm border border-border-glow transition-all duration-500 hover:-translate-y-2 hover:shadow-xl hover:shadow-accent-glow/10 hover:border-accent/20">
+                    <div class="absolute top-0 right-0 w-20 h-20 bg-accent/5 rounded-bl-full"></div>
+                    <div class="flex items-center gap-1 mb-6 star-container">
+                        <i data-lucide="star" class="w-5 h-5 text-accent fill-accent star-animate"></i>
+                        <i data-lucide="star" class="w-5 h-5 text-accent fill-accent star-animate" style="animation-delay: 0.1s"></i>
+                        <i data-lucide="star" class="w-5 h-5 text-accent fill-accent star-animate" style="animation-delay: 0.2s"></i>
+                        <i data-lucide="star" class="w-5 h-5 text-accent fill-accent star-animate" style="animation-delay: 0.3s"></i>
+                        <i data-lucide="star" class="w-5 h-5 text-accent fill-accent star-animate" style="animation-delay: 0.4s"></i>
+                    </div>
+                    <p class="text-text-secondary leading-relaxed mb-8 italic">
+                        "Diyarbakır'ın en iyi güzellik merkezi diyebilirim. Her gittiğimde aynı kaliteli hizmeti alıyorum. Özellikle kaş tasarımları muhteşem. Teşekkürler Queen!"
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-accent to-accent-light flex items-center justify-center text-background font-bold font-playfair text-lg">
+                            S
+                        </div>
+                        <div>
+                            <div class="font-semibold text-text-primary">Selin D.</div>
+                            <div class="text-text-secondary text-sm flex items-center gap-1">
+                                <i data-lucide="map-pin" class="w-3 h-3"></i>
+                                Google Yorumu
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Google Rating Badge -->
+            <div class="mt-16 flex justify-center reveal-up">
+                <div class="inline-flex items-center gap-6 px-8 py-5 rounded-2xl bg-surface/60 backdrop-blur-xl border border-accent/20 shadow-xl">
+                    <div class="flex items-center gap-2">
+                        <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none">
+                            <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/>
+                            <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                            <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+                            <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                        </svg>
+                        <span class="font-playfair text-3xl font-bold text-accent">4.4</span>
+                    </div>
+                    <div class="w-px h-10 bg-accent/20"></div>
+                    <div>
+                        <div class="flex items-center gap-1">
+                            <i data-lucide="star" class="w-4 h-4 text-accent fill-accent"></i>
+                            <i data-lucide="star" class="w-4 h-4 text-accent fill-accent"></i>
+                            <i data-lucide="star" class="w-4 h-4 text-accent fill-accent"></i>
+                            <i data-lucide="star" class="w-4 h-4 text-accent fill-accent"></i>
+                            <i data-lucide="star-half" class="w-4 h-4 text-accent fill-accent"></i>
+                        </div>
+                        <span class="text-text-secondary text-sm">Google Maps Değerlendirmesi</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- CTA BANNER -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section class="relative py-24 overflow-hidden">
+        <div class="absolute inset-0">
+            <img src="https://mgx-backend-cdn.metadl.com/generate/images/1033642/2026-03-16/3f0c8ade-f9bc-4f20-a4b1-1fb959450963.png"
+                 alt="Background"
+                 class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-background/85 backdrop-blur-sm"></div>
+        </div>
+
+        <div class="relative max-w-4xl mx-auto px-6 text-center reveal-up">
+            <i data-lucide="crown" class="w-12 h-12 text-accent mx-auto mb-6"></i>
+            <h2 class="font-playfair text-4xl md:text-5xl font-bold mb-6">
+                Kraliçeniz İçindeki
+                <span class="bg-gradient-to-r from-accent to-accent-light bg-clip-text text-transparent"> Güzelliği Keşfedin</span>
+            </h2>
+            <p class="text-text-secondary text-lg mb-10 max-w-2xl mx-auto">
+                Hemen randevu alın, size özel hazırlanan bakım programınızla tanışın. İlk seans için özel indirimlerimizden yararlanın.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="tel:+905412757521" class="group relative px-10 py-4 bg-gradient-to-r from-accent to-accent-light text-background font-semibold text-lg rounded-full overflow-hidden transition-all duration-500 hover:shadow-2xl hover:shadow-accent-glow hover:-translate-y-1">
+                    <span class="relative z-10 flex items-center gap-2">
+                        <i data-lucide="phone" class="w-5 h-5"></i>
+                        0541 275 75 21
+                    </span>
+                </a>
+                <a href="https://maps.app.goo.gl/LvpCaMNbUxV6NgmD8" target="_blank" rel="noopener" class="px-10 py-4 border border-accent/40 text-accent font-medium text-lg rounded-full hover:bg-accent/10 transition-all duration-500 hover:-translate-y-1 flex items-center gap-2">
+                    <i data-lucide="navigation" class="w-5 h-5"></i>
+                    Yol Tarifi Al
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- CONTACT & MAP SECTION -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section id="contact" class="relative py-32 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-b from-background via-surface/20 to-background"></div>
+
+        <div class="relative max-w-7xl mx-auto px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-20 reveal-up">
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-accent/20 bg-accent/5 mb-6">
+                    <i data-lucide="map-pin" class="w-4 h-4 text-accent"></i>
+                    <span class="text-accent text-sm font-syne tracking-wider uppercase">İletişim</span>
+                </div>
+                <h2 class="font-playfair text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+                    Bize
+                    <span class="bg-gradient-to-r from-accent to-accent-light bg-clip-text text-transparent"> Ulaşın</span>
+                </h2>
+                <p class="text-text-secondary text-lg max-w-2xl mx-auto">
+                    Sorularınız veya randevu talepleriniz için bizimle iletişime geçin.
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12">
+                <!-- Contact Form -->
+                <div class="reveal-left">
+                    <form id="contact-form" class="space-y-6">
+                        <div class="grid sm:grid-cols-2 gap-6">
+                            <div class="group">
+                                <label class="block text-sm font-medium text-text-secondary mb-2">Adınız</label>
+                                <div class="relative">
+                                    <i data-lucide="user" class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-text-secondary/50 group-focus-within:text-accent transition-colors"></i>
+                                    <input type="text" placeholder="Adınızı girin"
+                                           class="w-full pl-12 pr-4 py-4 bg-surface/60 border border-border-glow rounded-xl text-text-primary placeholder-text-secondary/40 focus:outline-none focus:border-accent/50 focus:shadow-lg focus:shadow-accent-glow/10 transition-all duration-300">
+                                </div>
+                            </div>
+                            <div class="group">
+                                <label class="block text-sm font-medium text-text-secondary mb-2">Telefonunuz</label>
+                                <div class="relative">
+                                    <i data-lucide="phone" class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-text-secondary/50 group-focus-within:text-accent transition-colors"></i>
+                                    <input type="tel" placeholder="05XX XXX XX XX"
+                                           class="w-full pl-12 pr-4 py-4 bg-surface/60 border border-border-glow rounded-xl text-text-primary placeholder-text-secondary/40 focus:outline-none focus:border-accent/50 focus:shadow-lg focus:shadow-accent-glow/10 transition-all duration-300">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="group">
+                            <label class="block text-sm font-medium text-text-secondary mb-2">Hizmet Seçin</label>
+                            <div class="relative">
+                                <i data-lucide="list" class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-text-secondary/50 group-focus-within:text-accent transition-colors"></i>
+                                <select class="w-full pl-12 pr-4 py-4 bg-surface/60 border border-border-glow rounded-xl text-text-primary appearance-none focus:outline-none focus:border-accent/50 focus:shadow-lg focus:shadow-accent-glow/10 transition-all duration-300 cursor-pointer">
+                                    <option value="" class="bg-surface text-text-secondary">Hizmet seçiniz...</option>
+                                    <option value="lazer" class="bg-surface">Lazer Epilasyon</option>
+                                    <option value="cilt" class="bg-surface">Cilt Bakımı</option>
+                                    <option value="makyaj" class="bg-surface">Kalıcı Makyaj</option>
+                                    <option value="sac" class="bg-surface">Saç Bakımı</option>
+                                    <option value="kirpik" class="bg-surface">Kirpik & Kaş</option>
+                                    <option value="vucut" class="bg-surface">Vücut Bakımı</option>
+                                    <option value="diger" class="bg-surface">Diğer</option>
+                                </select>
+                                <i data-lucide="chevron-down" class="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-text-secondary/50 pointer-events-none"></i>
+                            </div>
+                        </div>
+
+                        <div class="group">
+                            <label class="block text-sm font-medium text-text-secondary mb-2">Mesajınız</label>
+                            <div class="relative">
+                                <i data-lucide="message-square" class="absolute left-4 top-4 w-5 h-5 text-text-secondary/50 group-focus-within:text-accent transition-colors"></i>
+                                <textarea rows="4" placeholder="Mesajınızı yazın..."
+                                          class="w-full pl-12 pr-4 py-4 bg-surface/60 border border-border-glow rounded-xl text-text-primary placeholder-text-secondary/40 focus:outline-none focus:border-accent/50 focus:shadow-lg focus:shadow-accent-glow/10 transition-all duration-300 resize-none"></textarea>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="group w-full relative px-8 py-4 bg-gradient-to-r from-accent to-accent-light text-background font-semibold text-lg rounded-xl overflow-hidden transition-all duration-500 hover:shadow-2xl hover:shadow-accent-glow hover:-translate-y-0.5">
+                            <span class="relative z-10 flex items-center justify-center gap-2">
+                                <i data-lucide="send" class="w-5 h-5"></i>
+                                Mesaj Gönder
+                            </span>
+                            <div class="absolute inset-0 bg-gradient-to-r from-accent-light to-accent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        </button>
+                    </form>
+
+                    <!-- Contact Info Cards -->
+                    <div class="grid sm:grid-cols-3 gap-4 mt-8">
+                        <a href="tel:+905412757521" class="flex items-center gap-3 p-4 rounded-xl bg-surface/40 border border-border-glow hover:border-accent/30 transition-all duration-300 group">
+                            <div class="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0 group-hover:bg-accent/20 transition-colors">
+                                <i data-lucide="phone" class="w-5 h-5 text-accent"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs text-text-secondary">Telefon</div>
+                                <div class="text-sm font-medium text-text-primary">0541 275 75 21</div>
+                            </div>
+                        </a>
+                        <a href="https://maps.app.goo.gl/LvpCaMNbUxV6NgmD8" target="_blank" class="flex items-center gap-3 p-4 rounded-xl bg-surface/40 border border-border-glow hover:border-accent/30 transition-all duration-300 group">
+                            <div class="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0 group-hover:bg-accent/20 transition-colors">
+                                <i data-lucide="map-pin" class="w-5 h-5 text-accent"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs text-text-secondary">Adres</div>
+                                <div class="text-sm font-medium text-text-primary">Yaşar Kemal Cd.</div>
+                            </div>
+                        </a>
+                        <div class="flex items-center gap-3 p-4 rounded-xl bg-surface/40 border border-border-glow">
+                            <div class="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="clock" class="w-5 h-5 text-accent"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs text-text-secondary">Çalışma Saati</div>
+                                <div class="text-sm font-medium text-text-primary">09:00 - 21:00</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Map -->
+                <div class="reveal-right">
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl shadow-accent-glow/10 border border-accent/10 h-full min-h-[500px]">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3142.5!2d40.2196184!3d37.9194923!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40752111b47bec99%3A0xda904bda2f081a56!2sQueen%20G%C3%BCzellik%20Merkezi!5e0!3m2!1str!2str!4v1710000000000!5m2!1str!2str"
+                            width="100%"
+                            height="100%"
+                            style="border:0; min-height: 500px;"
+                            allowfullscreen=""
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"
+                            class="rounded-2xl">
+                        </iframe>
+                        <!-- Map Overlay Gradient -->
+                        <div class="absolute inset-0 pointer-events-none rounded-2xl border border-accent/10"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- FOOTER -->
+    <!-- ═══════════════════════════════════════════ -->
+    <footer class="relative py-16 border-t border-border-glow">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-12 items-center">
+                <!-- Logo & Description -->
+                <div>
+                    <a href="#hero" class="flex items-center gap-3 mb-4 group">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-accent to-accent-light flex items-center justify-center shadow-lg shadow-accent-glow">
+                            <i data-lucide="crown" class="w-5 h-5 text-background"></i>
+                        </div>
+                        <div>
+                            <span class="font-playfair text-xl font-bold text-text-primary">Queen</span>
+                            <span class="block text-[10px] font-syne uppercase tracking-[0.3em] text-accent -mt-1">Güzellik Merkezi</span>
+                        </div>
+                    </a>
+                    <p class="text-text-secondary text-sm leading-relaxed">
+                        Diyarbakır'ın en prestijli güzellik merkezi. Her kadın bir kraliçedir.
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="flex justify-center">
+                    <div class="flex flex-wrap gap-6 justify-center">
+                        <a href="#about" class="text-text-secondary hover:text-accent transition-colors text-sm">Hakkımızda</a>
+                        <a href="#services" class="text-text-secondary hover:text-accent transition-colors text-sm">Hizmetler</a>
+                        <a href="#gallery" class="text-text-secondary hover:text-accent transition-colors text-sm">Galeri</a>
+                        <a href="#testimonials" class="text-text-secondary hover:text-accent transition-colors text-sm">Yorumlar</a>
+                        <a href="#contact" class="text-text-secondary hover:text-accent transition-colors text-sm">İletişim</a>
+                    </div>
+                </div>
+
+                <!-- Social & Contact -->
+                <div class="flex flex-col items-end gap-4">
+                    <div class="flex items-center gap-3">
+                        <a href="https://maps.app.goo.gl/LvpCaMNbUxV6NgmD8" target="_blank" class="w-10 h-10 rounded-full bg-surface border border-border-glow flex items-center justify-center hover:border-accent/40 hover:bg-accent/10 transition-all duration-300">
+                            <i data-lucide="map" class="w-4 h-4 text-text-secondary hover:text-accent"></i>
+                        </a>
+                        <a href="tel:+905412757521" class="w-10 h-10 rounded-full bg-surface border border-border-glow flex items-center justify-center hover:border-accent/40 hover:bg-accent/10 transition-all duration-300">
+                            <i data-lucide="phone" class="w-4 h-4 text-text-secondary hover:text-accent"></i>
+                        </a>
+                    </div>
+                    <p class="text-text-secondary/50 text-xs">
+                        Kooperatifler, Yaşar Kemal Cd No:13, Yenişehir/Diyarbakır
+                    </p>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="mt-12 pt-8 border-t border-border-glow flex flex-col md:flex-row items-center justify-between gap-4">
+                <p class="text-text-secondary/50 text-sm">
+                    &copy; 2025 Queen Güzellik Merkezi. Tüm hakları saklıdır.
+                </p>
+                <p class="text-text-secondary/30 text-xs flex items-center gap-1">
+                    <i data-lucide="heart" class="w-3 h-3 text-accent/50"></i>
+                    Premium tasarım deneyimi
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 z-50 w-12 h-12 rounded-full bg-accent/90 text-background flex items-center justify-center shadow-lg shadow-accent-glow opacity-0 invisible translate-y-4 transition-all duration-500 hover:bg-accent hover:shadow-xl hover:shadow-accent-glow hover:-translate-y-1" aria-label="Yukarı çık">
+        <i data-lucide="chevron-up" class="w-5 h-5"></i>
+    </button>
+
+    <script type="module" src="./script.js"></script>
+</body>
+
+</html>

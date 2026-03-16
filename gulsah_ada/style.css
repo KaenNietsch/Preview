@@ -1,0 +1,273 @@
+/* ═══════════════════════════════════════════════════════════
+   GÜLŞAH ADA GÜZELLİK SALONU — Ultra Premium Styles
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── Custom Properties ── */
+:root {
+    --primary: #1A0A1E;
+    --secondary: #2D1B33;
+    --accent: #C8956C;
+    --accent-light: #E8C4A0;
+    --accent-gold: #D4A574;
+    --surface: #241428;
+    --surface-light: #3A2440;
+    --cream: #FFF8F0;
+    --rose-gold: #B76E79;
+    --blush: #F5E6E0;
+    --deep-plum: #120818;
+    --warm-white: #FAF5F0;
+}
+
+/* ── Global Smooth Scroll ── */
+html {
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent) var(--primary);
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--primary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, var(--accent), var(--rose-gold));
+    border-radius: 3px;
+}
+
+/* ── Selection ── */
+::selection {
+    background: rgba(200, 149, 108, 0.3);
+    color: var(--warm-white);
+}
+
+/* ── Body ── */
+body {
+    background-color: var(--primary);
+    overflow-x: hidden;
+}
+
+/* ── Navbar Scrolled State ── */
+.navbar-scrolled {
+    background: rgba(26, 10, 30, 0.95) !important;
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-bottom: 1px solid rgba(200, 149, 108, 0.1);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* ── Scroll Line Animation ── */
+.scroll-line-anim {
+    animation: scrollLine 2s ease-in-out infinite;
+}
+
+@keyframes scrollLine {
+    0% {
+        opacity: 0;
+        transform: scaleY(0);
+        transform-origin: top;
+    }
+    50% {
+        opacity: 1;
+        transform: scaleY(1);
+        transform-origin: top;
+    }
+    100% {
+        opacity: 0;
+        transform: scaleY(1);
+        transform-origin: bottom;
+    }
+}
+
+/* ── Marquee ── */
+.marquee-track {
+    animation: marquee 30s linear infinite;
+    width: max-content;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* ── Star Animation ── */
+.star-anim {
+    animation: starPulse 2s ease-in-out infinite;
+}
+
+@keyframes starPulse {
+    0%, 100% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 2px rgba(200, 149, 108, 0.3));
+    }
+    50% {
+        transform: scale(1.15);
+        filter: drop-shadow(0 0 8px rgba(200, 149, 108, 0.6));
+    }
+}
+
+/* ── Glow Pulse for CTA ── */
+.animate-glow-pulse {
+    animation: ctaGlow 2.5s ease-in-out infinite;
+}
+
+@keyframes ctaGlow {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(200, 149, 108, 0.2);
+    }
+    50% {
+        box-shadow: 0 0 50px rgba(200, 149, 108, 0.4), 0 0 80px rgba(200, 149, 108, 0.1);
+    }
+}
+
+/* ── Service Card Glassmorphism Hover ── */
+.service-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 1rem;
+    padding: 1px;
+    background: linear-gradient(135deg, transparent, rgba(200, 149, 108, 0), transparent);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: 1;
+}
+
+.service-card:hover::before {
+    background: linear-gradient(135deg, rgba(200, 149, 108, 0.5), transparent, rgba(183, 110, 121, 0.5));
+    opacity: 1;
+}
+
+/* ── Floating Particles ── */
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: radial-gradient(circle, rgba(200, 149, 108, 0.6), transparent);
+    border-radius: 50%;
+    pointer-events: none;
+    animation: particleFloat var(--duration) ease-in-out infinite;
+    animation-delay: var(--delay);
+}
+
+@keyframes particleFloat {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0;
+    }
+    25% {
+        opacity: 1;
+    }
+    50% {
+        transform: translate(var(--tx), var(--ty)) scale(1.5);
+        opacity: 0.8;
+    }
+    75% {
+        opacity: 0.4;
+    }
+}
+
+/* ── Animate on Scroll (initial hidden state) ── */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.animate-on-scroll.visible {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+/* Hero elements should be visible immediately */
+#hero .animate-on-scroll {
+    opacity: 1;
+    transform: translateY(0);
+    animation: heroFadeIn 1s ease-out forwards;
+}
+
+@keyframes heroFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ── Form Select Arrow ── */
+select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23C8956C' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1.25rem center;
+    background-size: 1rem;
+}
+
+select option {
+    background: #241428;
+    color: #FAF5F0;
+}
+
+/* ── Responsive Adjustments ── */
+@media (max-width: 768px) {
+    .marquee-track {
+        animation-duration: 20s;
+    }
+}
+
+/* ── Parallax Helper ── */
+.parallax-bg {
+    will-change: transform;
+    transition: transform 0.1s linear;
+}
+
+/* ── Lucide Icon Fill Fix ── */
+[data-lucide="star"].fill-accent {
+    fill: var(--accent);
+}
+
+/* ── Focus Styles ── */
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: rgba(200, 149, 108, 0.5);
+    box-shadow: 0 0 0 3px rgba(200, 149, 108, 0.1);
+}
+
+/* ── Toast Notification ── */
+.toast {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, var(--accent), var(--rose-gold));
+    color: var(--primary);
+    border-radius: 1rem;
+    font-weight: 600;
+    font-size: 0.875rem;
+    z-index: 9999;
+    opacity: 0;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    pointer-events: none;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+    pointer-events: auto;
+}

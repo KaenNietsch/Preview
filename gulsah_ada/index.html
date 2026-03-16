@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://vxlpnwkjbnnatkpnthac.supabase.co/storage/v1/object/sign/test/Mini-Logo.ico?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hNGU1OTc2OC05MjEyLTQ2OGEtODM4Yi0zNDVkNTNjMzZlMGMiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ0ZXN0L01pbmktTG9nby5pY28iLCJpYXQiOjE3NzM2OTk2MjgsImV4cCI6MTgwNTIzNTYyOH0.L06V2QGomqrRI5REFx8BwZZFuvS3e2q7T1w9NjF9fG4" type="image/x-icon">
+    <title>Gülşah Ada Güzellik Salonu | Diyarbakır'ın Premium Güzellik Deneyimi</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&family=Inter:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1A0A1E',
+                        secondary: '#2D1B33',
+                        accent: '#C8956C',
+                        accentLight: '#E8C4A0',
+                        accentGold: '#D4A574',
+                        surface: '#241428',
+                        surfaceLight: '#3A2440',
+                        cream: '#FFF8F0',
+                        roseGold: '#B76E79',
+                        blush: '#F5E6E0',
+                        deepPlum: '#120818',
+                        warmWhite: '#FAF5F0',
+                    },
+                    fontFamily: {
+                        playfair: ['Playfair Display', 'serif'],
+                        inter: ['Inter', 'sans-serif'],
+                        syne: ['Syne', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                        'fade-in-left': 'fadeInLeft 0.8s ease-out forwards',
+                        'fade-in-right': 'fadeInRight 0.8s ease-out forwards',
+                        'float': 'float 6s ease-in-out infinite',
+                        'shimmer': 'shimmer 3s ease-in-out infinite',
+                        'glow-pulse': 'glowPulse 2s ease-in-out infinite',
+                        'star-twinkle': 'starTwinkle 1.5s ease-in-out infinite',
+                        'slide-up': 'slideUp 0.6s ease-out forwards',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(40px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        fadeInLeft: {
+                            '0%': { opacity: '0', transform: 'translateX(-40px)' },
+                            '100%': { opacity: '1', transform: 'translateX(0)' },
+                        },
+                        fadeInRight: {
+                            '0%': { opacity: '0', transform: 'translateX(40px)' },
+                            '100%': { opacity: '1', transform: 'translateX(0)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        shimmer: {
+                            '0%': { backgroundPosition: '-200% 0' },
+                            '100%': { backgroundPosition: '200% 0' },
+                        },
+                        glowPulse: {
+                            '0%, 100%': { boxShadow: '0 0 20px rgba(200,149,108,0.3)' },
+                            '50%': { boxShadow: '0 0 40px rgba(200,149,108,0.6)' },
+                        },
+                        starTwinkle: {
+                            '0%, 100%': { opacity: '1', transform: 'scale(1)' },
+                            '50%': { opacity: '0.5', transform: 'scale(0.8)' },
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                    },
+                },
+            },
+        }
+    </script>
+
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body class="bg-primary text-warmWhite font-inter antialiased overflow-x-hidden">
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- NAVIGATION -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-500">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <a href="#hero" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-br from-accent to-roseGold flex items-center justify-center transform group-hover:rotate-12 transition-transform duration-500">
+                        <i data-lucide="sparkles" class="w-5 h-5 text-primary"></i>
+                    </div>
+                    <div>
+                        <span class="font-playfair text-xl font-bold tracking-wide text-warmWhite">Gülşah Ada</span>
+                        <span class="block text-[10px] tracking-[0.3em] uppercase text-accent font-syne">Güzellik Salonu</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="#hero" class="nav-link text-sm font-medium tracking-wider uppercase text-warmWhite/70 hover:text-accent transition-colors duration-300">Ana Sayfa</a>
+                    <a href="#about" class="nav-link text-sm font-medium tracking-wider uppercase text-warmWhite/70 hover:text-accent transition-colors duration-300">Hakkımızda</a>
+                    <a href="#services" class="nav-link text-sm font-medium tracking-wider uppercase text-warmWhite/70 hover:text-accent transition-colors duration-300">Hizmetler</a>
+                    <a href="#testimonials" class="nav-link text-sm font-medium tracking-wider uppercase text-warmWhite/70 hover:text-accent transition-colors duration-300">Yorumlar</a>
+                    <a href="#contact" class="nav-link text-sm font-medium tracking-wider uppercase text-warmWhite/70 hover:text-accent transition-colors duration-300">İletişim</a>
+                    <a href="tel:+905541548076" class="ml-4 px-6 py-2.5 bg-gradient-to-r from-accent to-roseGold text-primary font-semibold text-sm rounded-full hover:shadow-[0_0_30px_rgba(200,149,108,0.5)] transition-all duration-500 transform hover:scale-105">
+                        Randevu Al
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-warmWhite/80 hover:text-accent transition-colors">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-primary/98 backdrop-blur-xl border-t border-accent/10">
+            <div class="px-6 py-6 space-y-4">
+                <a href="#hero" class="mobile-nav-link block text-sm font-medium tracking-wider uppercase text-warmWhite/70 hover:text-accent transition-colors py-2">Ana Sayfa</a>
+                <a href="#about" class="mobile-nav-link block text-sm font-medium tracking-wider uppercase text-warmWhite/70 hover:text-accent transition-colors py-2">Hakkımızda</a>
+                <a href="#services" class="mobile-nav-link block text-sm font-medium tracking-wider uppercase text-warmWhite/70 hover:text-accent transition-colors py-2">Hizmetler</a>
+                <a href="#testimonials" class="mobile-nav-link block text-sm font-medium tracking-wider uppercase text-warmWhite/70 hover:text-accent transition-colors py-2">Yorumlar</a>
+                <a href="#contact" class="mobile-nav-link block text-sm font-medium tracking-wider uppercase text-warmWhite/70 hover:text-accent transition-colors py-2">İletişim</a>
+                <a href="tel:+905541548076" class="block text-center px-6 py-3 bg-gradient-to-r from-accent to-roseGold text-primary font-semibold text-sm rounded-full mt-4">Randevu Al</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- HERO SECTION -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <!-- Parallax Background -->
+        <div id="hero-bg" class="absolute inset-0 z-0">
+            <img src="https://mgx-backend-cdn.metadl.com/generate/images/1033651/2026-03-16/61b63811-2419-43f3-addb-24ca364d7ba2.png"
+                 alt="Gülşah Ada Güzellik Salonu"
+                 class="w-full h-full object-cover scale-110">
+            <div class="absolute inset-0 bg-gradient-to-b from-primary/70 via-primary/50 to-primary"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-primary/60 via-transparent to-primary/60"></div>
+        </div>
+
+        <!-- Floating Particles -->
+        <div class="absolute inset-0 z-10 pointer-events-none" id="particles-container"></div>
+
+        <!-- Hero Content -->
+        <div class="relative z-20 text-center px-6 max-w-5xl mx-auto">
+            <!-- Decorative Line -->
+            <div class="flex items-center justify-center gap-4 mb-8 opacity-0 animate-on-scroll">
+                <div class="w-16 h-[1px] bg-gradient-to-r from-transparent to-accent"></div>
+                <i data-lucide="gem" class="w-4 h-4 text-accent animate-float"></i>
+                <div class="w-16 h-[1px] bg-gradient-to-l from-transparent to-accent"></div>
+            </div>
+
+            <h1 class="font-playfair text-5xl md:text-7xl lg:text-8xl font-bold leading-tight mb-6 opacity-0 animate-on-scroll">
+                <span class="block text-warmWhite">Güzelliğin</span>
+                <span class="block bg-gradient-to-r from-accent via-accentLight to-roseGold bg-clip-text text-transparent">Sanata Dönüştüğü Yer</span>
+            </h1>
+
+            <p class="font-inter text-lg md:text-xl text-warmWhite/60 max-w-2xl mx-auto mb-4 leading-relaxed opacity-0 animate-on-scroll" style="animation-delay: 0.2s">
+                Diyarbakır'ın kalbinde, her dokunuşta zarafeti hissettiren bir güzellik deneyimi. 
+                Gülşah Ada ile kendinizi yeniden keşfedin.
+            </p>
+
+            <p class="font-syne text-sm tracking-[0.25em] uppercase text-accent/80 mb-10 opacity-0 animate-on-scroll" style="animation-delay: 0.3s">
+                ✦ 7/24 Hizmetinizdeyiz ✦
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 opacity-0 animate-on-scroll" style="animation-delay: 0.4s">
+                <a href="tel:+905541548076" class="group relative px-10 py-4 bg-gradient-to-r from-accent to-roseGold text-primary font-semibold text-sm tracking-wider uppercase rounded-full overflow-hidden transition-all duration-500 hover:shadow-[0_0_50px_rgba(200,149,108,0.4)] transform hover:scale-105">
+                    <span class="relative z-10 flex items-center gap-2">
+                        <i data-lucide="phone" class="w-4 h-4"></i>
+                        Hemen Randevu Alın
+                    </span>
+                    <div class="absolute inset-0 bg-gradient-to-r from-roseGold to-accent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                </a>
+                <a href="#services" class="px-10 py-4 border border-accent/30 text-accent font-medium text-sm tracking-wider uppercase rounded-full hover:bg-accent/10 hover:border-accent/60 transition-all duration-500">
+                    Hizmetlerimiz
+                </a>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 opacity-0 animate-on-scroll" style="animation-delay: 0.6s">
+            <span class="text-[10px] tracking-[0.3em] uppercase text-accent/50 font-syne">Keşfet</span>
+            <div class="w-[1px] h-12 bg-gradient-to-b from-accent/50 to-transparent scroll-line-anim"></div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- MARQUEE STRIP -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <div class="bg-gradient-to-r from-accent/10 via-accent/5 to-accent/10 border-y border-accent/10 py-4 overflow-hidden">
+        <div class="marquee-track flex items-center gap-12 whitespace-nowrap">
+            <span class="text-sm tracking-[0.2em] uppercase text-accent/60 font-syne flex items-center gap-3"><i data-lucide="sparkles" class="w-3 h-3"></i> Cilt Bakımı</span>
+            <span class="text-sm tracking-[0.2em] uppercase text-accent/60 font-syne flex items-center gap-3"><i data-lucide="sparkles" class="w-3 h-3"></i> Saç Tasarımı</span>
+            <span class="text-sm tracking-[0.2em] uppercase text-accent/60 font-syne flex items-center gap-3"><i data-lucide="sparkles" class="w-3 h-3"></i> Makyaj</span>
+            <span class="text-sm tracking-[0.2em] uppercase text-accent/60 font-syne flex items-center gap-3"><i data-lucide="sparkles" class="w-3 h-3"></i> Tırnak Bakımı</span>
+            <span class="text-sm tracking-[0.2em] uppercase text-accent/60 font-syne flex items-center gap-3"><i data-lucide="sparkles" class="w-3 h-3"></i> Epilasyon</span>
+            <span class="text-sm tracking-[0.2em] uppercase text-accent/60 font-syne flex items-center gap-3"><i data-lucide="sparkles" class="w-3 h-3"></i> Kaş Tasarımı</span>
+            <span class="text-sm tracking-[0.2em] uppercase text-accent/60 font-syne flex items-center gap-3"><i data-lucide="sparkles" class="w-3 h-3"></i> Gelin Paketi</span>
+            <span class="text-sm tracking-[0.2em] uppercase text-accent/60 font-syne flex items-center gap-3"><i data-lucide="sparkles" class="w-3 h-3"></i> Cilt Bakımı</span>
+            <span class="text-sm tracking-[0.2em] uppercase text-accent/60 font-syne flex items-center gap-3"><i data-lucide="sparkles" class="w-3 h-3"></i> Saç Tasarımı</span>
+            <span class="text-sm tracking-[0.2em] uppercase text-accent/60 font-syne flex items-center gap-3"><i data-lucide="sparkles" class="w-3 h-3"></i> Makyaj</span>
+            <span class="text-sm tracking-[0.2em] uppercase text-accent/60 font-syne flex items-center gap-3"><i data-lucide="sparkles" class="w-3 h-3"></i> Tırnak Bakımı</span>
+            <span class="text-sm tracking-[0.2em] uppercase text-accent/60 font-syne flex items-center gap-3"><i data-lucide="sparkles" class="w-3 h-3"></i> Epilasyon</span>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- ABOUT SECTION -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <section id="about" class="relative py-28 md:py-36 overflow-hidden">
+        <!-- Background Accent -->
+        <div class="absolute top-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-[120px]"></div>
+        <div class="absolute bottom-0 left-0 w-72 h-72 bg-roseGold/5 rounded-full blur-[100px]"></div>
+
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+                <!-- Image Side -->
+                <div class="relative opacity-0 animate-on-scroll">
+                    <div class="relative rounded-2xl overflow-hidden group">
+                        <img src="https://mgx-backend-cdn.metadl.com/generate/images/1033651/2026-03-16/53a7f27c-5b7f-40e9-95ab-1a3de632770f.png"
+                             alt="Gülşah Ada Güzellik Salonu İç Mekan"
+                             class="w-full h-[500px] object-cover transition-transform duration-700 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent"></div>
+                    </div>
+                    <!-- Floating Badge -->
+                    <div class="absolute -bottom-6 -right-6 md:right-8 bg-gradient-to-br from-accent to-roseGold p-6 rounded-2xl shadow-2xl animate-float">
+                        <div class="text-center">
+                            <span class="block font-playfair text-3xl font-bold text-primary">7/24</span>
+                            <span class="block text-xs tracking-wider uppercase text-primary/80 font-syne mt-1">Açık</span>
+                        </div>
+                    </div>
+                    <!-- Decorative Frame -->
+                    <div class="absolute -top-4 -left-4 w-24 h-24 border-t-2 border-l-2 border-accent/30 rounded-tl-2xl"></div>
+                </div>
+
+                <!-- Text Side -->
+                <div>
+                    <div class="flex items-center gap-3 mb-6 opacity-0 animate-on-scroll">
+                        <div class="w-10 h-[1px] bg-accent"></div>
+                        <span class="text-xs tracking-[0.3em] uppercase text-accent font-syne">Hikayemiz</span>
+                    </div>
+
+                    <h2 class="font-playfair text-4xl md:text-5xl font-bold leading-tight mb-8 opacity-0 animate-on-scroll">
+                        Güzellik Bir <br>
+                        <span class="bg-gradient-to-r from-accent to-roseGold bg-clip-text text-transparent">Sanat Formudur</span>
+                    </h2>
+
+                    <p class="text-warmWhite/60 leading-relaxed mb-6 text-lg opacity-0 animate-on-scroll">
+                        Diyarbakır Bağlar'ın kalbinde, <strong class="text-accent">Gülşah Ada Güzellik Salonu</strong> olarak yılların deneyimini zarafetle buluşturuyoruz. Her müşterimiz bizim için bir sanat eseridir ve biz, o eserin en güzel halini ortaya çıkarmak için buradayız.
+                    </p>
+
+                    <p class="text-warmWhite/50 leading-relaxed mb-10 opacity-0 animate-on-scroll">
+                        Profesyonel ekibimiz, en son trendleri ve teknikleri kullanarak size özel güzellik deneyimleri sunar. Salonumuzun kapıları 7 gün 24 saat açıktır — çünkü güzellik zamana sığmaz.
+                    </p>
+
+                    <!-- Stats -->
+                    <div class="grid grid-cols-3 gap-6 opacity-0 animate-on-scroll">
+                        <div class="text-center p-4 rounded-xl bg-surface/50 border border-accent/10 hover:border-accent/30 transition-colors duration-300">
+                            <span class="block font-playfair text-3xl font-bold text-accent">4.4</span>
+                            <span class="block text-xs text-warmWhite/50 mt-1 font-syne tracking-wider">Google Puan</span>
+                        </div>
+                        <div class="text-center p-4 rounded-xl bg-surface/50 border border-accent/10 hover:border-accent/30 transition-colors duration-300">
+                            <span class="block font-playfair text-3xl font-bold text-accent">7/24</span>
+                            <span class="block text-xs text-warmWhite/50 mt-1 font-syne tracking-wider">Hizmet</span>
+                        </div>
+                        <div class="text-center p-4 rounded-xl bg-surface/50 border border-accent/10 hover:border-accent/30 transition-colors duration-300">
+                            <span class="block font-playfair text-3xl font-bold text-accent">1000+</span>
+                            <span class="block text-xs text-warmWhite/50 mt-1 font-syne tracking-wider">Mutlu Müşteri</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- SERVICES SECTION -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <section id="services" class="relative py-28 md:py-36">
+        <!-- Background -->
+        <div class="absolute inset-0 bg-gradient-to-b from-primary via-deepPlum to-primary"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent/3 rounded-full blur-[150px]"></div>
+
+        <div class="relative max-w-7xl mx-auto px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-20">
+                <div class="flex items-center justify-center gap-3 mb-6 opacity-0 animate-on-scroll">
+                    <div class="w-10 h-[1px] bg-accent"></div>
+                    <span class="text-xs tracking-[0.3em] uppercase text-accent font-syne">Hizmetlerimiz</span>
+                    <div class="w-10 h-[1px] bg-accent"></div>
+                </div>
+                <h2 class="font-playfair text-4xl md:text-5xl lg:text-6xl font-bold opacity-0 animate-on-scroll">
+                    Size Özel <span class="bg-gradient-to-r from-accent to-roseGold bg-clip-text text-transparent">Lüks Bakım</span>
+                </h2>
+                <p class="mt-6 text-warmWhite/50 max-w-xl mx-auto text-lg opacity-0 animate-on-scroll">
+                    Her detayı özenle tasarlanmış premium güzellik hizmetlerimizle tanışın.
+                </p>
+            </div>
+
+            <!-- Services Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Service Card 1 -->
+                <div class="service-card group relative rounded-2xl overflow-hidden opacity-0 animate-on-scroll">
+                    <div class="relative h-80">
+                        <img src="https://mgx-backend-cdn.metadl.com/generate/images/1033651/2026-03-16/a64c5fe4-31b4-4c4f-910b-e21367f1de6f.png"
+                             alt="Cilt Bakımı"
+                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-primary via-primary/40 to-transparent"></div>
+                        <!-- Glassmorphism Overlay -->
+                        <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-500 bg-accent/10 backdrop-blur-[2px]"></div>
+                    </div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-10 h-10 rounded-full bg-accent/20 backdrop-blur-md flex items-center justify-center border border-accent/30 group-hover:bg-accent/40 group-hover:shadow-[0_0_20px_rgba(200,149,108,0.3)] transition-all duration-500">
+                                <i data-lucide="droplets" class="w-5 h-5 text-accent"></i>
+                            </div>
+                            <h3 class="font-playfair text-xl font-semibold text-warmWhite">Cilt Bakımı</h3>
+                        </div>
+                        <p class="text-warmWhite/50 text-sm leading-relaxed">Cildinizin doğal ışıltısını ortaya çıkaran profesyonel bakım ritüelleri.</p>
+                    </div>
+                    <!-- Glow Border -->
+                    <div class="absolute inset-0 rounded-2xl border border-accent/0 group-hover:border-accent/30 transition-all duration-500"></div>
+                </div>
+
+                <!-- Service Card 2 -->
+                <div class="service-card group relative rounded-2xl overflow-hidden opacity-0 animate-on-scroll" style="animation-delay: 0.1s">
+                    <div class="relative h-80">
+                        <img src="https://mgx-backend-cdn.metadl.com/generate/images/1033651/2026-03-16/80dbdedc-06b6-454c-b97d-997175931d35.png"
+                             alt="Saç Tasarımı"
+                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-primary via-primary/40 to-transparent"></div>
+                        <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-500 bg-accent/10 backdrop-blur-[2px]"></div>
+                    </div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-10 h-10 rounded-full bg-accent/20 backdrop-blur-md flex items-center justify-center border border-accent/30 group-hover:bg-accent/40 group-hover:shadow-[0_0_20px_rgba(200,149,108,0.3)] transition-all duration-500">
+                                <i data-lucide="scissors" class="w-5 h-5 text-accent"></i>
+                            </div>
+                            <h3 class="font-playfair text-xl font-semibold text-warmWhite">Saç Tasarımı</h3>
+                        </div>
+                        <p class="text-warmWhite/50 text-sm leading-relaxed">Kesim, boya ve şekillendirme ile hayalinizdeki saçlara kavuşun.</p>
+                    </div>
+                    <div class="absolute inset-0 rounded-2xl border border-accent/0 group-hover:border-accent/30 transition-all duration-500"></div>
+                </div>
+
+                <!-- Service Card 3 -->
+                <div class="service-card group relative rounded-2xl overflow-hidden opacity-0 animate-on-scroll" style="animation-delay: 0.2s">
+                    <div class="relative h-80">
+                        <img src="https://mgx-backend-cdn.metadl.com/generate/images/1033651/2026-03-16/3b18a29e-07bf-4db3-9599-464a7d00f37f.png"
+                             alt="Profesyonel Makyaj"
+                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-primary via-primary/40 to-transparent"></div>
+                        <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-500 bg-accent/10 backdrop-blur-[2px]"></div>
+                    </div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-10 h-10 rounded-full bg-accent/20 backdrop-blur-md flex items-center justify-center border border-accent/30 group-hover:bg-accent/40 group-hover:shadow-[0_0_20px_rgba(200,149,108,0.3)] transition-all duration-500">
+                                <i data-lucide="palette" class="w-5 h-5 text-accent"></i>
+                            </div>
+                            <h3 class="font-playfair text-xl font-semibold text-warmWhite">Profesyonel Makyaj</h3>
+                        </div>
+                        <p class="text-warmWhite/50 text-sm leading-relaxed">Gelin makyajından özel gün makyajına, yüzünüzün en güzel hali.</p>
+                    </div>
+                    <div class="absolute inset-0 rounded-2xl border border-accent/0 group-hover:border-accent/30 transition-all duration-500"></div>
+                </div>
+
+                <!-- Service Card 4 -->
+                <div class="service-card group relative rounded-2xl overflow-hidden opacity-0 animate-on-scroll" style="animation-delay: 0.3s">
+                    <div class="relative h-80">
+                        <img src="https://mgx-backend-cdn.metadl.com/generate/images/1033651/2026-03-16/3f8a33c2-8b9f-4d5c-bef5-974eda3b9310.png"
+                             alt="Tırnak Bakımı"
+                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-primary via-primary/40 to-transparent"></div>
+                        <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-500 bg-accent/10 backdrop-blur-[2px]"></div>
+                    </div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-10 h-10 rounded-full bg-accent/20 backdrop-blur-md flex items-center justify-center border border-accent/30 group-hover:bg-accent/40 group-hover:shadow-[0_0_20px_rgba(200,149,108,0.3)] transition-all duration-500">
+                                <i data-lucide="hand" class="w-5 h-5 text-accent"></i>
+                            </div>
+                            <h3 class="font-playfair text-xl font-semibold text-warmWhite">Tırnak Bakımı</h3>
+                        </div>
+                        <p class="text-warmWhite/50 text-sm leading-relaxed">Manikür, pedikür ve nail art ile ellerinize lüks bir dokunuş.</p>
+                    </div>
+                    <div class="absolute inset-0 rounded-2xl border border-accent/0 group-hover:border-accent/30 transition-all duration-500"></div>
+                </div>
+            </div>
+
+            <!-- Additional Services -->
+            <div class="grid md:grid-cols-3 gap-6 mt-6">
+                <!-- Epilasyon -->
+                <div class="group p-8 rounded-2xl bg-surface/30 backdrop-blur-sm border border-accent/10 hover:border-accent/30 hover:bg-surface/50 transition-all duration-500 opacity-0 animate-on-scroll">
+                    <div class="w-14 h-14 rounded-xl bg-accent/10 flex items-center justify-center mb-5 group-hover:bg-accent/20 group-hover:shadow-[0_0_25px_rgba(200,149,108,0.2)] transition-all duration-500">
+                        <i data-lucide="zap" class="w-6 h-6 text-accent"></i>
+                    </div>
+                    <h3 class="font-playfair text-xl font-semibold mb-3">Epilasyon</h3>
+                    <p class="text-warmWhite/50 text-sm leading-relaxed">Lazer ve ağda ile pürüzsüz cilt deneyimi. En son teknoloji cihazlarla güvenli uygulama.</p>
+                </div>
+
+                <!-- Kaş Tasarımı -->
+                <div class="group p-8 rounded-2xl bg-surface/30 backdrop-blur-sm border border-accent/10 hover:border-accent/30 hover:bg-surface/50 transition-all duration-500 opacity-0 animate-on-scroll" style="animation-delay: 0.1s">
+                    <div class="w-14 h-14 rounded-xl bg-accent/10 flex items-center justify-center mb-5 group-hover:bg-accent/20 group-hover:shadow-[0_0_25px_rgba(200,149,108,0.2)] transition-all duration-500">
+                        <i data-lucide="eye" class="w-6 h-6 text-accent"></i>
+                    </div>
+                    <h3 class="font-playfair text-xl font-semibold mb-3">Kaş Tasarımı</h3>
+                    <p class="text-warmWhite/50 text-sm leading-relaxed">Yüz hatlarınıza özel kaş şekillendirme ve microblading hizmeti.</p>
+                </div>
+
+                <!-- Gelin Paketi -->
+                <div class="group p-8 rounded-2xl bg-surface/30 backdrop-blur-sm border border-accent/10 hover:border-accent/30 hover:bg-surface/50 transition-all duration-500 opacity-0 animate-on-scroll" style="animation-delay: 0.2s">
+                    <div class="w-14 h-14 rounded-xl bg-accent/10 flex items-center justify-center mb-5 group-hover:bg-accent/20 group-hover:shadow-[0_0_25px_rgba(200,149,108,0.2)] transition-all duration-500">
+                        <i data-lucide="crown" class="w-6 h-6 text-accent"></i>
+                    </div>
+                    <h3 class="font-playfair text-xl font-semibold mb-3">Gelin Paketi</h3>
+                    <p class="text-warmWhite/50 text-sm leading-relaxed">Hayatınızın en özel gününde baştan aşağı kusursuz görünüm. Komple gelin hazırlığı.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- TESTIMONIALS SECTION -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <section id="testimonials" class="relative py-28 md:py-36 overflow-hidden">
+        <div class="absolute top-0 left-0 w-80 h-80 bg-roseGold/5 rounded-full blur-[120px]"></div>
+        <div class="absolute bottom-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-[120px]"></div>
+
+        <div class="relative max-w-7xl mx-auto px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-20">
+                <div class="flex items-center justify-center gap-3 mb-6 opacity-0 animate-on-scroll">
+                    <div class="w-10 h-[1px] bg-accent"></div>
+                    <span class="text-xs tracking-[0.3em] uppercase text-accent font-syne">Müşteri Deneyimleri</span>
+                    <div class="w-10 h-[1px] bg-accent"></div>
+                </div>
+                <h2 class="font-playfair text-4xl md:text-5xl lg:text-6xl font-bold opacity-0 animate-on-scroll">
+                    Onlar <span class="bg-gradient-to-r from-accent to-roseGold bg-clip-text text-transparent">Anlattı</span>
+                </h2>
+                <p class="mt-6 text-warmWhite/50 max-w-xl mx-auto text-lg opacity-0 animate-on-scroll">
+                    Google Maps'te 4.4 yıldız puanımızla gurur duyuyoruz.
+                </p>
+            </div>
+
+            <!-- Testimonials Grid -->
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="group p-8 rounded-2xl bg-surface/30 backdrop-blur-sm border border-accent/10 hover:border-accent/30 transition-all duration-500 opacity-0 animate-on-scroll">
+                    <!-- Stars -->
+                    <div class="flex items-center gap-1 mb-6">
+                        <i data-lucide="star" class="w-4 h-4 text-accent fill-accent star-anim" style="animation-delay: 0s"></i>
+                        <i data-lucide="star" class="w-4 h-4 text-accent fill-accent star-anim" style="animation-delay: 0.1s"></i>
+                        <i data-lucide="star" class="w-4 h-4 text-accent fill-accent star-anim" style="animation-delay: 0.2s"></i>
+                        <i data-lucide="star" class="w-4 h-4 text-accent fill-accent star-anim" style="animation-delay: 0.3s"></i>
+                        <i data-lucide="star" class="w-4 h-4 text-accent fill-accent star-anim" style="animation-delay: 0.4s"></i>
+                    </div>
+                    <p class="text-warmWhite/60 leading-relaxed mb-8 italic font-inter">
+                        "Gülşah Hanım gerçekten işinin ehli. Saç boyamdan çok memnun kaldım, tam istediğim rengi yakaladı. Salon çok temiz ve şık. Herkese tavsiye ederim!"
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-accent to-roseGold flex items-center justify-center">
+                            <span class="font-playfair text-lg font-bold text-primary">A</span>
+                        </div>
+                        <div>
+                            <span class="block font-semibold text-warmWhite text-sm">Ayşe K.</span>
+                            <span class="block text-xs text-warmWhite/40">Google Yorumu</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="group p-8 rounded-2xl bg-surface/30 backdrop-blur-sm border border-accent/10 hover:border-accent/30 transition-all duration-500 opacity-0 animate-on-scroll" style="animation-delay: 0.15s">
+                    <div class="flex items-center gap-1 mb-6">
+                        <i data-lucide="star" class="w-4 h-4 text-accent fill-accent star-anim" style="animation-delay: 0s"></i>
+                        <i data-lucide="star" class="w-4 h-4 text-accent fill-accent star-anim" style="animation-delay: 0.1s"></i>
+                        <i data-lucide="star" class="w-4 h-4 text-accent fill-accent star-anim" style="animation-delay: 0.2s"></i>
+                        <i data-lucide="star" class="w-4 h-4 text-accent fill-accent star-anim" style="animation-delay: 0.3s"></i>
+                        <i data-lucide="star" class="w-4 h-4 text-accent fill-accent star-anim" style="animation-delay: 0.4s"></i>
+                    </div>
+                    <p class="text-warmWhite/60 leading-relaxed mb-8 italic font-inter">
+                        "Düğünüm için gelin makyajımı burada yaptırdım. Hayatımın en güzel günü için mükemmel bir tercihti. Makyajım akşama kadar durdu, herkes çok beğendi!"
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-roseGold to-accent flex items-center justify-center">
+                            <span class="font-playfair text-lg font-bold text-primary">Z</span>
+                        </div>
+                        <div>
+                            <span class="block font-semibold text-warmWhite text-sm">Zeynep M.</span>
+                            <span class="block text-xs text-warmWhite/40">Google Yorumu</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="group p-8 rounded-2xl bg-surface/30 backdrop-blur-sm border border-accent/10 hover:border-accent/30 transition-all duration-500 opacity-0 animate-on-scroll" style="animation-delay: 0.3s">
+                    <div class="flex items-center gap-1 mb-6">
+                        <i data-lucide="star" class="w-4 h-4 text-accent fill-accent star-anim" style="animation-delay: 0s"></i>
+                        <i data-lucide="star" class="w-4 h-4 text-accent fill-accent star-anim" style="animation-delay: 0.1s"></i>
+                        <i data-lucide="star" class="w-4 h-4 text-accent fill-accent star-anim" style="animation-delay: 0.2s"></i>
+                        <i data-lucide="star" class="w-4 h-4 text-accent fill-accent star-anim" style="animation-delay: 0.3s"></i>
+                        <i data-lucide="star" class="w-4 h-4 text-accent/40 star-anim" style="animation-delay: 0.4s"></i>
+                    </div>
+                    <p class="text-warmWhite/60 leading-relaxed mb-8 italic font-inter">
+                        "Cilt bakımı için gittim, çok profesyonel bir hizmet aldım. Cildim gerçekten canlandı. 7/24 açık olmaları da çok büyük avantaj. Teşekkürler Gülşah Ada!"
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-accent to-roseGold flex items-center justify-center">
+                            <span class="font-playfair text-lg font-bold text-primary">D</span>
+                        </div>
+                        <div>
+                            <span class="block font-semibold text-warmWhite text-sm">Derya S.</span>
+                            <span class="block text-xs text-warmWhite/40">Google Yorumu</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Google Rating Badge -->
+            <div class="mt-16 flex justify-center opacity-0 animate-on-scroll">
+                <div class="inline-flex items-center gap-4 px-8 py-4 rounded-full bg-surface/40 backdrop-blur-sm border border-accent/20">
+                    <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none">
+                        <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/>
+                        <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                        <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+                        <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                    </svg>
+                    <div>
+                        <div class="flex items-center gap-1">
+                            <span class="font-playfair text-2xl font-bold text-accent">4.4</span>
+                            <div class="flex items-center gap-0.5 ml-2">
+                                <i data-lucide="star" class="w-3.5 h-3.5 text-accent fill-accent"></i>
+                                <i data-lucide="star" class="w-3.5 h-3.5 text-accent fill-accent"></i>
+                                <i data-lucide="star" class="w-3.5 h-3.5 text-accent fill-accent"></i>
+                                <i data-lucide="star" class="w-3.5 h-3.5 text-accent fill-accent"></i>
+                                <i data-lucide="star" class="w-3.5 h-3.5 text-accent/40"></i>
+                            </div>
+                        </div>
+                        <span class="text-xs text-warmWhite/40">Google Maps Değerlendirmesi</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- CTA SECTION -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <section class="relative py-24 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-r from-accent/10 via-roseGold/5 to-accent/10"></div>
+        <div class="absolute inset-0">
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-accent/10 rounded-full blur-[100px]"></div>
+        </div>
+
+        <div class="relative max-w-4xl mx-auto px-6 text-center">
+            <div class="opacity-0 animate-on-scroll">
+                <i data-lucide="sparkles" class="w-8 h-8 text-accent mx-auto mb-6 animate-float"></i>
+                <h2 class="font-playfair text-4xl md:text-5xl font-bold mb-6">
+                    Güzelliğinize <span class="bg-gradient-to-r from-accent to-roseGold bg-clip-text text-transparent">Yatırım Yapın</span>
+                </h2>
+                <p class="text-warmWhite/50 text-lg max-w-2xl mx-auto mb-10">
+                    Kendinizi özel hissetmek için bir nedene ihtiyacınız yok. Bugün randevunuzu alın ve farkı hissedin.
+                </p>
+                <a href="tel:+905541548076" class="inline-flex items-center gap-3 px-12 py-5 bg-gradient-to-r from-accent to-roseGold text-primary font-bold text-sm tracking-wider uppercase rounded-full hover:shadow-[0_0_60px_rgba(200,149,108,0.4)] transition-all duration-500 transform hover:scale-105 animate-glow-pulse">
+                    <i data-lucide="phone" class="w-5 h-5"></i>
+                    0554 154 80 76
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- CONTACT & MAP SECTION -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <section id="contact" class="relative py-28 md:py-36">
+        <div class="absolute inset-0 bg-gradient-to-b from-primary via-deepPlum to-primary"></div>
+
+        <div class="relative max-w-7xl mx-auto px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-20">
+                <div class="flex items-center justify-center gap-3 mb-6 opacity-0 animate-on-scroll">
+                    <div class="w-10 h-[1px] bg-accent"></div>
+                    <span class="text-xs tracking-[0.3em] uppercase text-accent font-syne">İletişim</span>
+                    <div class="w-10 h-[1px] bg-accent"></div>
+                </div>
+                <h2 class="font-playfair text-4xl md:text-5xl lg:text-6xl font-bold opacity-0 animate-on-scroll">
+                    Bize <span class="bg-gradient-to-r from-accent to-roseGold bg-clip-text text-transparent">Ulaşın</span>
+                </h2>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-16">
+                <!-- Contact Form -->
+                <div class="opacity-0 animate-on-scroll">
+                    <form id="contact-form" class="space-y-6">
+                        <div class="grid sm:grid-cols-2 gap-6">
+                            <div class="group">
+                                <label class="block text-xs tracking-wider uppercase text-accent/70 font-syne mb-2">Adınız</label>
+                                <input type="text" placeholder="Adınızı girin"
+                                       class="w-full bg-surface/40 border border-accent/10 rounded-xl px-5 py-4 text-warmWhite placeholder-warmWhite/30 focus:outline-none focus:border-accent/50 focus:shadow-[0_0_20px_rgba(200,149,108,0.1)] transition-all duration-300 font-inter text-sm">
+                            </div>
+                            <div class="group">
+                                <label class="block text-xs tracking-wider uppercase text-accent/70 font-syne mb-2">Telefonunuz</label>
+                                <input type="tel" placeholder="05XX XXX XX XX"
+                                       class="w-full bg-surface/40 border border-accent/10 rounded-xl px-5 py-4 text-warmWhite placeholder-warmWhite/30 focus:outline-none focus:border-accent/50 focus:shadow-[0_0_20px_rgba(200,149,108,0.1)] transition-all duration-300 font-inter text-sm">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-xs tracking-wider uppercase text-accent/70 font-syne mb-2">Hizmet Seçin</label>
+                            <select class="w-full bg-surface/40 border border-accent/10 rounded-xl px-5 py-4 text-warmWhite/60 focus:outline-none focus:border-accent/50 focus:shadow-[0_0_20px_rgba(200,149,108,0.1)] transition-all duration-300 font-inter text-sm appearance-none cursor-pointer">
+                                <option value="">Bir hizmet seçin...</option>
+                                <option value="cilt">Cilt Bakımı</option>
+                                <option value="sac">Saç Tasarımı</option>
+                                <option value="makyaj">Profesyonel Makyaj</option>
+                                <option value="tirnak">Tırnak Bakımı</option>
+                                <option value="epilasyon">Epilasyon</option>
+                                <option value="kas">Kaş Tasarımı</option>
+                                <option value="gelin">Gelin Paketi</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs tracking-wider uppercase text-accent/70 font-syne mb-2">Mesajınız</label>
+                            <textarea rows="4" placeholder="Mesajınızı yazın..."
+                                      class="w-full bg-surface/40 border border-accent/10 rounded-xl px-5 py-4 text-warmWhite placeholder-warmWhite/30 focus:outline-none focus:border-accent/50 focus:shadow-[0_0_20px_rgba(200,149,108,0.1)] transition-all duration-300 font-inter text-sm resize-none"></textarea>
+                        </div>
+                        <button type="submit" class="w-full py-4 bg-gradient-to-r from-accent to-roseGold text-primary font-bold text-sm tracking-wider uppercase rounded-xl hover:shadow-[0_0_40px_rgba(200,149,108,0.3)] transition-all duration-500 transform hover:scale-[1.02] flex items-center justify-center gap-2">
+                            <i data-lucide="send" class="w-4 h-4"></i>
+                            Mesaj Gönder
+                        </button>
+                    </form>
+
+                    <!-- Contact Info Cards -->
+                    <div class="grid sm:grid-cols-2 gap-4 mt-8">
+                        <a href="tel:+905541548076" class="group flex items-center gap-4 p-5 rounded-xl bg-surface/30 border border-accent/10 hover:border-accent/30 transition-all duration-300">
+                            <div class="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center group-hover:bg-accent/20 transition-colors">
+                                <i data-lucide="phone" class="w-5 h-5 text-accent"></i>
+                            </div>
+                            <div>
+                                <span class="block text-xs text-warmWhite/40 font-syne tracking-wider">Telefon</span>
+                                <span class="block text-sm text-warmWhite font-medium">0554 154 80 76</span>
+                            </div>
+                        </a>
+                        <div class="group flex items-center gap-4 p-5 rounded-xl bg-surface/30 border border-accent/10 hover:border-accent/30 transition-all duration-300">
+                            <div class="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center group-hover:bg-accent/20 transition-colors">
+                                <i data-lucide="clock" class="w-5 h-5 text-accent"></i>
+                            </div>
+                            <div>
+                                <span class="block text-xs text-warmWhite/40 font-syne tracking-wider">Çalışma Saatleri</span>
+                                <span class="block text-sm text-warmWhite font-medium">7/24 Açık</span>
+                            </div>
+                        </div>
+                        <a href="https://maps.app.goo.gl/mU3efLAkfTgcPAvW9" target="_blank" class="group flex items-center gap-4 p-5 rounded-xl bg-surface/30 border border-accent/10 hover:border-accent/30 transition-all duration-300 sm:col-span-2">
+                            <div class="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center group-hover:bg-accent/20 transition-colors">
+                                <i data-lucide="map-pin" class="w-5 h-5 text-accent"></i>
+                            </div>
+                            <div>
+                                <span class="block text-xs text-warmWhite/40 font-syne tracking-wider">Adres</span>
+                                <span class="block text-sm text-warmWhite font-medium">5 Nisan Mah. Emek Cad. Polis Okulu Alt Köşe Temel D:2, 21080 Bağlar/Diyarbakır</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Map -->
+                <div class="opacity-0 animate-on-scroll">
+                    <div class="rounded-2xl overflow-hidden border-2 border-accent/20 shadow-[0_0_40px_rgba(200,149,108,0.1)] h-full min-h-[500px]">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3145.5!2d40.2006!3d37.9259!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40751f6e2f31beeb%3A0x302265877de32b22!2sG%C3%9CL%C5%9EAH%20ADA%20G%C3%9CZELL%C4%B0K%20SALONU!5e0!3m2!1str!2str!4v1710000000000!5m2!1str!2str"
+                            width="100%" height="100%" style="border:0; min-height:500px;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"
+                            class="rounded-2xl">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- FOOTER -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <footer class="relative py-16 border-t border-accent/10">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-12 items-center">
+                <!-- Logo -->
+                <div>
+                    <a href="#hero" class="flex items-center gap-3 group">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-accent to-roseGold flex items-center justify-center">
+                            <i data-lucide="sparkles" class="w-5 h-5 text-primary"></i>
+                        </div>
+                        <div>
+                            <span class="font-playfair text-xl font-bold text-warmWhite">Gülşah Ada</span>
+                            <span class="block text-[10px] tracking-[0.3em] uppercase text-accent font-syne">Güzellik Salonu</span>
+                        </div>
+                    </a>
+                    <p class="mt-4 text-warmWhite/40 text-sm leading-relaxed max-w-xs">
+                        Diyarbakır Bağlar'da güzelliğin ve zarafetin adresi. 7/24 hizmetinizdeyiz.
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="flex justify-center">
+                    <div class="flex flex-wrap justify-center gap-x-8 gap-y-3">
+                        <a href="#hero" class="text-sm text-warmWhite/50 hover:text-accent transition-colors">Ana Sayfa</a>
+                        <a href="#about" class="text-sm text-warmWhite/50 hover:text-accent transition-colors">Hakkımızda</a>
+                        <a href="#services" class="text-sm text-warmWhite/50 hover:text-accent transition-colors">Hizmetler</a>
+                        <a href="#testimonials" class="text-sm text-warmWhite/50 hover:text-accent transition-colors">Yorumlar</a>
+                        <a href="#contact" class="text-sm text-warmWhite/50 hover:text-accent transition-colors">İletişim</a>
+                    </div>
+                </div>
+
+                <!-- Social / Contact -->
+                <div class="flex md:justify-end">
+                    <div class="flex items-center gap-4">
+                        <a href="tel:+905541548076" class="w-11 h-11 rounded-full bg-surface/50 border border-accent/20 flex items-center justify-center hover:bg-accent/20 hover:border-accent/40 transition-all duration-300">
+                            <i data-lucide="phone" class="w-4 h-4 text-accent"></i>
+                        </a>
+                        <a href="https://maps.app.goo.gl/mU3efLAkfTgcPAvW9" target="_blank" class="w-11 h-11 rounded-full bg-surface/50 border border-accent/20 flex items-center justify-center hover:bg-accent/20 hover:border-accent/40 transition-all duration-300">
+                            <i data-lucide="map-pin" class="w-4 h-4 text-accent"></i>
+                        </a>
+                        <a href="#contact" class="w-11 h-11 rounded-full bg-surface/50 border border-accent/20 flex items-center justify-center hover:bg-accent/20 hover:border-accent/40 transition-all duration-300">
+                            <i data-lucide="mail" class="w-4 h-4 text-accent"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Divider -->
+            <div class="mt-12 pt-8 border-t border-accent/5 flex flex-col md:flex-row items-center justify-between gap-4">
+                <p class="text-xs text-warmWhite/30 font-inter">
+                    © 2026 Gülşah Ada Güzellik Salonu. Tüm hakları saklıdır.
+                </p>
+                <p class="text-xs text-warmWhite/20 font-inter flex items-center gap-1">
+                    Sevgiyle tasarlandı <i data-lucide="heart" class="w-3 h-3 text-roseGold fill-roseGold"></i>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 w-12 h-12 rounded-full bg-gradient-to-br from-accent to-roseGold text-primary flex items-center justify-center shadow-lg opacity-0 pointer-events-none transition-all duration-500 hover:shadow-[0_0_30px_rgba(200,149,108,0.4)] transform hover:scale-110 z-50">
+        <i data-lucide="chevron-up" class="w-5 h-5"></i>
+    </button>
+
+    <script type="module" src="./script.js"></script>
+</body>
+
+</html>

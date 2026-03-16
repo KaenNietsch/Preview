@@ -1,0 +1,310 @@
+/* ═══════════════════════════════════════════ */
+/* QUEEN GÜZELLIK MERKEZI - ULTRA PREMIUM CSS */
+/* ═══════════════════════════════════════════ */
+
+:root {
+    --primary: #1A0A2E;
+    --secondary: #2D1B4E;
+    --accent: #D4A574;
+    --accent-light: #E8C9A0;
+    --accent-glow: rgba(212, 165, 116, 0.25);
+    --background: #0D0515;
+    --surface: #1E1030;
+    --text-primary: #F5F0FF;
+    --text-secondary: #A89BBF;
+    --border-glow: rgba(212, 165, 116, 0.15);
+}
+
+/* ═══════════════════════════════════════════ */
+/* SMOOTH SCROLL & BASE */
+/* ═══════════════════════════════════════════ */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+    background: var(--accent);
+    color: var(--background);
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--secondary);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent);
+}
+
+/* ═══════════════════════════════════════════ */
+/* NAVBAR */
+/* ═══════════════════════════════════════════ */
+#navbar {
+    background: transparent;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#navbar.scrolled {
+    background: rgba(13, 5, 21, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border-glow);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* ═══════════════════════════════════════════ */
+/* HERO ANIMATIONS */
+/* ═══════════════════════════════════════════ */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% center;
+    }
+    100% {
+        background-position: 200% center;
+    }
+}
+
+@keyframes starPulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0.8;
+    }
+}
+
+@keyframes particle {
+    0% {
+        opacity: 0;
+        transform: translateY(0) scale(0);
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-100vh) scale(1);
+    }
+}
+
+.animate-fade-in-down {
+    animation: fadeInDown 1s ease-out forwards;
+}
+
+.animate-fade-in-up {
+    animation: fadeInUp 1s ease-out forwards;
+}
+
+.animation-delay-100 {
+    animation-delay: 0.1s;
+}
+
+.animation-delay-200 {
+    animation-delay: 0.2s;
+}
+
+.animation-delay-400 {
+    animation-delay: 0.4s;
+}
+
+.animation-delay-600 {
+    animation-delay: 0.6s;
+}
+
+/* ═══════════════════════════════════════════ */
+/* SCROLL REVEAL ANIMATIONS */
+/* ═══════════════════════════════════════════ */
+.reveal-up,
+.reveal-left,
+.reveal-right {
+    opacity: 0;
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal-up {
+    transform: translateY(60px);
+}
+
+.reveal-left {
+    transform: translateX(-60px);
+}
+
+.reveal-right {
+    transform: translateX(60px);
+}
+
+.reveal-up.revealed,
+.reveal-left.revealed,
+.reveal-right.revealed {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+/* ═══════════════════════════════════════════ */
+/* STAR ANIMATIONS */
+/* ═══════════════════════════════════════════ */
+.star-animate {
+    animation: starPulse 2s ease-in-out infinite;
+}
+
+/* ═══════════════════════════════════════════ */
+/* GLASSMORPHISM GLOW EFFECTS */
+/* ═══════════════════════════════════════════ */
+.service-card::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: 1rem;
+    padding: 1px;
+    background: linear-gradient(135deg, transparent, var(--accent-glow), transparent);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.service-card:hover::before {
+    opacity: 1;
+}
+
+/* ═══════════════════════════════════════════ */
+/* PARTICLES */
+/* ═══════════════════════════════════════════ */
+.particle {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: var(--accent);
+    border-radius: 50%;
+    animation: particle linear infinite;
+    opacity: 0;
+    box-shadow: 0 0 6px var(--accent-glow);
+}
+
+/* ═══════════════════════════════════════════ */
+/* FORM STYLES */
+/* ═══════════════════════════════════════════ */
+select option {
+    background: var(--surface);
+    color: var(--text-primary);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    box-shadow: 0 0 0 2px rgba(212, 165, 116, 0.1), 0 8px 25px rgba(212, 165, 116, 0.08);
+}
+
+/* ═══════════════════════════════════════════ */
+/* BACK TO TOP */
+/* ═══════════════════════════════════════════ */
+#back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* ═══════════════════════════════════════════ */
+/* RESPONSIVE ADJUSTMENTS */
+/* ═══════════════════════════════════════════ */
+@media (max-width: 768px) {
+    .reveal-left,
+    .reveal-right {
+        transform: translateY(40px);
+    }
+
+    #hero h1 {
+        font-size: 2.5rem;
+    }
+}
+
+/* ═══════════════════════════════════════════ */
+/* COUNTER ANIMATION */
+/* ═══════════════════════════════════════════ */
+[data-counter] {
+    transition: all 0.3s ease;
+}
+
+/* ═══════════════════════════════════════════ */
+/* LOADING ANIMATION */
+/* ═══════════════════════════════════════════ */
+@keyframes loadIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+body {
+    animation: loadIn 0.5s ease-out;
+}
+
+/* ═══════════════════════════════════════════ */
+/* IMAGE HOVER OVERLAY */
+/* ═══════════════════════════════════════════ */
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 1rem;
+}
+
+/* ═══════════════════════════════════════════ */
+/* GRADIENT TEXT SHIMMER */
+/* ═══════════════════════════════════════════ */
+.shimmer-text {
+    background-size: 200% auto;
+    animation: shimmer 3s linear infinite;
+}

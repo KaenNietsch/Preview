@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diyarbakır Güzellik Salonu | Lüks Güzellik Deneyimi</title>
+    <link rel="icon" href="https://vxlpnwkjbnnatkpnthac.supabase.co/storage/v1/object/sign/test/Mini-Logo.ico?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hNGU1OTc2OC05MjEyLTQ2OGEtODM4Yi0zNDVkNTNjMzZlMGMiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ0ZXN0L01pbmktTG9nby5pY28iLCJpYXQiOjE3NzM2OTk2MjgsImV4cCI6MTgwNTIzNTYyOH0.L06V2QGomqrRI5REFx8BwZZFuvS3e2q7T1w9NjF9fG4" type="image/x-icon">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1A0A0F',
+                        secondary: '#2D1520',
+                        accent: '#C9A96E',
+                        'accent-light': '#E8D5A8',
+                        rose: '#E8B4B8',
+                        surface: '#3A1F2B',
+                        'surface-light': '#4A2F3B',
+                        'text-primary': '#FFF8F0',
+                        'text-secondary': '#B8A090',
+                        'gold-glass': 'rgba(201, 169, 110, 0.08)',
+                    },
+                    fontFamily: {
+                        'playfair': ['Playfair Display', 'serif'],
+                        'inter': ['Inter', 'sans-serif'],
+                        'syne': ['Syne', 'sans-serif'],
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                        'shimmer': 'shimmer 3s ease-in-out infinite',
+                        'star-pulse': 'starPulse 1.5s ease-in-out infinite',
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                        'slide-in-left': 'slideInLeft 0.8s ease-out forwards',
+                        'slide-in-right': 'slideInRight 0.8s ease-out forwards',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        glow: {
+                            '0%': { boxShadow: '0 0 20px rgba(201, 169, 110, 0.1)' },
+                            '100%': { boxShadow: '0 0 40px rgba(201, 169, 110, 0.3)' },
+                        },
+                        shimmer: {
+                            '0%': { backgroundPosition: '-200% 0' },
+                            '100%': { backgroundPosition: '200% 0' },
+                        },
+                        starPulse: {
+                            '0%, 100%': { opacity: '1', transform: 'scale(1)' },
+                            '50%': { opacity: '0.7', transform: 'scale(1.2)' },
+                        },
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(40px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        slideInLeft: {
+                            '0%': { opacity: '0', transform: 'translateX(-60px)' },
+                            '100%': { opacity: '1', transform: 'translateX(0)' },
+                        },
+                        slideInRight: {
+                            '0%': { opacity: '0', transform: 'translateX(60px)' },
+                            '100%': { opacity: '1', transform: 'translateX(0)' },
+                        },
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #1A0A0F;
+            color: #FFF8F0;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1A0A0F;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #C9A96E, #E8B4B8);
+            border-radius: 10px;
+        }
+
+        /* Parallax Hero */
+        .hero-parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        /* Gold Shimmer Text */
+        .gold-shimmer {
+            background: linear-gradient(90deg, #C9A96E, #E8D5A8, #C9A96E, #E8D5A8, #C9A96E);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 4s linear infinite;
+        }
+
+        /* Glassmorphism Card */
+        .glass-card {
+            background: rgba(58, 31, 43, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(201, 169, 110, 0.15);
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .glass-card:hover {
+            background: rgba(58, 31, 43, 0.8);
+            border-color: rgba(201, 169, 110, 0.4);
+            box-shadow: 0 0 40px rgba(201, 169, 110, 0.15), 0 0 80px rgba(201, 169, 110, 0.05);
+            transform: translateY(-8px);
+        }
+
+        /* Glass Button */
+        .glass-btn {
+            background: linear-gradient(135deg, rgba(201, 169, 110, 0.2), rgba(232, 180, 184, 0.1));
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(201, 169, 110, 0.3);
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .glass-btn:hover {
+            background: linear-gradient(135deg, rgba(201, 169, 110, 0.4), rgba(232, 180, 184, 0.2));
+            border-color: rgba(201, 169, 110, 0.6);
+            box-shadow: 0 0 30px rgba(201, 169, 110, 0.2), inset 0 0 30px rgba(201, 169, 110, 0.05);
+            transform: translateY(-2px);
+        }
+
+        /* Primary CTA Button */
+        .cta-btn {
+            background: linear-gradient(135deg, #C9A96E, #E8B4B8);
+            color: #1A0A0F;
+            font-weight: 700;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .cta-btn:hover::before {
+            left: 100%;
+        }
+
+        .cta-btn:hover {
+            box-shadow: 0 0 40px rgba(201, 169, 110, 0.4), 0 0 80px rgba(201, 169, 110, 0.1);
+            transform: translateY(-3px) scale(1.02);
+        }
+
+        /* Floating Particles */
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #C9A96E;
+            border-radius: 50%;
+            opacity: 0;
+            animation: particleFloat 8s ease-in-out infinite;
+        }
+
+        @keyframes particleFloat {
+            0% { opacity: 0; transform: translateY(100vh) scale(0); }
+            10% { opacity: 0.6; }
+            90% { opacity: 0.6; }
+            100% { opacity: 0; transform: translateY(-100px) scale(1); }
+        }
+
+        /* Scroll Reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-60px);
+            transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .reveal-left.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(60px);
+            transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .reveal-right.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Divider */
+        .gold-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #C9A96E, transparent);
+            width: 120px;
+            margin: 0 auto;
+        }
+
+        /* Image Overlay */
+        .img-overlay {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .img-overlay::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 40%, rgba(26, 10, 15, 0.9) 100%);
+            pointer-events: none;
+        }
+
+        .img-overlay img {
+            transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .img-overlay:hover img {
+            transform: scale(1.08);
+        }
+
+        /* Star Animation */
+        .star-icon {
+            display: inline-block;
+            animation: starPulse 1.5s ease-in-out infinite;
+        }
+
+        .star-icon:nth-child(2) { animation-delay: 0.1s; }
+        .star-icon:nth-child(3) { animation-delay: 0.2s; }
+        .star-icon:nth-child(4) { animation-delay: 0.3s; }
+        .star-icon:nth-child(5) { animation-delay: 0.4s; }
+
+        /* Form Inputs */
+        .luxury-input {
+            background: rgba(58, 31, 43, 0.4);
+            border: 1px solid rgba(201, 169, 110, 0.15);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            color: #FFF8F0;
+        }
+
+        .luxury-input:focus {
+            outline: none;
+            border-color: #C9A96E;
+            box-shadow: 0 0 20px rgba(201, 169, 110, 0.1);
+            background: rgba(58, 31, 43, 0.6);
+        }
+
+        .luxury-input::placeholder {
+            color: #B8A090;
+        }
+
+        /* Navbar */
+        .nav-glass {
+            background: rgba(26, 10, 15, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(201, 169, 110, 0.1);
+            transition: all 0.4s ease;
+        }
+
+        .nav-glass.scrolled {
+            background: rgba(26, 10, 15, 0.95);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Section Separator */
+        .section-ornament {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+        }
+
+        .section-ornament::before,
+        .section-ornament::after {
+            content: '';
+            height: 1px;
+            width: 80px;
+            background: linear-gradient(90deg, transparent, #C9A96E);
+        }
+
+        .section-ornament::after {
+            background: linear-gradient(90deg, #C9A96E, transparent);
+        }
+
+        /* Map Container */
+        .map-container {
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(201, 169, 110, 0.2);
+            box-shadow: 0 0 40px rgba(201, 169, 110, 0.08);
+        }
+
+        /* Testimonial Quotes */
+        .quote-mark {
+            font-family: 'Playfair Display', serif;
+            font-size: 80px;
+            line-height: 1;
+            color: rgba(201, 169, 110, 0.2);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
+
+        @keyframes starPulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.7; transform: scale(1.15); }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Floating Particles Background -->
+    <div id="particles" class="fixed inset-0 pointer-events-none z-0" aria-hidden="true"></div>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="nav-glass fixed top-0 left-0 right-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <a href="#hero" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-full border border-accent/40 flex items-center justify-center group-hover:border-accent transition-colors duration-300">
+                        <i data-lucide="sparkles" class="w-5 h-5 text-accent"></i>
+                    </div>
+                    <div>
+                        <span class="font-playfair text-lg font-bold text-text-primary tracking-wide">Diyarbakır</span>
+                        <span class="block text-[10px] font-syne uppercase tracking-[0.3em] text-accent">Güzellik Salonu</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="#hero" class="font-inter text-sm text-text-secondary hover:text-accent transition-colors duration-300 tracking-wide">Ana Sayfa</a>
+                    <a href="#about" class="font-inter text-sm text-text-secondary hover:text-accent transition-colors duration-300 tracking-wide">Hakkımızda</a>
+                    <a href="#services" class="font-inter text-sm text-text-secondary hover:text-accent transition-colors duration-300 tracking-wide">Hizmetler</a>
+                    <a href="#testimonials" class="font-inter text-sm text-text-secondary hover:text-accent transition-colors duration-300 tracking-wide">Referanslar</a>
+                    <a href="#contact" class="font-inter text-sm text-text-secondary hover:text-accent transition-colors duration-300 tracking-wide">İletişim</a>
+                    <a href="tel:+905530053102" class="cta-btn px-6 py-2.5 rounded-full font-inter text-sm tracking-wide flex items-center gap-2">
+                        <i data-lucide="phone" class="w-4 h-4"></i>
+                        Randevu Al
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="menuBtn" class="md:hidden text-text-primary p-2" aria-label="Menü">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="mobile-menu fixed top-0 right-0 w-80 h-full bg-primary/98 backdrop-blur-xl border-l border-accent/10 z-50 md:hidden">
+            <div class="p-8">
+                <button id="closeMenu" class="absolute top-6 right-6 text-text-primary" aria-label="Kapat">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+                <div class="mt-16 flex flex-col gap-6">
+                    <a href="#hero" class="mobile-link font-playfair text-2xl text-text-primary hover:text-accent transition-colors">Ana Sayfa</a>
+                    <a href="#about" class="mobile-link font-playfair text-2xl text-text-primary hover:text-accent transition-colors">Hakkımızda</a>
+                    <a href="#services" class="mobile-link font-playfair text-2xl text-text-primary hover:text-accent transition-colors">Hizmetler</a>
+                    <a href="#testimonials" class="mobile-link font-playfair text-2xl text-text-primary hover:text-accent transition-colors">Referanslar</a>
+                    <a href="#contact" class="mobile-link font-playfair text-2xl text-text-primary hover:text-accent transition-colors">İletişim</a>
+                    <div class="gold-divider mt-4 mb-4 !mx-0 !w-16"></div>
+                    <a href="tel:+905530053102" class="cta-btn px-6 py-3 rounded-full font-inter text-sm tracking-wide text-center flex items-center justify-center gap-2">
+                        <i data-lucide="phone" class="w-4 h-4"></i>
+                        Randevu Al
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <!-- Background Image with Parallax -->
+        <div class="absolute inset-0 hero-parallax" style="background-image: url('https://mgx-backend-cdn.metadl.com/generate/images/1033646/2026-03-16/4e0124c5-c373-42d6-a835-c60898d40e3f.png');">
+        </div>
+        <!-- Dark Overlay -->
+        <div class="absolute inset-0 bg-gradient-to-b from-primary/70 via-primary/60 to-primary"></div>
+        <!-- Gold Radial Glow -->
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(201,169,110,0.08)_0%,transparent_70%)]"></div>
+
+        <!-- Content -->
+        <div class="relative z-10 text-center px-6 max-w-4xl mx-auto">
+            <!-- Ornamental Top -->
+            <div class="flex items-center justify-center gap-4 mb-8 reveal">
+                <div class="h-px w-12 bg-gradient-to-r from-transparent to-accent/60"></div>
+                <span class="font-syne text-xs uppercase tracking-[0.4em] text-accent">Kayapınar · Diyarbakır</span>
+                <div class="h-px w-12 bg-gradient-to-l from-transparent to-accent/60"></div>
+            </div>
+
+            <!-- Main Heading -->
+            <h1 class="font-playfair text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-[1.1] mb-6 reveal" style="transition-delay: 0.15s;">
+                <span class="text-text-primary">Güzelliğin</span><br>
+                <span class="gold-shimmer italic">Sanata</span>
+                <span class="text-text-primary"> Dönüştüğü</span><br>
+                <span class="text-text-primary">Yer</span>
+            </h1>
+
+            <!-- Subtitle -->
+            <p class="font-inter text-base sm:text-lg text-text-secondary max-w-2xl mx-auto mb-10 leading-relaxed reveal" style="transition-delay: 0.3s;">
+                Diyarbakır'ın kalbinde, zarafetin ve bakımın buluştuğu eşsiz bir güzellik deneyimi. 
+                Her dokunuşta kendinizi yeniden keşfedin.
+            </p>
+
+            <!-- CTA Buttons -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 reveal" style="transition-delay: 0.45s;">
+                <a href="tel:+905530053102" class="cta-btn px-10 py-4 rounded-full font-inter text-base tracking-wide flex items-center gap-3">
+                    <i data-lucide="calendar" class="w-5 h-5"></i>
+                    Randevunuzu Alın
+                </a>
+                <a href="#services" class="glass-btn px-10 py-4 rounded-full font-inter text-sm tracking-wide text-text-primary flex items-center gap-3">
+                    <i data-lucide="eye" class="w-5 h-5 text-accent"></i>
+                    Hizmetleri Keşfet
+                </a>
+            </div>
+
+            <!-- Scroll Indicator -->
+            <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-float">
+                <span class="font-inter text-[10px] uppercase tracking-[0.3em] text-text-secondary">Keşfet</span>
+                <i data-lucide="chevron-down" class="w-5 h-5 text-accent"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ABOUT SECTION ===== -->
+    <section id="about" class="relative py-28 md:py-36 overflow-hidden">
+        <!-- Subtle Background -->
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(201,169,110,0.04)_0%,transparent_60%)]"></div>
+
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+            <!-- Section Header -->
+            <div class="text-center mb-20">
+                <div class="section-ornament mb-6 reveal">
+                    <i data-lucide="gem" class="w-5 h-5 text-accent"></i>
+                </div>
+                <h2 class="font-playfair text-4xl md:text-5xl lg:text-6xl font-bold text-text-primary mb-4 reveal" style="transition-delay: 0.1s;">
+                    Hikayemiz
+                </h2>
+                <p class="font-syne text-sm uppercase tracking-[0.3em] text-accent reveal" style="transition-delay: 0.2s;">Bir Tutkunun Yolculuğu</p>
+            </div>
+
+            <!-- Content Grid -->
+            <div class="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
+                <!-- Image -->
+                <div class="reveal-left">
+                    <div class="img-overlay rounded-2xl">
+                        <img src="https://mgx-backend-cdn.metadl.com/generate/images/1033646/2026-03-16/4e0124c5-c373-42d6-a835-c60898d40e3f.png" 
+                             alt="Diyarbakır Güzellik Salonu İç Mekan" 
+                             class="w-full h-[500px] object-cover rounded-2xl">
+                    </div>
+                </div>
+
+                <!-- Text -->
+                <div class="reveal-right">
+                    <div class="space-y-6">
+                        <p class="font-inter text-text-secondary leading-relaxed text-base">
+                            <span class="font-playfair text-5xl text-accent float-left mr-3 mt-1 leading-none">"</span>
+                            Diyarbakır Güzellik Salonu olarak, güzelliğin sadece dış görünüşle değil, 
+                            iç huzurla başladığına inanıyoruz. Kayapınar'ın kalbinde, Ataclar Armada Sitesi'nde 
+                            konumlanan salonumuz, her müşterimize özel bir deneyim sunmak için tasarlandı.
+                        </p>
+                        <p class="font-inter text-text-secondary leading-relaxed text-base">
+                            Uzman kadromuz ve premium ürünlerimizle, saç bakımından cilt bakımına, 
+                            manikürden gelin makyajına kadar geniş bir yelpazede hizmet veriyoruz. 
+                            Her detayda mükemmelliği hedefliyor, her dokunuşta fark yaratıyoruz.
+                        </p>
+                        <p class="font-inter text-text-secondary leading-relaxed text-base">
+                            Amacımız sadece güzelleştirmek değil; kendinizi en iyi hissettiğiniz anları 
+                            yaratmak ve özgüveninizi zirveye taşımaktır.
+                        </p>
+
+                        <!-- Stats -->
+                        <div class="grid grid-cols-3 gap-6 pt-8 border-t border-accent/10">
+                            <div class="text-center">
+                                <span class="font-playfair text-3xl font-bold gold-shimmer">500+</span>
+                                <p class="font-inter text-xs text-text-secondary mt-1 uppercase tracking-wider">Mutlu Müşteri</p>
+                            </div>
+                            <div class="text-center">
+                                <span class="font-playfair text-3xl font-bold gold-shimmer">10+</span>
+                                <p class="font-inter text-xs text-text-secondary mt-1 uppercase tracking-wider">Uzman Kadro</p>
+                            </div>
+                            <div class="text-center">
+                                <span class="font-playfair text-3xl font-bold gold-shimmer">20+</span>
+                                <p class="font-inter text-xs text-text-secondary mt-1 uppercase tracking-wider">Hizmet Çeşidi</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SERVICES SECTION ===== -->
+    <section id="services" class="relative py-28 md:py-36 overflow-hidden">
+        <!-- Background Texture -->
+        <div class="absolute inset-0 opacity-20" style="background-image: url('https://mgx-backend-cdn.metadl.com/generate/images/1033646/2026-03-16/2375d6ff-1ed1-4197-b702-85cdc9a38f8f.png'); background-size: cover; background-position: center;"></div>
+        <div class="absolute inset-0 bg-primary/95"></div>
+
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+            <!-- Section Header -->
+            <div class="text-center mb-20">
+                <div class="section-ornament mb-6 reveal">
+                    <i data-lucide="crown" class="w-5 h-5 text-accent"></i>
+                </div>
+                <h2 class="font-playfair text-4xl md:text-5xl lg:text-6xl font-bold text-text-primary mb-4 reveal" style="transition-delay: 0.1s;">
+                    Hizmetlerimiz
+                </h2>
+                <p class="font-inter text-text-secondary max-w-xl mx-auto reveal" style="transition-delay: 0.2s;">
+                    Her biri özenle tasarlanmış, premium kalitede güzellik hizmetlerimizle tanışın.
+                </p>
+            </div>
+
+            <!-- Services Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Service 1: Hair Styling -->
+                <div class="glass-card rounded-2xl overflow-hidden group reveal" style="transition-delay: 0.1s;">
+                    <div class="img-overlay h-56">
+                        <img src="https://mgx-backend-cdn.metadl.com/generate/images/1033646/2026-03-16/e6255a17-b203-4ba1-8e12-0f364ce97e4e.png" 
+                             alt="Saç Bakımı ve Şekillendirme" 
+                             class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-colors">
+                            <i data-lucide="scissors" class="w-6 h-6 text-accent"></i>
+                        </div>
+                        <h3 class="font-playfair text-xl font-bold text-text-primary mb-2">Saç Bakımı & Şekillendirme</h3>
+                        <p class="font-inter text-sm text-text-secondary leading-relaxed">
+                            Kesim, boya, keratin bakımı ve özel şekillendirme ile saçlarınıza yeni bir hayat verin.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Service 2: Skincare -->
+                <div class="glass-card rounded-2xl overflow-hidden group reveal" style="transition-delay: 0.2s;">
+                    <div class="img-overlay h-56">
+                        <img src="https://mgx-backend-cdn.metadl.com/generate/images/1033646/2026-03-16/8d0bba90-d790-46ec-8f83-157c700add0f.png" 
+                             alt="Cilt Bakımı" 
+                             class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-colors">
+                            <i data-lucide="droplets" class="w-6 h-6 text-accent"></i>
+                        </div>
+                        <h3 class="font-playfair text-xl font-bold text-text-primary mb-2">Cilt Bakımı & Yüz Terapisi</h3>
+                        <p class="font-inter text-sm text-text-secondary leading-relaxed">
+                            Profesyonel cilt analizi, derin temizlik, nemlendirme ve anti-aging tedaviler.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Service 3: Nail Care -->
+                <div class="glass-card rounded-2xl overflow-hidden group reveal" style="transition-delay: 0.3s;">
+                    <div class="img-overlay h-56">
+                        <img src="https://mgx-backend-cdn.metadl.com/generate/images/1033646/2026-03-16/0c59b100-c680-435f-838b-eb361c283e03.png" 
+                             alt="Tırnak Bakımı" 
+                             class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-colors">
+                            <i data-lucide="palette" class="w-6 h-6 text-accent"></i>
+                        </div>
+                        <h3 class="font-playfair text-xl font-bold text-text-primary mb-2">Manikür & Pedikür</h3>
+                        <p class="font-inter text-sm text-text-secondary leading-relaxed">
+                            Kalıcı oje, nail art, protez tırnak ve özel bakım uygulamaları.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Service 4: Bridal -->
+                <div class="glass-card rounded-2xl overflow-hidden group reveal" style="transition-delay: 0.4s;">
+                    <div class="img-overlay h-56">
+                        <img src="https://mgx-backend-cdn.metadl.com/generate/images/1033646/2026-03-16/ac41bfe7-bc9f-467c-b5ad-8ac1b157bb5f.png" 
+                             alt="Gelin Makyajı" 
+                             class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-colors">
+                            <i data-lucide="heart" class="w-6 h-6 text-accent"></i>
+                        </div>
+                        <h3 class="font-playfair text-xl font-bold text-text-primary mb-2">Gelin Makyajı & Kuaför</h3>
+                        <p class="font-inter text-sm text-text-secondary leading-relaxed">
+                            Hayatınızın en özel gününde kusursuz görünmeniz için profesyonel gelin paketi.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional Services Row -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
+                <div class="glass-card rounded-xl p-5 text-center group reveal" style="transition-delay: 0.15s;">
+                    <i data-lucide="sparkles" class="w-8 h-8 text-accent mx-auto mb-3 group-hover:animate-glow"></i>
+                    <h4 class="font-playfair text-sm font-bold text-text-primary">Epilasyon</h4>
+                </div>
+                <div class="glass-card rounded-xl p-5 text-center group reveal" style="transition-delay: 0.25s;">
+                    <i data-lucide="eye" class="w-8 h-8 text-accent mx-auto mb-3 group-hover:animate-glow"></i>
+                    <h4 class="font-playfair text-sm font-bold text-text-primary">Kaş & Kirpik</h4>
+                </div>
+                <div class="glass-card rounded-xl p-5 text-center group reveal" style="transition-delay: 0.35s;">
+                    <i data-lucide="sun" class="w-8 h-8 text-accent mx-auto mb-3 group-hover:animate-glow"></i>
+                    <h4 class="font-playfair text-sm font-bold text-text-primary">Solaryum</h4>
+                </div>
+                <div class="glass-card rounded-xl p-5 text-center group reveal" style="transition-delay: 0.45s;">
+                    <i data-lucide="flower-2" class="w-8 h-8 text-accent mx-auto mb-3 group-hover:animate-glow"></i>
+                    <h4 class="font-playfair text-sm font-bold text-text-primary">Aromaterapi</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TESTIMONIALS SECTION ===== -->
+    <section id="testimonials" class="relative py-28 md:py-36 overflow-hidden">
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(232,180,184,0.05)_0%,transparent_60%)]"></div>
+
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+            <!-- Section Header -->
+            <div class="text-center mb-20">
+                <div class="section-ornament mb-6 reveal">
+                    <i data-lucide="quote" class="w-5 h-5 text-accent"></i>
+                </div>
+                <h2 class="font-playfair text-4xl md:text-5xl lg:text-6xl font-bold text-text-primary mb-4 reveal" style="transition-delay: 0.1s;">
+                    Müşterilerimiz Ne Diyor?
+                </h2>
+                <p class="font-inter text-text-secondary max-w-xl mx-auto reveal" style="transition-delay: 0.2s;">
+                    Güzellik yolculuğunda bize güvenen değerli misafirlerimizin deneyimleri.
+                </p>
+            </div>
+
+            <!-- Testimonials Grid -->
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="glass-card rounded-2xl p-8 relative reveal" style="transition-delay: 0.1s;">
+                    <div class="quote-mark absolute top-4 left-6">"</div>
+                    <div class="relative z-10">
+                        <!-- Stars -->
+                        <div class="flex gap-1 mb-6">
+                            <i data-lucide="star" class="w-5 h-5 text-accent fill-accent star-icon"></i>
+                            <i data-lucide="star" class="w-5 h-5 text-accent fill-accent star-icon"></i>
+                            <i data-lucide="star" class="w-5 h-5 text-accent fill-accent star-icon"></i>
+                            <i data-lucide="star" class="w-5 h-5 text-accent fill-accent star-icon"></i>
+                            <i data-lucide="star" class="w-5 h-5 text-accent fill-accent star-icon"></i>
+                        </div>
+                        <p class="font-inter text-text-secondary leading-relaxed mb-6 text-sm">
+                            "Diyarbakır'da gittiğim en iyi güzellik salonu! Saç boyamı tam istediğim tonda yaptılar. 
+                            Personel çok ilgili ve salon ortamı harika. Kesinlikle tavsiye ederim."
+                        </p>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center">
+                                <span class="font-playfair text-accent font-bold">A</span>
+                            </div>
+                            <div>
+                                <p class="font-inter text-sm font-semibold text-text-primary">Ayşe K.</p>
+                                <p class="font-inter text-xs text-text-secondary">Düzenli Müşteri</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="glass-card rounded-2xl p-8 relative reveal" style="transition-delay: 0.2s;">
+                    <div class="quote-mark absolute top-4 left-6">"</div>
+                    <div class="relative z-10">
+                        <div class="flex gap-1 mb-6">
+                            <i data-lucide="star" class="w-5 h-5 text-accent fill-accent star-icon"></i>
+                            <i data-lucide="star" class="w-5 h-5 text-accent fill-accent star-icon"></i>
+                            <i data-lucide="star" class="w-5 h-5 text-accent fill-accent star-icon"></i>
+                            <i data-lucide="star" class="w-5 h-5 text-accent fill-accent star-icon"></i>
+                            <i data-lucide="star" class="w-5 h-5 text-accent fill-accent star-icon"></i>
+                        </div>
+                        <p class="font-inter text-text-secondary leading-relaxed mb-6 text-sm">
+                            "Düğünüm için gelin makyajımı burada yaptırdım. Hayalimdeki görünümü birebir yakaladılar. 
+                            Tüm gün boyunca makyajım bozulmadı. Muhteşem bir ekip!"
+                        </p>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-rose/20 flex items-center justify-center">
+                                <span class="font-playfair text-rose font-bold">Z</span>
+                            </div>
+                            <div>
+                                <p class="font-inter text-sm font-semibold text-text-primary">Zeynep M.</p>
+                                <p class="font-inter text-xs text-text-secondary">Gelin Paketi</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="glass-card rounded-2xl p-8 relative reveal" style="transition-delay: 0.3s;">
+                    <div class="quote-mark absolute top-4 left-6">"</div>
+                    <div class="relative z-10">
+                        <div class="flex gap-1 mb-6">
+                            <i data-lucide="star" class="w-5 h-5 text-accent fill-accent star-icon"></i>
+                            <i data-lucide="star" class="w-5 h-5 text-accent fill-accent star-icon"></i>
+                            <i data-lucide="star" class="w-5 h-5 text-accent fill-accent star-icon"></i>
+                            <i data-lucide="star" class="w-5 h-5 text-accent fill-accent star-icon"></i>
+                            <i data-lucide="star" class="w-5 h-5 text-accent fill-accent star-icon"></i>
+                        </div>
+                        <p class="font-inter text-text-secondary leading-relaxed mb-6 text-sm">
+                            "Cilt bakımı seanslarından sonra cildim inanılmaz bir şekilde yenilendi. 
+                            Profesyonel yaklaşımları ve kullandıkları ürünlerin kalitesi gerçekten fark yaratıyor."
+                        </p>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center">
+                                <span class="font-playfair text-accent font-bold">D</span>
+                            </div>
+                            <div>
+                                <p class="font-inter text-sm font-semibold text-text-primary">Derya S.</p>
+                                <p class="font-inter text-xs text-text-secondary">Cilt Bakımı</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== GALLERY BANNER ===== -->
+    <section class="relative py-20 overflow-hidden">
+        <div class="absolute inset-0 hero-parallax" style="background-image: url('https://mgx-backend-cdn.metadl.com/generate/images/1033646/2026-03-16/2375d6ff-1ed1-4197-b702-85cdc9a38f8f.png'); background-size: cover;"></div>
+        <div class="absolute inset-0 bg-primary/85"></div>
+        <div class="relative z-10 text-center px-6">
+            <div class="max-w-3xl mx-auto reveal">
+                <i data-lucide="sparkles" class="w-8 h-8 text-accent mx-auto mb-6"></i>
+                <h2 class="font-playfair text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary mb-4 italic">
+                    "Güzellik bir ayrıcalık değil,<br>
+                    <span class="gold-shimmer">herkesin hak ettiği bir sanattır.</span>"
+                </h2>
+                <p class="font-inter text-text-secondary mt-6">— Diyarbakır Güzellik Salonu</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT SECTION ===== -->
+    <section id="contact" class="relative py-28 md:py-36 overflow-hidden">
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(201,169,110,0.04)_0%,transparent_60%)]"></div>
+
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+            <!-- Section Header -->
+            <div class="text-center mb-20">
+                <div class="section-ornament mb-6 reveal">
+                    <i data-lucide="map-pin" class="w-5 h-5 text-accent"></i>
+                </div>
+                <h2 class="font-playfair text-4xl md:text-5xl lg:text-6xl font-bold text-text-primary mb-4 reveal" style="transition-delay: 0.1s;">
+                    İletişim
+                </h2>
+                <p class="font-inter text-text-secondary max-w-xl mx-auto reveal" style="transition-delay: 0.2s;">
+                    Güzellik yolculuğunuza başlamak için bize ulaşın.
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12">
+                <!-- Contact Form -->
+                <div class="reveal-left">
+                    <div class="glass-card rounded-2xl p-8 md:p-10">
+                        <h3 class="font-playfair text-2xl font-bold text-text-primary mb-2">Randevu Formu</h3>
+                        <p class="font-inter text-sm text-text-secondary mb-8">Size en kısa sürede dönüş yapacağız.</p>
+
+                        <form id="contactForm" class="space-y-5">
+                            <div class="grid sm:grid-cols-2 gap-5">
+                                <div>
+                                    <label class="font-inter text-xs uppercase tracking-wider text-text-secondary mb-2 block">Adınız</label>
+                                    <input type="text" placeholder="Adınızı girin" class="luxury-input w-full px-4 py-3 rounded-xl font-inter text-sm">
+                                </div>
+                                <div>
+                                    <label class="font-inter text-xs uppercase tracking-wider text-text-secondary mb-2 block">Telefon</label>
+                                    <input type="tel" placeholder="05XX XXX XX XX" class="luxury-input w-full px-4 py-3 rounded-xl font-inter text-sm">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="font-inter text-xs uppercase tracking-wider text-text-secondary mb-2 block">Hizmet Seçimi</label>
+                                <select class="luxury-input w-full px-4 py-3 rounded-xl font-inter text-sm appearance-none cursor-pointer">
+                                    <option value="" class="bg-surface text-text-secondary">Hizmet seçiniz...</option>
+                                    <option value="sac" class="bg-surface">Saç Bakımı & Şekillendirme</option>
+                                    <option value="cilt" class="bg-surface">Cilt Bakımı & Yüz Terapisi</option>
+                                    <option value="tirnak" class="bg-surface">Manikür & Pedikür</option>
+                                    <option value="gelin" class="bg-surface">Gelin Makyajı & Kuaför</option>
+                                    <option value="epilasyon" class="bg-surface">Epilasyon</option>
+                                    <option value="kas" class="bg-surface">Kaş & Kirpik</option>
+                                    <option value="diger" class="bg-surface">Diğer</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="font-inter text-xs uppercase tracking-wider text-text-secondary mb-2 block">Mesajınız</label>
+                                <textarea rows="4" placeholder="Mesajınızı yazın..." class="luxury-input w-full px-4 py-3 rounded-xl font-inter text-sm resize-none"></textarea>
+                            </div>
+                            <button type="submit" class="cta-btn w-full py-4 rounded-xl font-inter text-base tracking-wide flex items-center justify-center gap-3">
+                                <i data-lucide="send" class="w-5 h-5"></i>
+                                Randevu Talebi Gönder
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Map & Info -->
+                <div class="reveal-right space-y-8">
+                    <!-- Google Maps -->
+                    <div class="map-container">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3132.5!2d40.1970125!3d37.9229275!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40751fc8d68a4f5b%3A0xf1cf68e2a5dbbf85!2sDiyarbak%C4%B1r%20g%C3%BCzellik%20salonu!5e0!3m2!1str!2str!4v1710000000000!5m2!1str!2str" 
+                            width="100%" 
+                            height="300" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+
+                    <!-- Contact Info Cards -->
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <a href="https://maps.app.goo.gl/ukRG1HNrSQckwGDK6" target="_blank" class="glass-card rounded-xl p-5 flex items-start gap-4 group">
+                            <div class="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0 group-hover:bg-accent/20 transition-colors">
+                                <i data-lucide="map-pin" class="w-5 h-5 text-accent"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-inter text-sm font-semibold text-text-primary mb-1">Adres</h4>
+                                <p class="font-inter text-xs text-text-secondary leading-relaxed">Tekel Cad. 618. Sok. Ataclar Armada Sitesi Altı, 21070 Kayapınar, Diyarbakır</p>
+                            </div>
+                        </a>
+
+                        <a href="tel:+905530053102" class="glass-card rounded-xl p-5 flex items-start gap-4 group">
+                            <div class="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0 group-hover:bg-accent/20 transition-colors">
+                                <i data-lucide="phone" class="w-5 h-5 text-accent"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-inter text-sm font-semibold text-text-primary mb-1">Telefon</h4>
+                                <p class="font-inter text-xs text-text-secondary">+90 553 005 31 02</p>
+                                <p class="font-inter text-xs text-accent mt-1">Hemen Arayın →</p>
+                            </div>
+                        </a>
+
+                        <div class="glass-card rounded-xl p-5 flex items-start gap-4 group">
+                            <div class="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0 group-hover:bg-accent/20 transition-colors">
+                                <i data-lucide="clock" class="w-5 h-5 text-accent"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-inter text-sm font-semibold text-text-primary mb-1">Çalışma Saatleri</h4>
+                                <p class="font-inter text-xs text-text-secondary">Pazartesi - Cumartesi</p>
+                                <p class="font-inter text-xs text-accent">09:00 - 20:00</p>
+                            </div>
+                        </div>
+
+                        <div class="glass-card rounded-xl p-5 flex items-start gap-4 group">
+                            <div class="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0 group-hover:bg-accent/20 transition-colors">
+                                <i data-lucide="navigation" class="w-5 h-5 text-accent"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-inter text-sm font-semibold text-text-primary mb-1">Konum</h4>
+                                <p class="font-inter text-xs text-text-secondary">Kayapınar, Diyarbakır</p>
+                                <p class="font-inter text-xs text-accent">Güneydoğu Anadolu</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="relative border-t border-accent/10">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 py-16">
+            <div class="grid md:grid-cols-3 gap-12 items-center">
+                <!-- Logo & Tagline -->
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-full border border-accent/40 flex items-center justify-center">
+                            <i data-lucide="sparkles" class="w-5 h-5 text-accent"></i>
+                        </div>
+                        <div>
+                            <span class="font-playfair text-lg font-bold text-text-primary">Diyarbakır</span>
+                            <span class="block text-[10px] font-syne uppercase tracking-[0.3em] text-accent">Güzellik Salonu</span>
+                        </div>
+                    </div>
+                    <p class="font-inter text-sm text-text-secondary leading-relaxed">
+                        Güzelliğin sanata dönüştüğü yer. Premium bakım, profesyonel dokunuş.
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="text-center">
+                    <h4 class="font-syne text-xs uppercase tracking-[0.3em] text-accent mb-4">Hızlı Erişim</h4>
+                    <div class="flex flex-wrap justify-center gap-x-6 gap-y-2">
+                        <a href="#hero" class="font-inter text-sm text-text-secondary hover:text-accent transition-colors">Ana Sayfa</a>
+                        <a href="#about" class="font-inter text-sm text-text-secondary hover:text-accent transition-colors">Hakkımızda</a>
+                        <a href="#services" class="font-inter text-sm text-text-secondary hover:text-accent transition-colors">Hizmetler</a>
+                        <a href="#contact" class="font-inter text-sm text-text-secondary hover:text-accent transition-colors">İletişim</a>
+                    </div>
+                </div>
+
+                <!-- Social & CTA -->
+                <div class="text-right">
+                    <a href="tel:+905530053102" class="cta-btn inline-flex items-center gap-2 px-8 py-3 rounded-full font-inter text-sm tracking-wide">
+                        <i data-lucide="phone" class="w-4 h-4"></i>
+                        Hemen Ara
+                    </a>
+                    <p class="font-inter text-xs text-text-secondary mt-4">+90 553 005 31 02</p>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="mt-12 pt-8 border-t border-accent/5 flex flex-col md:flex-row items-center justify-between gap-4">
+                <p class="font-inter text-xs text-text-secondary/60">
+                    © 2026 Diyarbakır Güzellik Salonu. Tüm hakları saklıdır.
+                </p>
+                <p class="font-inter text-xs text-text-secondary/40">
+                    Tasarım ile <i data-lucide="heart" class="w-3 h-3 text-rose inline"></i> yapılmıştır
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== SCRIPTS ===== -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // ===== NAVBAR SCROLL EFFECT =====
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // ===== MOBILE MENU =====
+        const menuBtn = document.getElementById('menuBtn');
+        const closeMenu = document.getElementById('closeMenu');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        menuBtn.addEventListener('click', () => mobileMenu.classList.add('open'));
+        closeMenu.addEventListener('click', () => mobileMenu.classList.remove('open'));
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => mobileMenu.classList.remove('open'));
+        });
+
+        // ===== SCROLL REVEAL ANIMATION =====
+        const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const delay = entry.target.style.transitionDelay || '0s';
+                    setTimeout(() => {
+                        entry.target.classList.add('active');
+                    }, parseFloat(delay) * 1000);
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // ===== FLOATING PARTICLES =====
+        const particlesContainer = document.getElementById('particles');
+
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDuration = (Math.random() * 6 + 6) + 's';
+            particle.style.animationDelay = Math.random() * 4 + 's';
+            particle.style.width = (Math.random() * 3 + 2) + 'px';
+            particle.style.height = particle.style.width;
+            particle.style.opacity = Math.random() * 0.4 + 0.1;
+            particlesContainer.appendChild(particle);
+
+            setTimeout(() => {
+                particle.remove();
+            }, 14000);
+        }
+
+        // Create particles periodically
+        setInterval(createParticle, 800);
+        // Initial burst
+        for (let i = 0; i < 15; i++) {
+            setTimeout(createParticle, i * 200);
+        }
+
+        // ===== PARALLAX EFFECT =====
+        window.addEventListener('scroll', () => {
+            const scrolled = window.scrollY;
+            const heroParallax = document.querySelector('.hero-parallax');
+            if (heroParallax) {
+                heroParallax.style.transform = `translateY(${scrolled * 0.4}px)`;
+            }
+        });
+
+        // ===== FORM SUBMISSION =====
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const btn = contactForm.querySelector('button[type="submit"]');
+            const originalHTML = btn.innerHTML;
+            btn.innerHTML = '<span class="flex items-center justify-center gap-2"><svg class="animate-spin w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Gönderiliyor...</span>';
+            btn.disabled = true;
+
+            setTimeout(() => {
+                btn.innerHTML = '<span class="flex items-center justify-center gap-2"><svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg> Başarıyla Gönderildi!</span>';
+                
+                setTimeout(() => {
+                    btn.innerHTML = originalHTML;
+                    btn.disabled = false;
+                    contactForm.reset();
+                    lucide.createIcons();
+                }, 2500);
+            }, 1500);
+        });
+
+        // ===== SMOOTH SCROLL FOR ANCHOR LINKS =====
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offset = 80;
+                    const targetPosition = target.getBoundingClientRect().top + window.scrollY - offset;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

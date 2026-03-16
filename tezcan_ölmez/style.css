@@ -1,0 +1,188 @@
+/* ==================== ROOT VARIABLES ==================== */
+:root {
+    --primary: #1A1A2E;
+    --secondary: #C9A96E;
+    --accent: #D4A0A0;
+    --dark: #0F0F1A;
+    --surface: #16162A;
+    --surface-light: #1E1E38;
+    --text-primary: #F5F0EB;
+    --text-secondary: #A89F91;
+    --gold-glow: rgba(201, 169, 110, 0.3);
+    --accent-glow: rgba(212, 160, 160, 0.3);
+}
+
+/* ==================== BASE STYLES ==================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+}
+
+body {
+    background-color: var(--dark);
+    color: var(--text-primary);
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+    background-color: var(--secondary);
+    color: var(--dark);
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--dark);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--secondary);
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #d4b87a;
+}
+
+/* ==================== ANIMATIONS ==================== */
+
+/* Fade In Up */
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fade-in-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Star Rating Animation */
+.star-animate {
+    opacity: 0;
+    transform: scale(0) rotate(-180deg);
+    transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.star-rating.visible .star-animate {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+}
+
+/* Navbar Scroll State */
+.navbar-scrolled {
+    background: rgba(15, 15, 26, 0.92) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border-bottom: 1px solid rgba(201, 169, 110, 0.1);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Counter Animation */
+@keyframes countUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Floating Animation */
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Shimmer Effect */
+@keyframes shimmer {
+    0% { background-position: -200% center; }
+    100% { background-position: 200% center; }
+}
+
+/* Pulse Glow */
+@keyframes pulseGlow {
+    0%, 100% { box-shadow: 0 0 20px rgba(201, 169, 110, 0.1); }
+    50% { box-shadow: 0 0 40px rgba(201, 169, 110, 0.25); }
+}
+
+/* ==================== SERVICE CARDS ==================== */
+.service-card {
+    transform: translateY(0);
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), 
+                border-color 0.5s ease,
+                box-shadow 0.5s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+/* ==================== TESTIMONIAL CARDS ==================== */
+.testimonial-card {
+    transform: translateY(0);
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), 
+                border-color 0.5s ease;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-4px);
+}
+
+/* ==================== FORM STYLES ==================== */
+select option {
+    background-color: var(--surface);
+    color: var(--text-primary);
+    padding: 10px;
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 768px) {
+    .fade-in-up {
+        transform: translateY(20px);
+    }
+    
+    #hero h1 {
+        font-size: 2.5rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    #hero h1 {
+        font-size: 2rem !important;
+    }
+}
+
+/* ==================== PARTICLE CANVAS ==================== */
+#particles {
+    opacity: 0.4;
+}
+
+/* ==================== GLASSMORPHISM UTILITY ==================== */
+.glass {
+    background: rgba(22, 22, 42, 0.4);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(201, 169, 110, 0.1);
+}
+
+/* ==================== FORM SUCCESS STATE ==================== */
+.form-success {
+    animation: pulseGlow 2s ease-in-out;
+}
+
+/* ==================== BACK TO TOP ==================== */
+#back-to-top.show {
+    opacity: 1;
+    transform: translateY(0);
+}

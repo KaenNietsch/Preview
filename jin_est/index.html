@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jîn-est Beauty Center | Lüks Güzellik & Medikal Estetik</title>
+    <link rel="icon" href="https://public-frontend-cos.metadl.com/mgx/img/favicon_atoms.ico" type="image/x-icon">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        noir: '#0D0D0D',
+                        velvet: '#1A1A1A',
+                        silk: '#2D2D2D',
+                        surface: '#1E1E1E',
+                        champagne: '#C9A96E',
+                        'champagne-light': '#E8D5B7',
+                        rose: '#B76E79',
+                        'rose-light': '#D4A0A7',
+                        'warm-white': '#F5F0EB',
+                        'muted-gold': '#A89F95',
+                    },
+                    fontFamily: {
+                        playfair: ['Playfair Display', 'serif'],
+                        inter: ['Inter', 'sans-serif'],
+                        syne: ['Syne', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body class="bg-noir text-warm-white font-inter antialiased overflow-x-hidden">
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- NAVIGATION -->
+    <!-- ═══════════════════════════════════════════ -->
+    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-700 ease-out">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 py-5 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#hero" class="group flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full border-2 border-champagne flex items-center justify-center group-hover:bg-champagne/10 transition-all duration-500">
+                    <span class="font-playfair text-champagne text-lg font-bold">J</span>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-playfair text-xl tracking-wider text-warm-white">Jîn-est</span>
+                    <span class="text-[9px] tracking-[0.35em] uppercase text-muted-gold font-inter">Beauty Center</span>
+                </div>
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden lg:flex items-center gap-10">
+                <a href="#about" class="nav-link text-sm tracking-widest uppercase text-muted-gold hover:text-champagne transition-colors duration-500">Hakkımızda</a>
+                <a href="#services" class="nav-link text-sm tracking-widest uppercase text-muted-gold hover:text-champagne transition-colors duration-500">Hizmetler</a>
+                <a href="#gallery" class="nav-link text-sm tracking-widest uppercase text-muted-gold hover:text-champagne transition-colors duration-500">Galeri</a>
+                <a href="#testimonials" class="nav-link text-sm tracking-widest uppercase text-muted-gold hover:text-champagne transition-colors duration-500">Referanslar</a>
+                <a href="#contact" class="nav-link text-sm tracking-widest uppercase text-muted-gold hover:text-champagne transition-colors duration-500">İletişim</a>
+                <a href="tel:+904122281188" class="ml-4 px-6 py-2.5 border border-champagne/40 text-champagne text-xs tracking-[0.2em] uppercase hover:bg-champagne hover:text-noir transition-all duration-500 rounded-sm">
+                    Randevu Al
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="lg:hidden flex flex-col gap-1.5 p-2 group" aria-label="Menü">
+                <span class="w-6 h-[1.5px] bg-champagne transition-all duration-500 group-hover:w-8 origin-right"></span>
+                <span class="w-8 h-[1.5px] bg-champagne transition-all duration-500"></span>
+                <span class="w-4 h-[1.5px] bg-champagne transition-all duration-500 group-hover:w-8 origin-right"></span>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="lg:hidden fixed inset-0 bg-noir/98 backdrop-blur-xl z-50 flex flex-col items-center justify-center gap-8 opacity-0 pointer-events-none transition-all duration-700">
+            <button id="mobile-menu-close" class="absolute top-6 right-6 w-10 h-10 flex items-center justify-center text-champagne" aria-label="Kapat">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+            <a href="#hero" class="mobile-nav-link font-playfair text-3xl text-warm-white hover:text-champagne transition-colors">Ana Sayfa</a>
+            <a href="#about" class="mobile-nav-link font-playfair text-3xl text-warm-white hover:text-champagne transition-colors">Hakkımızda</a>
+            <a href="#services" class="mobile-nav-link font-playfair text-3xl text-warm-white hover:text-champagne transition-colors">Hizmetler</a>
+            <a href="#gallery" class="mobile-nav-link font-playfair text-3xl text-warm-white hover:text-champagne transition-colors">Galeri</a>
+            <a href="#testimonials" class="mobile-nav-link font-playfair text-3xl text-warm-white hover:text-champagne transition-colors">Referanslar</a>
+            <a href="#contact" class="mobile-nav-link font-playfair text-3xl text-warm-white hover:text-champagne transition-colors">İletişim</a>
+            <a href="tel:+904122281188" class="mt-4 px-8 py-3 border border-champagne text-champagne text-sm tracking-[0.2em] uppercase hover:bg-champagne hover:text-noir transition-all duration-500">Randevu Al</a>
+        </div>
+    </nav>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- HERO SECTION -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section id="hero" class="relative h-screen flex items-center justify-center overflow-hidden">
+        <!-- Parallax Background -->
+        <div id="hero-parallax" class="absolute inset-0 scale-110">
+            <img src="https://mgx-backend-cdn.metadl.com/generate/images/1031377/2026-03-16/454e3653-f0cb-4c1d-83d4-11171c2e182c.png"
+                 alt="Jîn-est Beauty Center"
+                 class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-b from-noir/70 via-noir/50 to-noir"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-noir/60 via-transparent to-noir/60"></div>
+        </div>
+
+        <!-- Decorative Elements -->
+        <div class="absolute top-20 left-10 w-72 h-72 bg-champagne/5 rounded-full blur-3xl animate-pulse-slow"></div>
+        <div class="absolute bottom-20 right-10 w-96 h-96 bg-rose/5 rounded-full blur-3xl animate-pulse-slow animation-delay-2000"></div>
+
+        <!-- Hero Content -->
+        <div class="relative z-10 text-center px-6 max-w-5xl mx-auto">
+            <!-- Decorative Line -->
+            <div class="flex items-center justify-center gap-4 mb-8 reveal">
+                <div class="w-12 h-[1px] bg-gradient-to-r from-transparent to-champagne"></div>
+                <span class="text-champagne text-xs tracking-[0.5em] uppercase font-inter">Diyarbakır'ın Lüks Güzellik Merkezi</span>
+                <div class="w-12 h-[1px] bg-gradient-to-l from-transparent to-champagne"></div>
+            </div>
+
+            <!-- Main Headline -->
+            <h1 class="font-playfair text-5xl md:text-7xl lg:text-8xl font-light leading-[1.1] mb-8 reveal reveal-delay-200">
+                <span class="block text-warm-white">Güzelliğin</span>
+                <span class="block mt-2">
+                    <em class="text-champagne font-medium italic">Zarafet</em>
+                    <span class="text-warm-white"> ile Buluştuğu</span>
+                </span>
+                <span class="block text-warm-white mt-2">Eşsiz Nokta</span>
+            </h1>
+
+            <!-- Subtitle -->
+            <p class="font-inter text-muted-gold text-base md:text-lg max-w-2xl mx-auto mb-12 leading-relaxed reveal reveal-delay-400">
+                Her dokunuşta sanat, her detayda mükemmellik. Jîn-est'te güzellik bir yolculuktur — ve bu yolculuk sizinle başlar.
+            </p>
+
+            <!-- CTA Buttons -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-5 reveal reveal-delay-600">
+                <a href="tel:+904122281188" class="group relative px-10 py-4 bg-champagne text-noir font-inter text-sm tracking-[0.2em] uppercase font-semibold overflow-hidden transition-all duration-700 hover:shadow-[0_0_40px_rgba(201,169,110,0.3)]">
+                    <span class="relative z-10">Randevunuzu Alın</span>
+                    <div class="absolute inset-0 bg-gradient-to-r from-champagne-light to-champagne opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                </a>
+                <a href="#services" class="group px-10 py-4 border border-warm-white/20 text-warm-white font-inter text-sm tracking-[0.2em] uppercase hover:border-champagne/60 hover:text-champagne transition-all duration-700">
+                    Hizmetlerimiz
+                    <span class="inline-block ml-2 transition-transform duration-500 group-hover:translate-x-1">→</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 reveal reveal-delay-800">
+            <span class="text-muted-gold text-[10px] tracking-[0.4em] uppercase">Keşfet</span>
+            <div class="w-[1px] h-12 bg-gradient-to-b from-champagne to-transparent scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- ABOUT / VISION SECTION -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section id="about" class="relative py-32 lg:py-40">
+        <!-- Background Accent -->
+        <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-champagne/[0.02] to-transparent"></div>
+
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+                <!-- Left: Image -->
+                <div class="relative reveal">
+                    <div class="relative overflow-hidden rounded-sm">
+                        <img src="https://mgx-backend-cdn.metadl.com/generate/images/1031377/2026-03-16/7f1f0740-7a0d-4b1c-abd6-18ef66d15328.png"
+                             alt="Jîn-est Beauty - Zarafet"
+                             class="w-full h-[600px] object-cover hover:scale-105 transition-transform duration-[1.5s]">
+                    </div>
+                    <!-- Decorative Frame -->
+                    <div class="absolute -bottom-6 -right-6 w-full h-full border border-champagne/20 rounded-sm -z-10"></div>
+                    <!-- Stats Badge -->
+                    <div class="absolute -bottom-8 -left-4 lg:-left-8 bg-velvet/90 backdrop-blur-xl border border-champagne/20 px-8 py-6 rounded-sm">
+                        <div class="text-champagne font-playfair text-4xl font-bold">4.6</div>
+                        <div class="flex gap-1 mt-1 mb-2">
+                            <i data-lucide="star" class="w-3.5 h-3.5 text-champagne fill-champagne"></i>
+                            <i data-lucide="star" class="w-3.5 h-3.5 text-champagne fill-champagne"></i>
+                            <i data-lucide="star" class="w-3.5 h-3.5 text-champagne fill-champagne"></i>
+                            <i data-lucide="star" class="w-3.5 h-3.5 text-champagne fill-champagne"></i>
+                            <i data-lucide="star-half" class="w-3.5 h-3.5 text-champagne fill-champagne"></i>
+                        </div>
+                        <div class="text-muted-gold text-xs tracking-wider">Google Değerlendirme</div>
+                    </div>
+                </div>
+
+                <!-- Right: Content -->
+                <div class="lg:pl-8">
+                    <div class="flex items-center gap-4 mb-6 reveal">
+                        <div class="w-10 h-[1px] bg-champagne"></div>
+                        <span class="text-champagne text-xs tracking-[0.4em] uppercase font-syne font-semibold">Hikayemiz</span>
+                    </div>
+
+                    <h2 class="font-playfair text-4xl md:text-5xl lg:text-6xl font-light leading-[1.15] mb-8 reveal reveal-delay-200">
+                        Güzellik Bir
+                        <em class="text-champagne italic"> Sanat,</em><br>
+                        Biz Onun <span class="text-rose">Ustasıyız</span>
+                    </h2>
+
+                    <div class="space-y-6 reveal reveal-delay-400">
+                        <p class="text-muted-gold leading-[1.9] text-base">
+                            Diyarbakır'ın kalbinde, kadının özüne dokunan bir güzellik efsanesi doğdu. <strong class="text-warm-white font-medium">Jîn-est Beauty Center</strong>, ismini Kürtçe'de "kadın" anlamına gelen "Jîn" kelimesinden alır — çünkü her kadın, kendi güzellik hikâyesinin kahramanıdır.
+                        </p>
+                        <p class="text-muted-gold leading-[1.9] text-base">
+                            Son teknoloji ekipmanlar ve uluslararası standartlarda eğitim almış uzman kadromuzla, medikal estetikten cilt bakımına, lazer epilasyondan kalıcı makyaja kadar geniş bir yelpazede, size özel kişiselleştirilmiş tedavi planları sunuyoruz.
+                        </p>
+                        <p class="text-muted-gold leading-[1.9] text-base">
+                            Jîn-est'te her dokunuş bir sanattır, her tedavi bir dönüşüm hikâyesidir. Siz de bu hikâyenin bir parçası olun.
+                        </p>
+                    </div>
+
+                    <!-- Features -->
+                    <div class="grid grid-cols-2 gap-6 mt-12 reveal reveal-delay-600">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-champagne/10 flex items-center justify-center">
+                                <i data-lucide="award" class="w-4 h-4 text-champagne"></i>
+                            </div>
+                            <span class="text-warm-white text-sm">Uzman Kadro</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-champagne/10 flex items-center justify-center">
+                                <i data-lucide="shield-check" class="w-4 h-4 text-champagne"></i>
+                            </div>
+                            <span class="text-warm-white text-sm">Steril Ortam</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-champagne/10 flex items-center justify-center">
+                                <i data-lucide="sparkles" class="w-4 h-4 text-champagne"></i>
+                            </div>
+                            <span class="text-warm-white text-sm">Premium Ürünler</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-champagne/10 flex items-center justify-center">
+                                <i data-lucide="heart" class="w-4 h-4 text-champagne"></i>
+                            </div>
+                            <span class="text-warm-white text-sm">Kadın Dostu</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- SERVICES SECTION -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section id="services" class="relative py-32 lg:py-40">
+        <!-- Background -->
+        <div class="absolute inset-0 bg-gradient-to-b from-noir via-velvet/50 to-noir"></div>
+
+        <div class="relative max-w-7xl mx-auto px-6 lg:px-12">
+            <!-- Section Header -->
+            <div class="text-center max-w-3xl mx-auto mb-20">
+                <div class="flex items-center justify-center gap-4 mb-6 reveal">
+                    <div class="w-10 h-[1px] bg-champagne"></div>
+                    <span class="text-champagne text-xs tracking-[0.4em] uppercase font-syne font-semibold">Hizmetlerimiz</span>
+                    <div class="w-10 h-[1px] bg-champagne"></div>
+                </div>
+                <h2 class="font-playfair text-4xl md:text-5xl lg:text-6xl font-light leading-[1.15] reveal reveal-delay-200">
+                    Güzelliğiniz İçin<br>
+                    <em class="text-champagne italic">Özel</em> Dokunuşlar
+                </h2>
+                <p class="text-muted-gold mt-6 leading-relaxed reveal reveal-delay-400">
+                    Her bir hizmetimiz, yılların deneyimi ve en son teknolojinin birleşimiyle sizin için özel olarak tasarlanmıştır.
+                </p>
+            </div>
+
+            <!-- Services Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+
+                <!-- Service Card 1 -->
+                <div class="service-card group relative bg-surface/50 backdrop-blur-sm border border-white/[0.05] rounded-sm p-8 lg:p-10 overflow-hidden transition-all duration-700 hover:border-champagne/30 reveal">
+                    <div class="absolute inset-0 bg-gradient-to-br from-champagne/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                    <div class="absolute -top-20 -right-20 w-40 h-40 bg-champagne/5 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                    <div class="relative z-10">
+                        <div class="w-14 h-14 rounded-full bg-champagne/10 flex items-center justify-center mb-6 group-hover:bg-champagne/20 transition-colors duration-500">
+                            <i data-lucide="scan-face" class="w-6 h-6 text-champagne"></i>
+                        </div>
+                        <h3 class="font-playfair text-2xl text-warm-white mb-3">Cilt Bakımı</h3>
+                        <p class="text-muted-gold text-sm leading-[1.8]">Cildinizin ihtiyaçlarına özel hazırlanan profesyonel bakım protokolleri ile doğal ışıltınızı geri kazanın.</p>
+                        <div class="mt-6 flex items-center gap-2 text-champagne text-xs tracking-wider uppercase opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0">
+                            <span>Detaylı Bilgi</span>
+                            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service Card 2 -->
+                <div class="service-card group relative bg-surface/50 backdrop-blur-sm border border-white/[0.05] rounded-sm p-8 lg:p-10 overflow-hidden transition-all duration-700 hover:border-champagne/30 reveal reveal-delay-200">
+                    <div class="absolute inset-0 bg-gradient-to-br from-champagne/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                    <div class="absolute -top-20 -right-20 w-40 h-40 bg-rose/5 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                    <div class="relative z-10">
+                        <div class="w-14 h-14 rounded-full bg-rose/10 flex items-center justify-center mb-6 group-hover:bg-rose/20 transition-colors duration-500">
+                            <i data-lucide="zap" class="w-6 h-6 text-rose"></i>
+                        </div>
+                        <h3 class="font-playfair text-2xl text-warm-white mb-3">Lazer Epilasyon</h3>
+                        <p class="text-muted-gold text-sm leading-[1.8]">Son teknoloji lazer cihazlarımızla kalıcı ve ağrısız epilasyon deneyimi. Pürüzsüz cildin adresi.</p>
+                        <div class="mt-6 flex items-center gap-2 text-rose text-xs tracking-wider uppercase opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0">
+                            <span>Detaylı Bilgi</span>
+                            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service Card 3 -->
+                <div class="service-card group relative bg-surface/50 backdrop-blur-sm border border-white/[0.05] rounded-sm p-8 lg:p-10 overflow-hidden transition-all duration-700 hover:border-champagne/30 reveal reveal-delay-400">
+                    <div class="absolute inset-0 bg-gradient-to-br from-champagne/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                    <div class="absolute -top-20 -right-20 w-40 h-40 bg-champagne/5 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                    <div class="relative z-10">
+                        <div class="w-14 h-14 rounded-full bg-champagne/10 flex items-center justify-center mb-6 group-hover:bg-champagne/20 transition-colors duration-500">
+                            <i data-lucide="palette" class="w-6 h-6 text-champagne"></i>
+                        </div>
+                        <h3 class="font-playfair text-2xl text-warm-white mb-3">Kalıcı Makyaj</h3>
+                        <p class="text-muted-gold text-sm leading-[1.8]">Kaş, dudak ve eyeliner uygulamalarıyla her an kusursuz görünüm. Doğallığı ön planda tutan teknikler.</p>
+                        <div class="mt-6 flex items-center gap-2 text-champagne text-xs tracking-wider uppercase opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0">
+                            <span>Detaylı Bilgi</span>
+                            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service Card 4 -->
+                <div class="service-card group relative bg-surface/50 backdrop-blur-sm border border-white/[0.05] rounded-sm p-8 lg:p-10 overflow-hidden transition-all duration-700 hover:border-champagne/30 reveal">
+                    <div class="absolute inset-0 bg-gradient-to-br from-champagne/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                    <div class="absolute -top-20 -right-20 w-40 h-40 bg-champagne/5 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                    <div class="relative z-10">
+                        <div class="w-14 h-14 rounded-full bg-champagne/10 flex items-center justify-center mb-6 group-hover:bg-champagne/20 transition-colors duration-500">
+                            <i data-lucide="syringe" class="w-6 h-6 text-champagne"></i>
+                        </div>
+                        <h3 class="font-playfair text-2xl text-warm-white mb-3">Medikal Estetik</h3>
+                        <p class="text-muted-gold text-sm leading-[1.8]">Mezoterapi, PRP ve dolgu uygulamalarıyla gençliğinizi yeniden keşfedin. Uzman eller, güvenli sonuçlar.</p>
+                        <div class="mt-6 flex items-center gap-2 text-champagne text-xs tracking-wider uppercase opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0">
+                            <span>Detaylı Bilgi</span>
+                            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service Card 5 -->
+                <div class="service-card group relative bg-surface/50 backdrop-blur-sm border border-white/[0.05] rounded-sm p-8 lg:p-10 overflow-hidden transition-all duration-700 hover:border-champagne/30 reveal reveal-delay-200">
+                    <div class="absolute inset-0 bg-gradient-to-br from-rose/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                    <div class="absolute -top-20 -right-20 w-40 h-40 bg-rose/5 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                    <div class="relative z-10">
+                        <div class="w-14 h-14 rounded-full bg-rose/10 flex items-center justify-center mb-6 group-hover:bg-rose/20 transition-colors duration-500">
+                            <i data-lucide="gem" class="w-6 h-6 text-rose"></i>
+                        </div>
+                        <h3 class="font-playfair text-2xl text-warm-white mb-3">Protez Tırnak</h3>
+                        <p class="text-muted-gold text-sm leading-[1.8]">Kalıcı oje ve protez tırnak uygulamalarıyla elleriniz her zaman bakımlı ve şık. Trend tasarımlar.</p>
+                        <div class="mt-6 flex items-center gap-2 text-rose text-xs tracking-wider uppercase opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0">
+                            <span>Detaylı Bilgi</span>
+                            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service Card 6 -->
+                <div class="service-card group relative bg-surface/50 backdrop-blur-sm border border-white/[0.05] rounded-sm p-8 lg:p-10 overflow-hidden transition-all duration-700 hover:border-champagne/30 reveal reveal-delay-400">
+                    <div class="absolute inset-0 bg-gradient-to-br from-champagne/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                    <div class="absolute -top-20 -right-20 w-40 h-40 bg-champagne/5 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                    <div class="relative z-10">
+                        <div class="w-14 h-14 rounded-full bg-champagne/10 flex items-center justify-center mb-6 group-hover:bg-champagne/20 transition-colors duration-500">
+                            <i data-lucide="activity" class="w-6 h-6 text-champagne"></i>
+                        </div>
+                        <h3 class="font-playfair text-2xl text-warm-white mb-3">Bölgesel İncelme</h3>
+                        <p class="text-muted-gold text-sm leading-[1.8]">İleri teknoloji cihazlarla bölgesel yağ yakımı ve vücut şekillendirme. Hayalinizdeki forma kavuşun.</p>
+                        <div class="mt-6 flex items-center gap-2 text-champagne text-xs tracking-wider uppercase opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0">
+                            <span>Detaylı Bilgi</span>
+                            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- GALLERY SECTION -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section id="gallery" class="relative py-32 lg:py-40 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <!-- Section Header -->
+            <div class="text-center max-w-3xl mx-auto mb-20">
+                <div class="flex items-center justify-center gap-4 mb-6 reveal">
+                    <div class="w-10 h-[1px] bg-champagne"></div>
+                    <span class="text-champagne text-xs tracking-[0.4em] uppercase font-syne font-semibold">Galeri</span>
+                    <div class="w-10 h-[1px] bg-champagne"></div>
+                </div>
+                <h2 class="font-playfair text-4xl md:text-5xl lg:text-6xl font-light leading-[1.15] reveal reveal-delay-200">
+                    Mükemmelliğin<br>
+                    <em class="text-champagne italic">Yansıması</em>
+                </h2>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
+                <div class="col-span-2 row-span-2 relative overflow-hidden rounded-sm group reveal">
+                    <img src="https://mgx-backend-cdn.metadl.com/generate/images/1031377/2026-03-16/454e3653-f0cb-4c1d-83d4-11171c2e182c.png"
+                         alt="Jîn-est Salon"
+                         class="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-noir/80 via-noir/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                    <div class="absolute bottom-6 left-6 opacity-0 group-hover:opacity-100 transition-all duration-700 translate-y-4 group-hover:translate-y-0">
+                        <span class="text-champagne text-xs tracking-[0.3em] uppercase">Salonumuz</span>
+                        <h4 class="font-playfair text-xl text-warm-white mt-1">Lüks Mekanımız</h4>
+                    </div>
+                </div>
+
+                <div class="relative overflow-hidden rounded-sm group reveal reveal-delay-200">
+                    <img src="https://mgx-backend-cdn.metadl.com/generate/images/1031377/2026-03-16/72b33c7e-8877-41f6-92e3-6273f29d9306.png"
+                         alt="Cilt Bakımı"
+                         class="w-full h-full object-cover aspect-square transition-transform duration-[2s] group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-noir/80 via-noir/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                    <div class="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-all duration-700 translate-y-4 group-hover:translate-y-0">
+                        <span class="text-champagne text-xs tracking-wider">Cilt Bakımı</span>
+                    </div>
+                </div>
+
+                <div class="relative overflow-hidden rounded-sm group reveal reveal-delay-400">
+                    <img src="https://mgx-backend-cdn.metadl.com/generate/images/1031377/2026-03-16/a0bf1229-9172-40d7-8a76-0f45117f77fa.png"
+                         alt="Medikal Estetik"
+                         class="w-full h-full object-cover aspect-square transition-transform duration-[2s] group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-noir/80 via-noir/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                    <div class="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-all duration-700 translate-y-4 group-hover:translate-y-0">
+                        <span class="text-champagne text-xs tracking-wider">Medikal Estetik</span>
+                    </div>
+                </div>
+
+                <div class="relative overflow-hidden rounded-sm group reveal reveal-delay-200">
+                    <img src="https://mgx-backend-cdn.metadl.com/generate/images/1031377/2026-03-16/7f1f0740-7a0d-4b1c-abd6-18ef66d15328.png"
+                         alt="Güzellik"
+                         class="w-full h-full object-cover aspect-square transition-transform duration-[2s] group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-noir/80 via-noir/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                    <div class="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-all duration-700 translate-y-4 group-hover:translate-y-0">
+                        <span class="text-champagne text-xs tracking-wider">Güzellik</span>
+                    </div>
+                </div>
+
+                <div class="relative overflow-hidden rounded-sm group reveal reveal-delay-400 bg-gradient-to-br from-champagne/10 to-rose/10 flex items-center justify-center aspect-square">
+                    <a href="https://www.instagram.com/jinestguzellik/" target="_blank" rel="noopener" class="flex flex-col items-center gap-4 text-center p-6">
+                        <div class="w-16 h-16 rounded-full border border-champagne/30 flex items-center justify-center group-hover:bg-champagne/10 transition-all duration-500">
+                            <i data-lucide="instagram" class="w-7 h-7 text-champagne"></i>
+                        </div>
+                        <span class="text-champagne text-xs tracking-[0.3em] uppercase">@jinestguzellik</span>
+                        <span class="text-muted-gold text-xs">Daha fazlası için takip edin</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- TESTIMONIALS SECTION -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section id="testimonials" class="relative py-32 lg:py-40">
+        <div class="absolute inset-0 bg-gradient-to-b from-noir via-velvet/30 to-noir"></div>
+
+        <!-- Decorative -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-champagne/[0.02] rounded-full blur-3xl"></div>
+
+        <div class="relative max-w-7xl mx-auto px-6 lg:px-12">
+            <!-- Section Header -->
+            <div class="text-center max-w-3xl mx-auto mb-20">
+                <div class="flex items-center justify-center gap-4 mb-6 reveal">
+                    <div class="w-10 h-[1px] bg-champagne"></div>
+                    <span class="text-champagne text-xs tracking-[0.4em] uppercase font-syne font-semibold">Referanslar</span>
+                    <div class="w-10 h-[1px] bg-champagne"></div>
+                </div>
+                <h2 class="font-playfair text-4xl md:text-5xl lg:text-6xl font-light leading-[1.15] reveal reveal-delay-200">
+                    Müşterilerimiz<br>
+                    <em class="text-champagne italic">Anlatıyor</em>
+                </h2>
+            </div>
+
+            <!-- Testimonials Grid -->
+            <div class="grid md:grid-cols-3 gap-8">
+
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card group relative bg-surface/30 backdrop-blur-sm border border-white/[0.05] rounded-sm p-8 lg:p-10 transition-all duration-700 hover:border-champagne/20 reveal">
+                    <div class="absolute top-6 right-8 font-playfair text-7xl text-champagne/10 leading-none">"</div>
+                    <!-- Stars -->
+                    <div class="flex gap-1 mb-6 star-container">
+                        <i data-lucide="star" class="w-4 h-4 text-champagne fill-champagne star-animate"></i>
+                        <i data-lucide="star" class="w-4 h-4 text-champagne fill-champagne star-animate star-delay-1"></i>
+                        <i data-lucide="star" class="w-4 h-4 text-champagne fill-champagne star-animate star-delay-2"></i>
+                        <i data-lucide="star" class="w-4 h-4 text-champagne fill-champagne star-animate star-delay-3"></i>
+                        <i data-lucide="star" class="w-4 h-4 text-champagne fill-champagne star-animate star-delay-4"></i>
+                    </div>
+                    <p class="text-muted-gold leading-[1.9] text-sm mb-8 relative z-10">
+                        "Diyarbakır'da bu kalitede bir güzellik merkezi bulmak gerçekten zor. Jîn-est'te kendimi özel hissettim. Cilt bakımı sonrası cildimdeki değişim inanılmazdı. Kesinlikle tavsiye ederim!"
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-11 h-11 rounded-full bg-gradient-to-br from-champagne to-rose flex items-center justify-center text-noir font-playfair font-bold text-sm">A</div>
+                        <div>
+                            <div class="text-warm-white text-sm font-medium">Ayşe K.</div>
+                            <div class="text-muted-gold text-xs">Düzenli Müşteri</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card group relative bg-surface/30 backdrop-blur-sm border border-white/[0.05] rounded-sm p-8 lg:p-10 transition-all duration-700 hover:border-champagne/20 reveal reveal-delay-200">
+                    <div class="absolute top-6 right-8 font-playfair text-7xl text-champagne/10 leading-none">"</div>
+                    <div class="flex gap-1 mb-6 star-container">
+                        <i data-lucide="star" class="w-4 h-4 text-champagne fill-champagne star-animate"></i>
+                        <i data-lucide="star" class="w-4 h-4 text-champagne fill-champagne star-animate star-delay-1"></i>
+                        <i data-lucide="star" class="w-4 h-4 text-champagne fill-champagne star-animate star-delay-2"></i>
+                        <i data-lucide="star" class="w-4 h-4 text-champagne fill-champagne star-animate star-delay-3"></i>
+                        <i data-lucide="star" class="w-4 h-4 text-champagne fill-champagne star-animate star-delay-4"></i>
+                    </div>
+                    <p class="text-muted-gold leading-[1.9] text-sm mb-8 relative z-10">
+                        "Lazer epilasyon için gittim ve sonuçlar beklentilerimin çok üzerindeydi. Ekip son derece profesyonel ve ilgili. Mekan çok temiz ve lüks. Her detay düşünülmüş."
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-11 h-11 rounded-full bg-gradient-to-br from-rose to-champagne-light flex items-center justify-center text-noir font-playfair font-bold text-sm">S</div>
+                        <div>
+                            <div class="text-warm-white text-sm font-medium">Sevda M.</div>
+                            <div class="text-muted-gold text-xs">Lazer Epilasyon</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card group relative bg-surface/30 backdrop-blur-sm border border-white/[0.05] rounded-sm p-8 lg:p-10 transition-all duration-700 hover:border-champagne/20 reveal reveal-delay-400">
+                    <div class="absolute top-6 right-8 font-playfair text-7xl text-champagne/10 leading-none">"</div>
+                    <div class="flex gap-1 mb-6 star-container">
+                        <i data-lucide="star" class="w-4 h-4 text-champagne fill-champagne star-animate"></i>
+                        <i data-lucide="star" class="w-4 h-4 text-champagne fill-champagne star-animate star-delay-1"></i>
+                        <i data-lucide="star" class="w-4 h-4 text-champagne fill-champagne star-animate star-delay-2"></i>
+                        <i data-lucide="star" class="w-4 h-4 text-champagne fill-champagne star-animate star-delay-3"></i>
+                        <i data-lucide="star-half" class="w-4 h-4 text-champagne fill-champagne star-animate star-delay-4"></i>
+                    </div>
+                    <p class="text-muted-gold leading-[1.9] text-sm mb-8 relative z-10">
+                        "Kalıcı makyaj yaptırdım ve sonuç muhteşem! Çok doğal görünüyor. Uzmanlar işlerini gerçekten biliyor. Otopark ve vale hizmeti de büyük kolaylık sağlıyor."
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-11 h-11 rounded-full bg-gradient-to-br from-champagne to-champagne-light flex items-center justify-center text-noir font-playfair font-bold text-sm">D</div>
+                        <div>
+                            <div class="text-warm-white text-sm font-medium">Dilan R.</div>
+                            <div class="text-muted-gold text-xs">Kalıcı Makyaj</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- CONTACT & MAP SECTION -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section id="contact" class="relative py-32 lg:py-40">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <!-- Section Header -->
+            <div class="text-center max-w-3xl mx-auto mb-20">
+                <div class="flex items-center justify-center gap-4 mb-6 reveal">
+                    <div class="w-10 h-[1px] bg-champagne"></div>
+                    <span class="text-champagne text-xs tracking-[0.4em] uppercase font-syne font-semibold">İletişim</span>
+                    <div class="w-10 h-[1px] bg-champagne"></div>
+                </div>
+                <h2 class="font-playfair text-4xl md:text-5xl lg:text-6xl font-light leading-[1.15] reveal reveal-delay-200">
+                    Güzellik Yolculuğunuz<br>
+                    <em class="text-champagne italic">Burada</em> Başlıyor
+                </h2>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-20">
+                <!-- Contact Form -->
+                <div class="reveal">
+                    <form id="contact-form" class="space-y-6">
+                        <div class="grid sm:grid-cols-2 gap-6">
+                            <div class="group">
+                                <label class="block text-muted-gold text-xs tracking-wider uppercase mb-3">Adınız</label>
+                                <input type="text" placeholder="Adınızı girin"
+                                    class="w-full bg-transparent border-b border-white/10 pb-3 text-warm-white text-sm placeholder:text-white/20 focus:border-champagne focus:outline-none transition-colors duration-500">
+                            </div>
+                            <div class="group">
+                                <label class="block text-muted-gold text-xs tracking-wider uppercase mb-3">Telefon</label>
+                                <input type="tel" placeholder="+90 ..."
+                                    class="w-full bg-transparent border-b border-white/10 pb-3 text-warm-white text-sm placeholder:text-white/20 focus:border-champagne focus:outline-none transition-colors duration-500">
+                            </div>
+                        </div>
+                        <div class="group">
+                            <label class="block text-muted-gold text-xs tracking-wider uppercase mb-3">E-posta</label>
+                            <input type="email" placeholder="E-posta adresiniz"
+                                class="w-full bg-transparent border-b border-white/10 pb-3 text-warm-white text-sm placeholder:text-white/20 focus:border-champagne focus:outline-none transition-colors duration-500">
+                        </div>
+                        <div class="group">
+                            <label class="block text-muted-gold text-xs tracking-wider uppercase mb-3">Hizmet Seçimi</label>
+                            <select class="w-full bg-transparent border-b border-white/10 pb-3 text-muted-gold text-sm focus:border-champagne focus:outline-none transition-colors duration-500 appearance-none cursor-pointer">
+                                <option value="" class="bg-velvet">Hizmet seçin...</option>
+                                <option value="cilt" class="bg-velvet">Cilt Bakımı</option>
+                                <option value="lazer" class="bg-velvet">Lazer Epilasyon</option>
+                                <option value="makyaj" class="bg-velvet">Kalıcı Makyaj</option>
+                                <option value="medikal" class="bg-velvet">Medikal Estetik</option>
+                                <option value="tirnak" class="bg-velvet">Protez Tırnak</option>
+                                <option value="incelme" class="bg-velvet">Bölgesel İncelme</option>
+                                <option value="diger" class="bg-velvet">Diğer</option>
+                            </select>
+                        </div>
+                        <div class="group">
+                            <label class="block text-muted-gold text-xs tracking-wider uppercase mb-3">Mesajınız</label>
+                            <textarea rows="4" placeholder="Mesajınızı yazın..."
+                                class="w-full bg-transparent border-b border-white/10 pb-3 text-warm-white text-sm placeholder:text-white/20 focus:border-champagne focus:outline-none transition-colors duration-500 resize-none"></textarea>
+                        </div>
+                        <button type="submit"
+                            class="group relative w-full sm:w-auto px-12 py-4 bg-champagne text-noir font-inter text-sm tracking-[0.2em] uppercase font-semibold overflow-hidden transition-all duration-700 hover:shadow-[0_0_40px_rgba(201,169,110,0.3)] mt-4">
+                            <span class="relative z-10 flex items-center justify-center gap-3">
+                                Mesaj Gönder
+                                <i data-lucide="send" class="w-4 h-4 transition-transform duration-500 group-hover:translate-x-1"></i>
+                            </span>
+                            <div class="absolute inset-0 bg-gradient-to-r from-champagne-light to-champagne opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                        </button>
+                    </form>
+
+                    <!-- Contact Info -->
+                    <div class="mt-16 grid sm:grid-cols-2 gap-8">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-full bg-champagne/10 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="map-pin" class="w-5 h-5 text-champagne"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-warm-white text-sm font-medium mb-1">Adres</h4>
+                                <p class="text-muted-gold text-xs leading-relaxed">Kooperatifler Mah. Yeni Sok. V. Kupik Apt. No:1/3, Yenişehir/Diyarbakır</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-full bg-champagne/10 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="phone" class="w-5 h-5 text-champagne"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-warm-white text-sm font-medium mb-1">Telefon</h4>
+                                <a href="tel:+904122281188" class="text-muted-gold text-xs hover:text-champagne transition-colors">+90 412 228 11 88</a>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-full bg-champagne/10 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="clock" class="w-5 h-5 text-champagne"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-warm-white text-sm font-medium mb-1">Çalışma Saatleri</h4>
+                                <p class="text-muted-gold text-xs">Pazartesi - Cumartesi<br>09:00 – 19:00</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-full bg-champagne/10 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="instagram" class="w-5 h-5 text-champagne"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-warm-white text-sm font-medium mb-1">Instagram</h4>
+                                <a href="https://www.instagram.com/jinestguzellik/" target="_blank" rel="noopener" class="text-muted-gold text-xs hover:text-champagne transition-colors">@jinestguzellik</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Map -->
+                <div class="reveal reveal-delay-200">
+                    <div class="relative rounded-2xl overflow-hidden border border-white/[0.05] shadow-[0_0_60px_rgba(201,169,110,0.08)]">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3145.123456789!2d40.2213559!3d37.9212249!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x407520272401c38b%3A0xe52b762599c079cd!2zSsOubi1lc3QgQmVhdXR5IENlbnRlcg!5e0!3m2!1str!2str!4v1710000000000!5m2!1str!2str"
+                            width="100%"
+                            height="500"
+                            style="border:0; filter: grayscale(0.6) contrast(1.1) brightness(0.7);"
+                            allowfullscreen=""
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"
+                            class="w-full">
+                        </iframe>
+                        <!-- Map Overlay Badge -->
+                        <div class="absolute bottom-6 left-6 bg-noir/90 backdrop-blur-xl border border-champagne/20 px-6 py-4 rounded-xl">
+                            <div class="flex items-center gap-3">
+                                <div class="w-3 h-3 rounded-full bg-green-400 animate-pulse"></div>
+                                <span class="text-warm-white text-xs tracking-wider">Şu An Açık</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Actions -->
+                    <div class="grid grid-cols-2 gap-4 mt-6">
+                        <a href="https://maps.app.goo.gl/G18LHfokERh9kV339" target="_blank" rel="noopener"
+                            class="flex items-center justify-center gap-3 bg-surface/50 border border-white/[0.05] rounded-xl py-4 px-6 hover:border-champagne/30 transition-all duration-500 group">
+                            <i data-lucide="navigation" class="w-4 h-4 text-champagne"></i>
+                            <span class="text-warm-white text-xs tracking-wider uppercase">Yol Tarifi Al</span>
+                        </a>
+                        <a href="tel:+904122281188"
+                            class="flex items-center justify-center gap-3 bg-champagne/10 border border-champagne/20 rounded-xl py-4 px-6 hover:bg-champagne/20 transition-all duration-500 group">
+                            <i data-lucide="phone-call" class="w-4 h-4 text-champagne"></i>
+                            <span class="text-champagne text-xs tracking-wider uppercase">Hemen Ara</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- FOOTER -->
+    <!-- ═══════════════════════════════════════════ -->
+    <footer class="relative border-t border-white/[0.05] py-16">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="flex flex-col lg:flex-row items-center justify-between gap-8">
+                <!-- Logo -->
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full border border-champagne/30 flex items-center justify-center">
+                        <span class="font-playfair text-champagne text-lg font-bold">J</span>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-playfair text-xl tracking-wider text-warm-white">Jîn-est</span>
+                        <span class="text-[9px] tracking-[0.35em] uppercase text-muted-gold">Beauty Center</span>
+                    </div>
+                </div>
+
+                <!-- Nav -->
+                <div class="flex flex-wrap items-center justify-center gap-8">
+                    <a href="#hero" class="text-muted-gold text-xs tracking-wider uppercase hover:text-champagne transition-colors duration-500">Ana Sayfa</a>
+                    <a href="#about" class="text-muted-gold text-xs tracking-wider uppercase hover:text-champagne transition-colors duration-500">Hakkımızda</a>
+                    <a href="#services" class="text-muted-gold text-xs tracking-wider uppercase hover:text-champagne transition-colors duration-500">Hizmetler</a>
+                    <a href="#contact" class="text-muted-gold text-xs tracking-wider uppercase hover:text-champagne transition-colors duration-500">İletişim</a>
+                </div>
+
+                <!-- Social -->
+                <div class="flex items-center gap-4">
+                    <a href="https://www.instagram.com/jinestguzellik/" target="_blank" rel="noopener"
+                        class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:border-champagne/40 hover:bg-champagne/10 transition-all duration-500">
+                        <i data-lucide="instagram" class="w-4 h-4 text-muted-gold"></i>
+                    </a>
+                    <a href="tel:+904122281188"
+                        class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:border-champagne/40 hover:bg-champagne/10 transition-all duration-500">
+                        <i data-lucide="phone" class="w-4 h-4 text-muted-gold"></i>
+                    </a>
+                    <a href="https://maps.app.goo.gl/G18LHfokERh9kV339" target="_blank" rel="noopener"
+                        class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:border-champagne/40 hover:bg-champagne/10 transition-all duration-500">
+                        <i data-lucide="map-pin" class="w-4 h-4 text-muted-gold"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Bottom -->
+            <div class="mt-12 pt-8 border-t border-white/[0.03] flex flex-col sm:flex-row items-center justify-between gap-4">
+                <p class="text-muted-gold/50 text-xs tracking-wider">
+                    © 2025 Jîn-est Beauty Center. Tüm hakları saklıdır.
+                </p>
+                <p class="text-muted-gold/30 text-[10px] tracking-wider flex items-center gap-2">
+                    <i data-lucide="heart" class="w-3 h-3 text-rose/40"></i>
+                    Güzellik ile tasarlandı
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float Button -->
+    <a href="tel:+904122281188"
+        class="fixed bottom-8 right-8 z-50 w-14 h-14 bg-champagne rounded-full flex items-center justify-center shadow-[0_0_30px_rgba(201,169,110,0.4)] hover:shadow-[0_0_50px_rgba(201,169,110,0.6)] hover:scale-110 transition-all duration-500">
+        <i data-lucide="phone" class="w-6 h-6 text-noir"></i>
+    </a>
+
+    <script type="module" src="./script.js"></script>
+</body>
+
+</html>

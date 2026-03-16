@@ -1,0 +1,287 @@
+/* ============================================
+   LIZA GÜZELLIK SALONU - ULTRA PREMIUM STYLES
+   ============================================ */
+
+/* === BASE & RESET === */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+    background: rgba(201, 169, 110, 0.3);
+    color: #fff;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0A0A0A;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(201, 169, 110, 0.3);
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(201, 169, 110, 0.5);
+}
+
+/* === PRELOADER === */
+#preloader {
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+#preloader.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.preloader-ring {
+    width: 50px;
+    height: 50px;
+    border: 2px solid rgba(201, 169, 110, 0.1);
+    border-top-color: #C9A96E;
+    border-radius: 50%;
+    animation: preloader-spin 1s linear infinite;
+}
+
+@keyframes preloader-spin {
+    to { transform: rotate(360deg); }
+}
+
+/* === NAVBAR === */
+#navbar {
+    background: transparent;
+}
+
+#navbar.scrolled {
+    background: rgba(10, 10, 10, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* === REVEAL ANIMATIONS === */
+.reveal-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-up.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* === PARALLAX === */
+#hero-parallax {
+    transition: transform 0.1s linear;
+    will-change: transform;
+}
+
+/* === MARQUEE === */
+.marquee-track {
+    animation: marquee 30s linear infinite;
+}
+
+@keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* === STAR ANIMATION === */
+.star-animate {
+    animation: star-twinkle 2s ease-in-out infinite;
+}
+
+@keyframes star-twinkle {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.7; transform: scale(1.15); }
+}
+
+/* === GOLD PARTICLES === */
+.gold-particle {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: radial-gradient(circle, rgba(201, 169, 110, 0.8), transparent);
+    border-radius: 50%;
+    pointer-events: none;
+    animation: particle-float linear infinite;
+}
+
+@keyframes particle-float {
+    0% {
+        transform: translateY(100vh) translateX(0) scale(0);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+        transform: translateY(90vh) translateX(10px) scale(1);
+    }
+    90% {
+        opacity: 0.5;
+    }
+    100% {
+        transform: translateY(-10vh) translateX(-20px) scale(0.5);
+        opacity: 0;
+    }
+}
+
+/* === BOUNCE SLOW === */
+.animate-bounce-slow {
+    animation: bounce-slow 3s ease-in-out infinite;
+}
+
+@keyframes bounce-slow {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(-10px); }
+}
+
+/* === SERVICE CARD GLOW === */
+.service-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 1rem;
+    padding: 1px;
+    background: linear-gradient(135deg, transparent, rgba(201, 169, 110, 0.1), transparent);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.7s ease;
+}
+
+.service-card:hover::before {
+    opacity: 1;
+}
+
+/* === FORM STYLES === */
+input:focus, textarea:focus, select:focus {
+    border-color: #C9A96E !important;
+}
+
+input::placeholder, textarea::placeholder {
+    transition: opacity 0.3s ease;
+}
+
+input:focus::placeholder, textarea:focus::placeholder {
+    opacity: 0.3;
+}
+
+/* === MOBILE MENU === */
+#mobile-menu.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* Hamburger Animation */
+.menu-open .hamburger-line-1 {
+    transform: rotate(45deg) translate(4px, 4px);
+}
+
+.menu-open .hamburger-line-2 {
+    opacity: 0;
+    transform: scaleX(0);
+}
+
+.menu-open .hamburger-line-3 {
+    transform: rotate(-45deg) translate(4px, -4px);
+}
+
+/* === COUNTER === */
+.counter {
+    font-variant-numeric: tabular-nums;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 640px) {
+    .reveal-up {
+        transform: translateY(25px);
+    }
+}
+
+/* === FORM SUCCESS STATE === */
+.form-success {
+    animation: form-success-pulse 0.6s ease;
+}
+
+@keyframes form-success-pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+}
+
+/* === GLASSMORPHISM GLOW ON HOVER === */
+.service-card:hover,
+#testimonials .group:hover {
+    box-shadow: 0 0 40px rgba(201, 169, 110, 0.08),
+                0 0 80px rgba(201, 169, 110, 0.04);
+}
+
+/* === GALLERY OVERLAY === */
+#gallery .group:hover img {
+    filter: brightness(0.8);
+}
+
+/* === LINK UNDERLINE ANIMATION === */
+.nav-link {
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: #C9A96E;
+    transition: width 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* === BACK TO TOP === */
+#back-to-top.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: all;
+}
+
+/* === LOADING SHIMMER === */
+@keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+/* === PRINT STYLES === */
+@media print {
+    #navbar, #back-to-top, #preloader, .gold-particle {
+        display: none !important;
+    }
+    body {
+        background: #fff !important;
+        color: #000 !important;
+    }
+}

@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flora Güzellik Ve Bakım | Premium Güzellik Merkezi - Erzurum</title>
+    <meta name="description" content="Flora Güzellik Ve Bakım - Erzurum'un premium güzellik merkezi. Cilt bakımı, saç bakımı, makyaj ve tırnak bakımı hizmetleri.">
+    <link rel="icon" href="https://public-frontend-cos.metadl.com/mgx/img/favicon_atoms.ico" type="image/x-icon">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'serif': ['Playfair Display', 'Georgia', 'serif'],
+                        'sans': ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                    colors: {
+                        'dark': {
+                            900: '#000000',
+                            800: '#0A0A0A',
+                            700: '#111111',
+                            600: '#1A1A1A',
+                            500: '#222222',
+                            400: '#2A2A2A',
+                            300: '#333333',
+                        },
+                        'light': {
+                            100: '#FFFFFF',
+                            200: '#F5F5F5',
+                            300: '#E5E5E5',
+                            400: '#D4D4D4',
+                            500: '#999999',
+                            600: '#777777',
+                            700: '#555555',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@0.344.0/dist/umd/lucide.js"></script>
+
+    <style>
+        /* ===== Base Styles ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background-color: #000000;
+            color: #FFFFFF;
+            overflow-x: hidden;
+        }
+
+        /* ===== Custom Scrollbar ===== */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #000000;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #333333;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555555;
+        }
+
+        /* ===== Scroll Animations ===== */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .fade-in-left {
+            opacity: 0;
+            transform: translateX(-60px);
+            transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .fade-in-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .fade-in-right {
+            opacity: 0;
+            transform: translateX(60px);
+            transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .fade-in-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .scale-in {
+            opacity: 0;
+            transform: scale(0.9);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .scale-in.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Stagger delays */
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.2s; }
+        .delay-3 { transition-delay: 0.3s; }
+        .delay-4 { transition-delay: 0.4s; }
+        .delay-5 { transition-delay: 0.5s; }
+        .delay-6 { transition-delay: 0.6s; }
+
+        /* ===== Hero Gradient Animation ===== */
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #000000 0%, #111111 25%, #1A1A1A 50%, #0A0A0A 75%, #000000 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 12s ease infinite;
+        }
+
+        /* ===== WhatsApp Pulse Animation ===== */
+        @keyframes pulse-ring {
+            0% { transform: scale(0.8); opacity: 1; }
+            80%, 100% { transform: scale(1.6); opacity: 0; }
+        }
+        .whatsapp-btn::before {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.15);
+            animation: pulse-ring 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
+        }
+
+        /* ===== Navbar Styles ===== */
+        .navbar {
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .navbar.scrolled {
+            background: rgba(0, 0, 0, 0.92);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* ===== Image Hover Effects ===== */
+        .img-hover {
+            overflow: hidden;
+        }
+        .img-hover img {
+            transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), filter 0.7s ease;
+        }
+        .img-hover:hover img {
+            transform: scale(1.08);
+            filter: brightness(1.1);
+        }
+
+        /* ===== Service Card Hover ===== */
+        .service-card {
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .service-card:hover {
+            transform: translateY(-8px);
+            background: #1A1A1A;
+            border-color: #333333;
+        }
+        .service-card:hover .service-icon {
+            background: #FFFFFF;
+            color: #000000;
+        }
+        .service-icon {
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* ===== Divider Line ===== */
+        .divider {
+            width: 60px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #999999, transparent);
+        }
+
+        /* ===== Mobile Menu ===== */
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
+        .mobile-menu-overlay {
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+        }
+        .mobile-menu-overlay.open {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* ===== Gallery Grid ===== */
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+        }
+        .gallery-item::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 50%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        .gallery-item:hover::after {
+            opacity: 1;
+        }
+        .gallery-item .gallery-text {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: 2;
+        }
+        .gallery-item:hover .gallery-text {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== Separator Dot ===== */
+        .dot-separator::before {
+            content: '·';
+            margin: 0 8px;
+            color: #555555;
+        }
+
+        /* ===== Hero Image Overlay ===== */
+        .hero-image-overlay {
+            position: relative;
+        }
+        .hero-image-overlay::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to right, #000000 0%, rgba(0,0,0,0.3) 50%, transparent 100%);
+        }
+
+        /* ===== Contact Info Hover ===== */
+        .contact-item {
+            transition: all 0.3s ease;
+        }
+        .contact-item:hover {
+            background: #1A1A1A;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar fixed top-0 left-0 w-full z-50 px-4 sm:px-6 lg:px-12 py-4 lg:py-5">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#hero" class="flex items-center gap-2 sm:gap-3 group">
+                <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-light-400 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all duration-300">
+                    <i data-lucide="flower-2" class="w-4 h-4 sm:w-5 sm:h-5"></i>
+                </div>
+                <div>
+                    <span class="font-serif text-base sm:text-lg font-semibold tracking-wide">FLORA</span>
+                    <span class="hidden sm:block text-[10px] tracking-[0.3em] text-light-500 uppercase">Güzellik & Bakım</span>
+                </div>
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden lg:flex items-center gap-10">
+                <a href="#hizmetler" class="text-sm font-medium text-light-500 hover:text-white transition-colors duration-300 tracking-wide">Hizmetler</a>
+                <a href="#hakkimizda" class="text-sm font-medium text-light-500 hover:text-white transition-colors duration-300 tracking-wide">Hakkımızda</a>
+                <a href="#galeri" class="text-sm font-medium text-light-500 hover:text-white transition-colors duration-300 tracking-wide">Galeri</a>
+                <a href="#iletisim" class="text-sm font-medium text-light-500 hover:text-white transition-colors duration-300 tracking-wide">İletişim</a>
+            </div>
+
+            <!-- Desktop CTA -->
+            <a href="https://wa.me/905010432144?text=Merhaba,%20randevu%20ve%20hizmetleriniz%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" class="hidden lg:flex items-center gap-2 bg-white text-black px-6 py-2.5 text-sm font-medium tracking-wide hover:bg-light-300 transition-all duration-300 rounded-full">
+                <i data-lucide="calendar" class="w-4 h-4"></i>
+                Randevu Al
+            </a>
+
+            <!-- Mobile Hamburger -->
+            <button id="menuToggle" class="lg:hidden flex flex-col items-center justify-center w-10 h-10 gap-1.5 z-[60]" aria-label="Menü">
+                <span class="hamburger-line w-6 h-[1.5px] bg-white transition-all duration-300 origin-center"></span>
+                <span class="hamburger-line w-6 h-[1.5px] bg-white transition-all duration-300 origin-center"></span>
+                <span class="hamburger-line w-4 h-[1.5px] bg-white transition-all duration-300 origin-center ml-auto"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ===== MOBILE MENU OVERLAY ===== -->
+    <div id="menuOverlay" class="mobile-menu-overlay fixed inset-0 bg-black/70 z-[55] lg:hidden"></div>
+
+    <!-- ===== MOBILE MENU ===== -->
+    <div id="mobileMenu" class="mobile-menu fixed top-0 right-0 w-[280px] h-full bg-dark-800 z-[58] lg:hidden flex flex-col">
+        <div class="pt-20 px-8 flex-1 flex flex-col">
+            <div class="flex flex-col gap-1">
+                <a href="#hero" class="mobile-link text-2xl font-serif text-light-400 hover:text-white py-3 border-b border-dark-400 transition-colors duration-300">Ana Sayfa</a>
+                <a href="#hizmetler" class="mobile-link text-2xl font-serif text-light-400 hover:text-white py-3 border-b border-dark-400 transition-colors duration-300">Hizmetler</a>
+                <a href="#hakkimizda" class="mobile-link text-2xl font-serif text-light-400 hover:text-white py-3 border-b border-dark-400 transition-colors duration-300">Hakkımızda</a>
+                <a href="#galeri" class="mobile-link text-2xl font-serif text-light-400 hover:text-white py-3 border-b border-dark-400 transition-colors duration-300">Galeri</a>
+                <a href="#iletisim" class="mobile-link text-2xl font-serif text-light-400 hover:text-white py-3 border-b border-dark-400 transition-colors duration-300">İletişim</a>
+            </div>
+
+            <div class="mt-auto pb-10">
+                <a href="https://wa.me/905010432144?text=Merhaba,%20randevu%20ve%20hizmetleriniz%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 bg-white text-black w-full py-3 text-sm font-semibold tracking-wide rounded-full hover:bg-light-300 transition-all duration-300">
+                    <i data-lucide="calendar" class="w-4 h-4"></i>
+                    Randevu Al
+                </a>
+                <div class="flex items-center justify-center gap-4 mt-6">
+                    <a href="https://instagram.com/floraguzellikvebakim/" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full border border-dark-400 flex items-center justify-center text-light-500 hover:text-white hover:border-white transition-all duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                    </a>
+                    <a href="tel:+905010432144" class="w-10 h-10 rounded-full border border-dark-400 flex items-center justify-center text-light-500 hover:text-white hover:border-white transition-all duration-300">
+                        <i data-lucide="phone" class="w-4 h-4"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section id="hero" class="relative min-h-screen flex items-center overflow-hidden">
+        <!-- Background Image -->
+        <div class="absolute inset-0 hero-image-overlay">
+            <img src="https://mgx-backend-cdn.metadl.com/generate/images/1057824/2026-03-25/c27cc4de-60f9-4e5b-b1a4-d5072774fee7.png" alt="Flora Güzellik" class="w-full h-full object-cover object-center opacity-40">
+        </div>
+        <!-- Gradient Overlay -->
+        <div class="absolute inset-0 hero-gradient opacity-70"></div>
+
+        <!-- Content -->
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 w-full pt-24 pb-16 lg:pt-0 lg:pb-0">
+            <div class="max-w-2xl">
+                <!-- Badge -->
+                <div class="fade-in inline-flex items-center gap-2 border border-dark-400 rounded-full px-4 py-1.5 mb-6 sm:mb-8">
+                    <div class="w-1.5 h-1.5 rounded-full bg-light-400 animate-pulse"></div>
+                    <span class="text-xs tracking-[0.2em] text-light-500 uppercase font-medium">Premium Güzellik Merkezi</span>
+                </div>
+
+                <!-- Heading -->
+                <h1 class="fade-in delay-1 font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold leading-[1.1] mb-6">
+                    Güzelliğinize<br>
+                    <span class="italic font-normal text-light-400">Değer</span> Katıyoruz
+                </h1>
+
+                <!-- Subtext -->
+                <p class="fade-in delay-2 text-base sm:text-lg text-light-500 leading-relaxed max-w-lg mb-8 sm:mb-10">
+                    Erzurum'un kalbinde, profesyonel ekibimiz ve premium hizmetlerimizle güzelliğinizi ön plana çıkarıyoruz.
+                </p>
+
+                <!-- CTA Buttons -->
+                <div class="fade-in delay-3 flex flex-col sm:flex-row gap-4">
+                    <a href="https://wa.me/905010432144?text=Merhaba,%20randevu%20ve%20hizmetleriniz%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 bg-white text-black px-8 py-3.5 text-sm font-semibold tracking-wide hover:bg-light-300 transition-all duration-300 rounded-full">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                        Hemen İletişime Geç
+                    </a>
+                    <a href="#hizmetler" class="inline-flex items-center justify-center gap-2 border border-light-700 text-white px-8 py-3.5 text-sm font-medium tracking-wide hover:bg-white hover:text-black transition-all duration-300 rounded-full">
+                        Hizmetlerimiz
+                        <i data-lucide="arrow-down" class="w-4 h-4"></i>
+                    </a>
+                </div>
+
+                <!-- Stats -->
+                <div class="fade-in delay-4 flex items-center gap-6 sm:gap-10 mt-12 sm:mt-16 pt-8 border-t border-dark-400">
+                    <div>
+                        <div class="text-2xl sm:text-3xl font-serif font-semibold">4.8</div>
+                        <div class="text-xs text-light-500 mt-1 tracking-wide">Google Puan</div>
+                    </div>
+                    <div class="w-px h-10 bg-dark-400"></div>
+                    <div>
+                        <div class="text-2xl sm:text-3xl font-serif font-semibold">500+</div>
+                        <div class="text-xs text-light-500 mt-1 tracking-wide">Mutlu Müşteri</div>
+                    </div>
+                    <div class="w-px h-10 bg-dark-400"></div>
+                    <div>
+                        <div class="text-2xl sm:text-3xl font-serif font-semibold">10+</div>
+                        <div class="text-xs text-light-500 mt-1 tracking-wide">Yıllık Deneyim</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50 animate-bounce">
+            <i data-lucide="chevron-down" class="w-5 h-5"></i>
+        </div>
+    </section>
+
+    <!-- ===== SERVICES SECTION ===== -->
+    <section id="hizmetler" class="py-20 sm:py-28 lg:py-32 bg-dark-800 relative">
+        <!-- Subtle top gradient -->
+        <div class="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-black to-transparent"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
+            <!-- Section Header -->
+            <div class="text-center mb-16 sm:mb-20">
+                <span class="fade-in text-xs tracking-[0.3em] text-light-500 uppercase font-medium">Neler Sunuyoruz</span>
+                <h2 class="fade-in delay-1 font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold mt-4 mb-5">
+                    Hizmetlerimiz
+                </h2>
+                <div class="fade-in delay-2 divider mx-auto"></div>
+            </div>
+
+            <!-- Services Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+                <!-- Service 1 -->
+                <div class="fade-in delay-1 service-card bg-dark-700 border border-dark-400 rounded-2xl p-7 sm:p-8">
+                    <div class="service-icon w-12 h-12 rounded-xl bg-dark-500 flex items-center justify-center mb-5">
+                        <i data-lucide="sparkles" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-semibold mb-3">Cilt Bakımı</h3>
+                    <p class="text-sm text-light-500 leading-relaxed">Profesyonel cilt analizi ve kişiye özel bakım protokolleri ile cildinizi yenileyin. Hydrafacial, peeling ve anti-aging tedavileri.</p>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="fade-in delay-2 service-card bg-dark-700 border border-dark-400 rounded-2xl p-7 sm:p-8">
+                    <div class="service-icon w-12 h-12 rounded-xl bg-dark-500 flex items-center justify-center mb-5">
+                        <i data-lucide="scissors" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-semibold mb-3">Saç Bakımı</h3>
+                    <p class="text-sm text-light-500 leading-relaxed">Kesim, boya, keratin bakımı ve saç tedavileri ile saçlarınıza profesyonel dokunuş. Trend modeller ve kişiye özel stil.</p>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="fade-in delay-3 service-card bg-dark-700 border border-dark-400 rounded-2xl p-7 sm:p-8">
+                    <div class="service-icon w-12 h-12 rounded-xl bg-dark-500 flex items-center justify-center mb-5">
+                        <i data-lucide="brush" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-semibold mb-3">Profesyonel Makyaj</h3>
+                    <p class="text-sm text-light-500 leading-relaxed">Gelin makyajı, özel gün makyajı ve günlük makyaj uygulamaları. Premium kozmetik ürünlerle kusursuz görünüm.</p>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="fade-in delay-1 service-card bg-dark-700 border border-dark-400 rounded-2xl p-7 sm:p-8">
+                    <div class="service-icon w-12 h-12 rounded-xl bg-dark-500 flex items-center justify-center mb-5">
+                        <i data-lucide="hand" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-semibold mb-3">Tırnak Bakımı</h3>
+                    <p class="text-sm text-light-500 leading-relaxed">Manikür, pedikür, protez tırnak ve nail art uygulamaları. Hijyenik ortamda estetik tırnak tasarımları.</p>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="fade-in delay-2 service-card bg-dark-700 border border-dark-400 rounded-2xl p-7 sm:p-8">
+                    <div class="service-icon w-12 h-12 rounded-xl bg-dark-500 flex items-center justify-center mb-5">
+                        <i data-lucide="eye" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-semibold mb-3">Kaş & Kirpik</h3>
+                    <p class="text-sm text-light-500 leading-relaxed">İpek kirpik, kirpik lifting, kaş laminasyonu ve microblading. Bakışlarınızı çerçeveleyen profesyonel dokunuşlar.</p>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="fade-in delay-3 service-card bg-dark-700 border border-dark-400 rounded-2xl p-7 sm:p-8">
+                    <div class="service-icon w-12 h-12 rounded-xl bg-dark-500 flex items-center justify-center mb-5">
+                        <i data-lucide="zap" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-semibold mb-3">Epilasyon</h3>
+                    <p class="text-sm text-light-500 leading-relaxed">Lazer epilasyon ve ağda uygulamaları ile pürüzsüz cilt. Son teknoloji cihazlarla güvenli ve etkili sonuçlar.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ABOUT SECTION ===== -->
+    <section id="hakkimizda" class="py-20 sm:py-28 lg:py-32 bg-black relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                <!-- Image Side -->
+                <div class="fade-in-left relative order-2 lg:order-1">
+                    <div class="img-hover rounded-2xl overflow-hidden">
+                        <img src="https://mgx-backend-cdn.metadl.com/generate/images/1057824/2026-03-25/6f59b56e-0fd4-45a6-a00d-89be21696f7d.png" alt="Cilt Bakımı - Flora Güzellik" class="w-full aspect-[4/5] object-cover">
+                    </div>
+                    <!-- Floating Badge -->
+                    <div class="absolute -bottom-4 -right-4 sm:bottom-6 sm:right-6 bg-dark-700 border border-dark-400 rounded-2xl p-5 sm:p-6 backdrop-blur-sm">
+                        <div class="flex items-center gap-3">
+                            <div class="flex -space-x-2">
+                                <div class="w-8 h-8 rounded-full bg-dark-500 border-2 border-dark-700 flex items-center justify-center">
+                                    <i data-lucide="star" class="w-3 h-3 text-light-400"></i>
+                                </div>
+                                <div class="w-8 h-8 rounded-full bg-dark-500 border-2 border-dark-700 flex items-center justify-center">
+                                    <i data-lucide="star" class="w-3 h-3 text-light-400"></i>
+                                </div>
+                                <div class="w-8 h-8 rounded-full bg-dark-500 border-2 border-dark-700 flex items-center justify-center">
+                                    <i data-lucide="star" class="w-3 h-3 text-light-400"></i>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="text-sm font-semibold">4.8 / 5.0</div>
+                                <div class="text-[10px] text-light-500">Google Reviews</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Text Side -->
+                <div class="order-1 lg:order-2">
+                    <span class="fade-in text-xs tracking-[0.3em] text-light-500 uppercase font-medium">Hakkımızda</span>
+                    <h2 class="fade-in delay-1 font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold mt-4 mb-6 leading-tight">
+                        Güzellik <span class="italic font-normal text-light-400">Sanatı</span><br>
+                        ile Tanışın
+                    </h2>
+                    <div class="fade-in delay-2 divider mb-8"></div>
+                    <p class="fade-in delay-2 text-light-500 leading-relaxed mb-6">
+                        Flora Güzellik Ve Bakım olarak, Erzurum Yakutiye'de hizmet vermekteyiz. Uzman kadromuz ve modern ekipmanlarımızla, her müşterimize özel bakım protokolleri sunuyoruz.
+                    </p>
+                    <p class="fade-in delay-3 text-light-500 leading-relaxed mb-8">
+                        Amacımız sadece güzellik hizmeti sunmak değil, aynı zamanda kendinizi özel ve değerli hissetmenizi sağlamaktır. Premium ürünler ve son teknoloji uygulamalarla, en iyi sonuçları elde etmeniz için çalışıyoruz.
+                    </p>
+
+                    <!-- Features -->
+                    <div class="fade-in delay-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 rounded-lg bg-dark-700 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="check" class="w-4 h-4 text-light-400"></i>
+                            </div>
+                            <span class="text-sm text-light-400">Uzman Kadro</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 rounded-lg bg-dark-700 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="check" class="w-4 h-4 text-light-400"></i>
+                            </div>
+                            <span class="text-sm text-light-400">Premium Ürünler</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 rounded-lg bg-dark-700 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="check" class="w-4 h-4 text-light-400"></i>
+                            </div>
+                            <span class="text-sm text-light-400">Hijyenik Ortam</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 rounded-lg bg-dark-700 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="check" class="w-4 h-4 text-light-400"></i>
+                            </div>
+                            <span class="text-sm text-light-400">Kişiye Özel Bakım</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== GALLERY SECTION ===== -->
+    <section id="galeri" class="py-20 sm:py-28 lg:py-32 bg-dark-800 relative">
+        <div class="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-black to-transparent"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
+            <!-- Section Header -->
+            <div class="text-center mb-16 sm:mb-20">
+                <span class="fade-in text-xs tracking-[0.3em] text-light-500 uppercase font-medium">Portfolyo</span>
+                <h2 class="fade-in delay-1 font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold mt-4 mb-5">
+                    Galeri
+                </h2>
+                <div class="fade-in delay-2 divider mx-auto"></div>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+                <!-- Gallery Item 1 -->
+                <div class="scale-in delay-1 gallery-item rounded-2xl overflow-hidden img-hover aspect-[3/4] relative cursor-pointer">
+                    <img src="https://mgx-backend-cdn.metadl.com/generate/images/1057824/2026-03-25/c27cc4de-60f9-4e5b-b1a4-d5072774fee7.png" alt="Güzellik Portre" class="w-full h-full object-cover">
+                    <div class="gallery-text absolute bottom-0 left-0 right-0 p-5">
+                        <span class="text-xs tracking-[0.2em] text-light-400 uppercase">Premium</span>
+                        <h4 class="font-serif text-lg mt-1">Güzellik Bakımı</h4>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 2 -->
+                <div class="scale-in delay-2 gallery-item rounded-2xl overflow-hidden img-hover aspect-[3/4] relative cursor-pointer">
+                    <img src="https://mgx-backend-cdn.metadl.com/generate/images/1057824/2026-03-25/6f59b56e-0fd4-45a6-a00d-89be21696f7d.png" alt="Cilt Bakımı" class="w-full h-full object-cover">
+                    <div class="gallery-text absolute bottom-0 left-0 right-0 p-5">
+                        <span class="text-xs tracking-[0.2em] text-light-400 uppercase">Profesyonel</span>
+                        <h4 class="font-serif text-lg mt-1">Cilt Bakımı</h4>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 3 -->
+                <div class="scale-in delay-3 gallery-item rounded-2xl overflow-hidden img-hover aspect-[3/4] relative cursor-pointer">
+                    <img src="https://mgx-backend-cdn.metadl.com/generate/images/1057824/2026-03-25/ba5175d2-1c78-4ae6-bebf-66550ca469d9.png" alt="Tırnak Sanatı" class="w-full h-full object-cover">
+                    <div class="gallery-text absolute bottom-0 left-0 right-0 p-5">
+                        <span class="text-xs tracking-[0.2em] text-light-400 uppercase">Estetik</span>
+                        <h4 class="font-serif text-lg mt-1">Nail Art</h4>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 4 -->
+                <div class="scale-in delay-4 gallery-item rounded-2xl overflow-hidden img-hover aspect-[3/4] relative cursor-pointer">
+                    <img src="https://mgx-backend-cdn.metadl.com/generate/images/1057824/2026-03-25/681fdaaa-a713-4520-93c1-1922f1bc089a.png" alt="Makyaj" class="w-full h-full object-cover">
+                    <div class="gallery-text absolute bottom-0 left-0 right-0 p-5">
+                        <span class="text-xs tracking-[0.2em] text-light-400 uppercase">Glamour</span>
+                        <h4 class="font-serif text-lg mt-1">Profesyonel Makyaj</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CTA BANNER ===== -->
+    <section class="py-20 sm:py-24 bg-black relative overflow-hidden">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 opacity-5">
+            <div class="absolute top-0 left-1/4 w-96 h-96 rounded-full bg-white blur-[120px]"></div>
+            <div class="absolute bottom-0 right-1/4 w-96 h-96 rounded-full bg-white blur-[120px]"></div>
+        </div>
+
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-12 text-center relative z-10">
+            <h2 class="fade-in font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold mb-5 leading-tight">
+                Güzelliğiniz İçin<br>
+                <span class="italic font-normal text-light-400">Bir Adım</span> Atın
+            </h2>
+            <p class="fade-in delay-1 text-light-500 max-w-lg mx-auto mb-10">
+                Hemen WhatsApp üzerinden bizimle iletişime geçin ve size özel bakım planınızı oluşturalım.
+            </p>
+            <a href="https://wa.me/905010432144?text=Merhaba,%20randevu%20ve%20hizmetleriniz%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" class="fade-in delay-2 inline-flex items-center gap-3 bg-white text-black px-10 py-4 text-sm font-semibold tracking-wide hover:bg-light-300 transition-all duration-300 rounded-full">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                WhatsApp ile Randevu Al
+            </a>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT / FOOTER SECTION ===== -->
+    <section id="iletisim" class="py-20 sm:py-28 lg:py-32 bg-dark-800 relative">
+        <div class="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-black to-transparent"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
+            <!-- Section Header -->
+            <div class="text-center mb-16 sm:mb-20">
+                <span class="fade-in text-xs tracking-[0.3em] text-light-500 uppercase font-medium">Bize Ulaşın</span>
+                <h2 class="fade-in delay-1 font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold mt-4 mb-5">
+                    İletişim
+                </h2>
+                <div class="fade-in delay-2 divider mx-auto"></div>
+            </div>
+
+            <!-- Contact Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 mb-16">
+                <!-- Address -->
+                <a href="https://maps.app.goo.gl/tDLFKEP6Rqyda3Dg8" target="_blank" rel="noopener noreferrer" class="fade-in delay-1 contact-item bg-dark-700 border border-dark-400 rounded-2xl p-6 sm:p-7 text-center group">
+                    <div class="w-12 h-12 rounded-xl bg-dark-500 flex items-center justify-center mx-auto mb-4 group-hover:bg-white group-hover:text-black transition-all duration-300">
+                        <i data-lucide="map-pin" class="w-5 h-5"></i>
+                    </div>
+                    <h4 class="font-semibold text-sm mb-2">Adres</h4>
+                    <p class="text-xs text-light-500 leading-relaxed">Lalapasa Mah. Cumhuriyet Cad.<br>Dabakhane Sk. Çaykara İş Merkezi No:1<br>Yakutiye / Erzurum</p>
+                </a>
+
+                <!-- Phone -->
+                <a href="tel:+905010432144" class="fade-in delay-2 contact-item bg-dark-700 border border-dark-400 rounded-2xl p-6 sm:p-7 text-center group">
+                    <div class="w-12 h-12 rounded-xl bg-dark-500 flex items-center justify-center mx-auto mb-4 group-hover:bg-white group-hover:text-black transition-all duration-300">
+                        <i data-lucide="phone" class="w-5 h-5"></i>
+                    </div>
+                    <h4 class="font-semibold text-sm mb-2">Telefon</h4>
+                    <p class="text-xs text-light-500 leading-relaxed">+90 501 043 21 44</p>
+                    <span class="text-[10px] text-light-600 mt-2 inline-block">Aramak için tıklayın</span>
+                </a>
+
+                <!-- Hours -->
+                <div class="fade-in delay-3 contact-item bg-dark-700 border border-dark-400 rounded-2xl p-6 sm:p-7 text-center">
+                    <div class="w-12 h-12 rounded-xl bg-dark-500 flex items-center justify-center mx-auto mb-4">
+                        <i data-lucide="clock" class="w-5 h-5"></i>
+                    </div>
+                    <h4 class="font-semibold text-sm mb-2">Çalışma Saatleri</h4>
+                    <p class="text-xs text-light-500 leading-relaxed">
+                        Pazartesi - Cumartesi<br>
+                        09:00 - 19:30<br>
+                        <span class="text-light-600">Pazar: Kapalı</span>
+                    </p>
+                </div>
+
+                <!-- Social -->
+                <a href="https://instagram.com/floraguzellikvebakim/" target="_blank" rel="noopener noreferrer" class="fade-in delay-4 contact-item bg-dark-700 border border-dark-400 rounded-2xl p-6 sm:p-7 text-center group">
+                    <div class="w-12 h-12 rounded-xl bg-dark-500 flex items-center justify-center mx-auto mb-4 group-hover:bg-white group-hover:text-black transition-all duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                    </div>
+                    <h4 class="font-semibold text-sm mb-2">Instagram</h4>
+                    <p class="text-xs text-light-500 leading-relaxed">@floraguzellikvebakim</p>
+                    <span class="text-[10px] text-light-600 mt-2 inline-block">Takip edin</span>
+                </a>
+            </div>
+
+            <!-- Google Maps Embed -->
+            <div class="fade-in rounded-2xl overflow-hidden border border-dark-400">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3046.0!2d41.2663135!3d39.9065489!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x406e5f208d52ea9b%3A0xc3d8305f2ab97635!2sFlora%20G%C3%BCzellik%20Ve%20Bak%C4%B1m!5e0!3m2!1str!2str!4v1711360000000!5m2!1str!2str" width="100%" height="350" style="border:0; filter: grayscale(100%) invert(92%) contrast(83%);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Flora Güzellik Ve Bakım Konum"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="bg-black border-t border-dark-400 py-10 sm:py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+                <!-- Logo -->
+                <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 rounded-full border border-dark-400 flex items-center justify-center">
+                        <i data-lucide="flower-2" class="w-4 h-4 text-light-500"></i>
+                    </div>
+                    <div>
+                        <span class="font-serif text-base font-semibold tracking-wide">FLORA</span>
+                        <span class="text-[10px] tracking-[0.2em] text-light-600 ml-2 uppercase">Güzellik & Bakım</span>
+                    </div>
+                </div>
+
+                <!-- Copyright -->
+                <p class="text-xs text-light-600 text-center">
+                    &copy; 2025 Flora Güzellik Ve Bakım. Tüm hakları saklıdır.
+                </p>
+
+                <!-- Social Icons -->
+                <div class="flex items-center gap-3">
+                    <a href="https://instagram.com/floraguzellikvebakim/" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full border border-dark-400 flex items-center justify-center text-light-600 hover:text-white hover:border-white transition-all duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                    </a>
+                    <a href="https://wa.me/905010432144" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full border border-dark-400 flex items-center justify-center text-light-600 hover:text-white hover:border-white transition-all duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    </a>
+                    <a href="tel:+905010432144" class="w-9 h-9 rounded-full border border-dark-400 flex items-center justify-center text-light-600 hover:text-white hover:border-white transition-all duration-300">
+                        <i data-lucide="phone" class="w-4 h-4"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== FIXED WHATSAPP BUTTON ===== -->
+    <a href="https://wa.me/905010432144?text=Merhaba,%20randevu%20ve%20hizmetleriniz%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" class="whatsapp-btn fixed bottom-6 right-6 z-50 w-14 h-14 bg-white text-black rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform duration-300" aria-label="WhatsApp ile iletişime geçin">
+        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+    </a>
+
+    <!-- ===== JAVASCRIPT ===== -->
+    <script>
+        // ===== Initialize Lucide Icons =====
+        lucide.createIcons();
+
+        // ===== Navbar Scroll Effect =====
+        const navbar = document.querySelector('.navbar');
+        let lastScroll = 0;
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            if (currentScroll > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+            lastScroll = currentScroll;
+        });
+
+        // ===== Mobile Menu Toggle =====
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const menuOverlay = document.getElementById('menuOverlay');
+        const hamburgerLines = document.querySelectorAll('.hamburger-line');
+        let menuOpen = false;
+
+        function toggleMenu() {
+            menuOpen = !menuOpen;
+            mobileMenu.classList.toggle('open', menuOpen);
+            menuOverlay.classList.toggle('open', menuOpen);
+            document.body.style.overflow = menuOpen ? 'hidden' : '';
+
+            // Animate hamburger to X
+            if (menuOpen) {
+                hamburgerLines[0].style.transform = 'translateY(6px) rotate(45deg)';
+                hamburgerLines[1].style.opacity = '0';
+                hamburgerLines[2].style.transform = 'translateY(-6px) rotate(-45deg)';
+                hamburgerLines[2].style.width = '24px';
+            } else {
+                hamburgerLines[0].style.transform = '';
+                hamburgerLines[1].style.opacity = '1';
+                hamburgerLines[2].style.transform = '';
+                hamburgerLines[2].style.width = '16px';
+            }
+        }
+
+        menuToggle.addEventListener('click', toggleMenu);
+        menuOverlay.addEventListener('click', toggleMenu);
+
+        // Close menu on link click
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => {
+                if (menuOpen) toggleMenu();
+            });
+        });
+
+        // ===== Scroll Reveal Animations =====
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px 0px -80px 0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animated elements
+        document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right, .scale-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // ===== Smooth Scroll for Anchor Links =====
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offsetTop = target.offsetTop - 80;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,162 @@
+[
+  {
+    "id": 1,
+    "ad": "Kaşarlı Poğaça",
+    "aciklama": "Günlük taze açma hamuruyla, bol kaşarlı poğaça.",
+    "fiyat": "22",
+    "kategori": "Poğaça & Simit",
+    "malzemeler": "Un, süt, yumurta, tereyağı, kaşar peyniri, susam",
+    "alerjenler": ["gluten", "laktoz", "yumurta", "susam"],
+    "gorsel": ""
+  },
+  {
+    "id": 2,
+    "ad": "Zeytinli Açma",
+    "aciklama": "Yumuşacık açma hamuru içinde zeytin ezmesi.",
+    "fiyat": "20",
+    "kategori": "Poğaça & Simit",
+    "malzemeler": "Un, süt, yumurta, tereyağı, zeytin ezmesi, şeker",
+    "alerjenler": ["gluten", "laktoz", "yumurta"],
+    "gorsel": ""
+  },
+  {
+    "id": 3,
+    "ad": "Simit",
+    "aciklama": "Geleneksel susamlı simit, taş fırında pişmiş.",
+    "fiyat": "12",
+    "kategori": "Poğaça & Simit",
+    "malzemeler": "Un, su, maya, pekmez, susam",
+    "alerjenler": ["gluten", "susam"],
+    "gorsel": ""
+  },
+  {
+    "id": 4,
+    "ad": "Su Böreği (Peynirli)",
+    "aciklama": "El açması kat kat yufka ve peynir ile.",
+    "fiyat": "60",
+    "kategori": "Börekler",
+    "malzemeler": "Un, yumurta, tereyağı, beyaz peynir, süt",
+    "alerjenler": ["gluten", "laktoz", "yumurta"],
+    "gorsel": ""
+  },
+  {
+    "id": 5,
+    "ad": "Kıymalı Börek",
+    "aciklama": "Klasik tepsi böreği, bol kıymalı iç harçla.",
+    "fiyat": "65",
+    "kategori": "Börekler",
+    "malzemeler": "Un, kıyma, soğan, yağ, süt, baharat",
+    "alerjenler": ["gluten", "laktoz"],
+    "gorsel": ""
+  },
+  {
+    "id": 6,
+    "ad": "Pastırmalı Pide (Kapalı)",
+    "aciklama": "Taş fırında kapalı, pastırmalı pide.",
+    "fiyat": "95",
+    "kategori": "Fırın Ürünleri",
+    "malzemeler": "Un, su, maya, pastırma, kaşar peyniri",
+    "alerjenler": ["gluten", "laktoz"],
+    "gorsel": ""
+  },
+  {
+    "id": 7,
+    "ad": "Mozaik Pasta",
+    "aciklama": "Hafif ve nostaljik lezzet, çikolatalı bisküvili pasta.",
+    "fiyat": "45",
+    "kategori": "Tatlılar",
+    "malzemeler": "Bisküvi, tereyağı, kakao, süt, şeker",
+    "alerjenler": ["gluten", "laktoz"],
+    "gorsel": ""
+  },
+  {
+    "id": 8,
+    "ad": "Trileçe",
+    "aciklama": "Üç sütle ıslatılmış hafif kek, karamelli sos.",
+    "fiyat": "55",
+    "kategori": "Tatlılar",
+    "malzemeler": "Un, yumurta, süt, krema, şeker, karamel",
+    "alerjenler": ["gluten", "laktoz", "yumurta"],
+    "gorsel": ""
+  },
+  {
+    "id": 9,
+    "ad": "Fıstıklı Baklava (Pors.)",
+    "aciklama": "İnce açılmış yufka, bol Antep fıstığı ve şerbet.",
+    "fiyat": "70",
+    "kategori": "Tatlılar",
+    "malzemeler": "Un, tereyağı, Antep fıstığı, şeker, su",
+    "alerjenler": ["gluten", "laktoz", "fistik"],
+    "gorsel": ""
+  },
+  {
+    "id": 10,
+    "ad": "Profiterol",
+    "aciklama": "Çikolata soslu, kremalı profiterol tabağı.",
+    "fiyat": "65",
+    "kategori": "Tatlılar",
+    "malzemeler": "Un, yumurta, süt, krema, çikolata",
+    "alerjenler": ["gluten", "laktoz", "yumurta", "soya"],
+    "gorsel": ""
+  },
+  {
+    "id": 11,
+    "ad": "Yaş Pasta (Dil.)",
+    "aciklama": "Günlük yaş pasta dilimi (çikolatalı/çilekli).",
+    "fiyat": "70",
+    "kategori": "Pastalar",
+    "malzemeler": "Pandispanya, krema, süt, çikolata/çilek",
+    "alerjenler": ["gluten", "laktoz", "yumurta", "soya"],
+    "gorsel": ""
+  },
+  {
+    "id": 12,
+    "ad": "Kuru Pasta Karışık (250g)",
+    "aciklama": "Günlük kurabiye çeşitlerinden karışık paket.",
+    "fiyat": "85",
+    "kategori": "Pastalar",
+    "malzemeler": "Un, tereyağı, şeker, yumurta, kakao, fındık",
+    "alerjenler": ["gluten", "laktoz", "yumurta", "fistik"],
+    "gorsel": ""
+  },
+  {
+    "id": 13,
+    "ad": "Türk Kahvesi",
+    "aciklama": "Kül/bakir cezvede pişirilmiş, lokumla servis.",
+    "fiyat": "28",
+    "kategori": "Sıcak İçecekler",
+    "malzemeler": "Türk kahvesi, su, şeker (isteğe bağlı)",
+    "alerjenler": [],
+    "gorsel": ""
+  },
+  {
+    "id": 14,
+    "ad": "Çay (Bardak)",
+    "aciklama": "Demleme siyah çay.",
+    "fiyat": "12",
+    "kategori": "Sıcak İçecekler",
+    "malzemeler": "Siyah çay, su",
+    "alerjenler": [],
+    "gorsel": ""
+  },
+  {
+    "id": 15,
+    "ad": "Ayran",
+    "aciklama": "Soğuk ayran (200 ml).",
+    "fiyat": "18",
+    "kategori": "Soğuk İçecekler",
+    "malzemeler": "Yoğurt, su, tuz",
+    "alerjenler": ["laktoz"],
+    "gorsel": ""
+  },
+  {
+    "id": 16,
+    "ad": "Taze Sıkma Portakal",
+    "aciklama": "Günlük taze portakal suyu.",
+    "fiyat": "45",
+    "kategori": "Soğuk İçecekler",
+    "malzemeler": "Portakal",
+    "alerjenler": [],
+    "gorsel": ""
+  }
+]
